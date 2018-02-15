@@ -44,6 +44,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 - **DEEP** Product Backlog pitää olla DEEP.
 - **User storyt** Vaatimukset User Story -muodossa. INVEST on tärkeä!
 - **Hyväksymiskriteerit** Storylla pitää olla hyväksymiskriteerit (Acceptance critieria), jos se on Product Backlogissa korkealla (=tulee kohta tehtäväksi). Kriteerit kannattaa käydä läpi koko tiimin ja asiakkaan kanssa, vaikka kaikkia ei tarvitse kirjoittaa asiakkaan läsnäollessa. Lue hyvistä käytännöistä alla.
+  - lue lisää hyväksymiskriteereistä omasta [ohjeestaan](https://github.com/ohtu-ohjaajat/opiskelijalle/blob/master/ohje-hyv%C3%A4ksymiskriteerit.md)
 - **Storyjen seuranta** Seurataan missä sprintissä valmistuneen storyn tekeminen on aloitettu. Tarkoituksena on, että kaikki storyt olisivat valmiita samassa sprintissä kuin ne on aloitettu, mutta metriikoiden optimointi ei saa missään nimessä olla itsetarkoitus — storyn pitää olla aidosti laadukkaasti tehty ja muilta osin valmis ennen kuin se lasketaan tehdyksi.
 
 ### Deployment environments
