@@ -24,7 +24,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 - [ ] Sprint Task Board / Sprint backlog (fyysinen tai sähköinen)
 - [ ] Tuntikirjanpito, josta näkee jokaiseen viikkoon käytetyt tunnit opiskelijoittain
 - [ ] Luokaa GitHub-organisaatio ja repository
-  - [README standardin mukaiseksi](https://guides.github.com/features/wikis/), lisäksi "päärepoon" linkit muihin repositorioihin.
+  - [README standardin mukaiseksi](https://guides.github.com/features/wikis/), lisäksi "päärepoon" linkit muihin repositorioihin, backlogiin sekä sovellukseen.
 - [ ] Sopikaa käytettävät teknologiat
   - Huom! Asiakkailla voi olla mielipide käytettävistä teknologioista tai koodauskäytännöistä.
 - [ ] CI- ja staging-ympäristö mahdollisimman nopeasti pystyyn.
