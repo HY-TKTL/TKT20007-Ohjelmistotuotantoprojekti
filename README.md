@@ -18,13 +18,13 @@
 ### Nollasprintti
 
 Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprintin tehtävät. Siellä tulisi olla ainakin nämä:
-- [ ] Slack-ryhmä pystyyn
+- [ ] Slack, tai vastaava keskustelualusta pystyyn.
   - Ohjaajalle kutsu
 - [ ] Product backlogin laatiminen
 - [ ] Sprint Task Board / Sprint backlog (fyysinen tai sähköinen)
 - [ ] Tuntikirjanpito, josta näkee jokaiseen viikkoon käytetyt tunnit opiskelijoittain
 - [ ] Luokaa GitHub-organisaatio ja repository
-  - "Päärepon" readme:ssä oltava linkit ryhmän backlogeihin, sovellukseen, yms
+  - [README standardin mukaiseksi](https://guides.github.com/features/wikis/), lisäksi "päärepoon" linkit muihin repositorioihin.
 - [ ] Sopikaa käytettävät teknologiat
   - Huom! Asiakkailla voi olla mielipide käytettävistä teknologioista tai koodauskäytännöistä.
 - [ ] CI- ja staging-ympäristö mahdollisimman nopeasti pystyyn.
@@ -41,7 +41,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 
 ### Backlogit
 
-- **DEEP** Product Backlog pitää olla DEEP.
+- **DEEP** Product Backlog pitää olla [DEEP](https://www.romanpichler.com/blog/make-the-product-backlog-deep/).
 - **User storyt** Vaatimukset User Story -muodossa. INVEST on tärkeä!
 - **Hyväksymiskriteerit** Storylla pitää olla hyväksymiskriteerit (Acceptance critieria), jos se on Product Backlogissa korkealla (=tulee kohta tehtäväksi). Kriteerit kannattaa käydä läpi koko tiimin ja asiakkaan kanssa, vaikka kaikkia ei tarvitse kirjoittaa asiakkaan läsnäollessa. Lue hyvistä käytännöistä alla.
   - lue lisää hyväksymiskriteereistä omasta [ohjeestaan](https://github.com/ohtu-ohjaajat/opiskelijalle/blob/master/ohje-hyv%C3%A4ksymiskriteerit.md)
@@ -50,6 +50,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 ### Deployment environments
   - **Staging-ympäristö** mahdollisimman tuotannon kaltainen.
   - **Tuotantoon!** Tuotos täytyy saada tuotantoon jo projektin aikana, mielellään mahdollisimman nopeasti.
+  - **CD** Tuotantoon päivityksen pitää olla [tehokasta ja/tai jatkuvaa](https://puppet.com/blog/continuous-delivery-vs-continuous-deployment-what-s-diff)
   - **Demot stagingista** Asiakkaalle demotaan ainoastaan vain ja ainoastaan staging-palvelimelta, ei omalta koneelta.
 - **Testaus**
   - Automaatiotestauksen pitää olla riittävän kattava ja hyvin toteutettu
