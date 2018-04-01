@@ -86,6 +86,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 - **Asiakastapaamiset**
   - **Tilavaraukset** Ensimmäisen asiakastapaamisen jälkeen ryhmä on vastuussa asiakastapaamisten järjestämisestä.
   - **Agenda** Asiakastapaamisiin kannattaa luoda melko yksityiskohtainen agenda ja se on hyvä lähettää asiakkaalle ennen varsinaista tapaamista.
+  - **Roolit** Kiertävä puheenjohtajan roolit. Lisäksi ainakin kirjuri ja demovastaava. 
   * **Muistiinpanot** Asiakastapaamisista tehtävä muistiinpanot. Keskusteltuja asioita ei saa jättää muistin varaan vaan ne tulee kirjata backlogille.
 - Retrospektiivit dokumentoitava
 
