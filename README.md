@@ -1,9 +1,10 @@
 # TKT20007-Ohjelmistotuotantoprojekti [&#128279;](https://courses.helsinki.fi/fi/tkt20007)
 
-### Projektin tavoite
+Kurssin yleinen kuvaus: [courses.helsinki.fi](https://courses.helsinki.fi/fi/tkt20007/)
 
-- Ryhmätyötaitojen harjoittelu.
-- Ohjelmiston tuotantomenetelmien käytännön harjoittelu.
+## Ajankohtaista
+
+* Loppudemo 24.4 14:00-16:00 PHY E204
 
 ## Projektin kulku
 
@@ -47,6 +48,18 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
   - lue lisää hyväksymiskriteereistä omasta [ohjeestaan](https://github.com/ohtu-ohjaajat/opiskelijalle/blob/master/ohje-hyv%C3%A4ksymiskriteerit.md)
 - **Storyjen seuranta** Seurataan missä sprintissä valmistuneen storyn tekeminen on aloitettu. Tarkoituksena on, että kaikki storyt olisivat valmiita samassa sprintissä kuin ne on aloitettu, mutta metriikoiden optimointi ei saa missään nimessä olla itsetarkoitus — storyn pitää olla aidosti laadukkaasti tehty ja muilta osin valmis ennen kuin se lasketaan tehdyksi.
 
+### Scrum-tapaamiset
+
+- Sprint planning 
+- Sprint review
+- Retrospektiivi
+- Daily
+
+### Koodi
+
+- **Open source**
+- **GitHub** Ohjaajan päästävä näkemään lähdekoodi ja commitit
+
 ### Deployment environments
   - **Staging-ympäristö** mahdollisimman tuotannon kaltainen.
   - **Tuotantoon!** Tuotos täytyy saada tuotantoon jo projektin aikana, mielellään mahdollisimman nopeasti.
@@ -61,24 +74,37 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 ### Sekalaisia vaatimuksia
 
 - **Tuntikirjapito** Kurssin aikana seurataan tuntimääriä. Työtunneiksi lasketaan myös tapaamiset, esim. tiimin kanssa yhdessä lounastamiset ja itseopiskelu.
+  - Kirjaukset oltava kunnossa su 23:59 sekä sprintin vaihtuessa - mielummin päivittäin.
 - **Kurssi = 200h** Vaatimuksena noin 200 tuntia työtä koko kurssin aikana, mikä on noin 15-16 tuntia viikossa.
 - **Tasaisuus** Ehdottomana vaatimuksena työmäärien tasaisuus viikkotasolla, eli tuntimäärän kuuluu olla viikosta toiseen suunnilleen sama. Sairastumiset yms. neuvoteltava poikkeus. Ilmoita reilusti etukäteen jos tiedät, että osallistumisesi viikon töihin estyy jollain tapaa.
 - **Kunnioita** kanssaopiskelijoitasi, kyseessä ei ole yksilökurssi. 
   - Käyttäydy samojen standardien mukaan kuin olisit töissä.
   - Sovittuihin yhteisiin tapaamisiin pitää tulla. Myöhästymisistä, esteistä yms. pitää ilmoittaa ajoissa.
 - Siiloutumista tulee välttää. Koodikatselmoinnit!
+- **Arvot ja käytännöt**
+  - Ryhmän sovittava yhteiset käytännöt. Ks. [esimerkki](https://github.com/ohtu-ohjaajat/opiskelijalle/blob/master/tiimin_kaytanteet.md)
 - **Asiakastapaamiset**
-  - **Tilavaraukset** Ensimmäisen asiakastapaamisen jälkeen ryhmä on vastuussa asiakastapaamisten järjestämisestä. Huoneiden varaus onnistuu Office 365 -sovellusta käyttämällä.
+  - **Tilavaraukset** Ensimmäisen asiakastapaamisen jälkeen ryhmä on vastuussa asiakastapaamisten järjestämisestä.
   - **Agenda** Asiakastapaamisiin kannattaa luoda melko yksityiskohtainen agenda ja se on hyvä lähettää asiakkaalle ennen varsinaista tapaamista.
- 
+  * **Muistiinpanot** Asiakastapaamisista tehtävä muistiinpanot. Keskusteltuja asioita ei saa jättää muistin varaan vaan ne tulee kirjata backlogille.
+- Retrospektiivit dokumentoitava
+
+## Projektin tavoite
+
+- Ryhmätyötaitojen harjoittelu.
+  - Tehtävien ja työn jakaminen
+  - Kommunikaatio
+  - Organisointi
+- Ohjelmistotuotantomenetelmien käytännön harjoittelu.
+  - Yhteisen codebasen kanssa työskentely (git)
+  - Deployment
+- Ketterät toimintatavat
+  - Transparency
+  - Inspect & Adapt
+
 ## Arvosteluperusteet
-- Asiakkaan arvio (lopussa).
-- Koodin yleinen laatu.
-- Valmistautuminen asiakastapaamisiin ja toiminta asiakaspalaverissa.
-- Sitoutuminen ryhmän kesken sovittuihin käytäntöihin.
-- Käytäntöjä voidaan muuttaa vielä jälkeenpäin.
-- Ryhmäläisten vertaispalautteet.
-- I-periodin ja II-periodin lopussa.
+
+_tulossa_
 
 ## Vinkkejä
 - Töitä kannattaa tehdä mahdollisimman paljon muiden kanssa fyysisesti samassa tilassa.
@@ -86,3 +112,13 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 - Ohjelmiston arkkitehtuuriin kannattaa käyttää paljon huomiota ja jättää sprinttiin aikaa tehdä parannuksia sisäiseen laatuun. Puhdas User Story -hikipaja, jossa keskitytään ainoastaan mahdollisimman nopeaan ominaisuuksien tuottamiseen ei pitkällä tähtäimellä tuota hyviä tuloksia.
 - Voi olla hyvä idea hahmotella hyväksymiskriteerit ennen varsinaista asiakastapaamista. Kannattaa kuitenkin jättää hieman pureskeltavaa kriteereihin ennen tapaamista.
 - On hyvä käytäntö pitää agenda näkyvillä asiakastapaamisen aikana, jotta keskustelu saadaan pysymään paremmin aiheessa. Käydään kokouskäytäntöjä tarpeen mukaan läpi yhdessä.
+
+## Roolit
+
+Ks. 
+## Käytännön ohjeita
+
+- **Tilat:** 
+  - Akvaariot (CK110) täysin ohturyhmien käytössä
+  - Myös muita saleja voi käyttää: esim B221 (yläpaja), BK107 (alapaja), C221, DK108 (haxo)
+- **Sali asiakaspalaverille:** Pyydä tilavaraus Reijo Siveniltä. Myös kirjaston ryhmätyötiloja voi käyttää. Varausohjeet: http://www.helsinki.fi/kirjasto/fi/asioi/tyoskentele-kirjastossa/ryhmatyotilat/
