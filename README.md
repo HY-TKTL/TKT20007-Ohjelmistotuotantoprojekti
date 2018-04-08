@@ -117,7 +117,8 @@ _tulossa_
 
 ## Roolit
 
-Ks. 
+[Rooleista](roolit.md)
+
 ## Käytännön ohjeita
 
 - **Tilat:** 
