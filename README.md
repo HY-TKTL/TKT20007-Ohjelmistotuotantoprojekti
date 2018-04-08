@@ -102,6 +102,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 - Ketterät toimintatavat
   - Transparency
   - Inspect & Adapt
+- [Miksi Scrum?](learning-goals-of-software-engineering-lab.md) Kirjoitus ohtuprojektin tavoitteista ja miten scrum auttaa niiden saavuttamisessa.
 
 ## Arvosteluperusteet
 
