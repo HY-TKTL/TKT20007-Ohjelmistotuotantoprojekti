@@ -122,6 +122,6 @@ _tulossa_
 ## Käytännön ohjeita
 
 - **Tilat:** 
-  - Akvaariot (CK110) täysin ohturyhmien käytössä
+  - Uusi ohtuakvaario (xxx) täysin ohturyhmien käytössä
   - Myös muita saleja voi käyttää: esim B221 (yläpaja), BK107 (alapaja), C221, DK108 (haxo)
 - **Sali asiakaspalaverille:** Pyydä tilavaraus Reijo Siveniltä. Myös kirjaston ryhmätyötiloja voi käyttää. Varausohjeet: http://www.helsinki.fi/kirjasto/fi/asioi/tyoskentele-kirjastossa/ryhmatyotilat/
