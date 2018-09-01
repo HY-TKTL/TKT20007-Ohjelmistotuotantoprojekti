@@ -4,7 +4,7 @@ Kurssin yleinen kuvaus: [courses.helsinki.fi](https://courses.helsinki.fi/fi/tkt
 
 ## Ajankohtaista
 
-* Loppudemo 24.4 14:00-16:00 PHY E204
+* Loppudemo joulukuussa
 
 ## Projektin kulku
 
