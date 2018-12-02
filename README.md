@@ -1,4 +1,4 @@
-# TKT20007-Ohjelmistotuotantoprojekti [&#128279;](https://courses.helsinki.fi/fi/tkt20007)
+# TKT20007-Ohjelmistotuotantoprojekti
 
 Kurssin yleinen kuvaus: [courses.helsinki.fi](https://courses.helsinki.fi/fi/tkt20007/)
 
@@ -107,7 +107,13 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 
 ## Arvosteluperusteet
 
-_tulossa_
+Arvioinnissa kiinnitetään huomioita ainakin seuraaviin asioihin
+- Ryhmän sopimien työskentelytapojen noudattaminen
+- Ryhmän työskentelytapojen (=prosessin) kehittäminen
+- Ryhmätyöskentely tai _"tiimipelaus"_
+- Tekninen kontribuutio - koodi tai asiantuntijuus
+- Työtuntien määrä ja tasaisuus sekä merkintöjen asiallisuus
+- ks. myös kohta projektin tavoite
 
 ## Vinkkejä
 - Töitä kannattaa tehdä mahdollisimman paljon muiden kanssa fyysisesti samassa tilassa.
@@ -123,6 +129,6 @@ _tulossa_
 ## Käytännön ohjeita
 
 - **Tilat:** 
-  - Uusi ohtuakvaario (xxx) täysin ohturyhmien käytössä
+  - DK107 eli "Luola" ensisijaisesti ohtuprojektiryhmien käytössä
   - Myös muita saleja voi käyttää: esim B221 (yläpaja), BK107 (alapaja), C221, DK108 (haxo)
-- **Sali asiakaspalaverille:** Pyydä tilavaraus Reijo Siveniltä. Myös kirjaston ryhmätyötiloja voi käyttää. Varausohjeet: http://www.helsinki.fi/kirjasto/fi/asioi/tyoskentele-kirjastossa/ryhmatyotilat/
+- **Sali asiakaspalaverille:** Palaverin voi pitää tiimitilassa tai "neukkarissa". Pyydä tilavaraus Reijo Siveniltä tai kysy ohjaajalta. Myös kirjaston ryhmätyötiloja voi käyttää. Varausohjeet: http://www.helsinki.fi/kirjasto/fi/asioi/tyoskentele-kirjastossa/ryhmatyotilat/
