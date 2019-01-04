@@ -135,4 +135,4 @@ Arvioinnissa kiinnitetään huomioita ainakin seuraaviin asioihin
 
 ## Parhaat käytänteet
 
-Aina ei tarvitse keksiä pyörää uudelleen - katso vinkkejä (täältä)[reference.md] 
+Aina ei tarvitse keksiä pyörää uudelleen - katso vinkkejä [täältä](reference.md) 
