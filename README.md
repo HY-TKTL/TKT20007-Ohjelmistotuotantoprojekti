@@ -132,3 +132,7 @@ Arvioinnissa kiinnitetään huomioita ainakin seuraaviin asioihin
   - DK107 eli "Luola" ensisijaisesti ohtuprojektiryhmien käytössä
   - Myös muita saleja voi käyttää: esim B221 (yläpaja), BK107 (alapaja), C221, DK108 (haxo)
 - **Sali asiakaspalaverille:** Palaverin voi pitää tiimitilassa tai "neukkarissa". Pyydä tilavaraus Reijo Siveniltä tai kysy ohjaajalta. Myös kirjaston ryhmätyötiloja voi käyttää. Varausohjeet: http://www.helsinki.fi/kirjasto/fi/asioi/tyoskentele-kirjastossa/ryhmatyotilat/
+
+## Parhaat käytänteet
+
+Aina ei tarvitse keksiä pyörää uudelleen - katso vinkkejä (täältä)[reference.md] 
