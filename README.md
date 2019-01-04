@@ -113,7 +113,7 @@ Arvioinnissa kiinnitetään huomioita ainakin seuraaviin asioihin
 - Ryhmätyöskentely tai _"tiimipelaus"_
 - Tekninen kontribuutio - koodi tai asiantuntijuus
 - Työtuntien määrä ja tasaisuus sekä merkintöjen asiallisuus
-- ks. myös kohta projektin tavoite
+- ks. myös kohta projektin tavoite sekä [itseisarvioinnin kysymykset](itseisarvioinnin_kysymykset.md)
 
 ## Vinkkejä
 - Töitä kannattaa tehdä mahdollisimman paljon muiden kanssa fyysisesti samassa tilassa.
