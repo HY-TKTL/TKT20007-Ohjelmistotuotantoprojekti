@@ -4,7 +4,7 @@ Kurssin yleinen kuvaus: [courses.helsinki.fi](https://courses.helsinki.fi/fi/tkt
 
 ## Ajankohtaista
 
-* Loppudemo joulukuussa
+* Loppudemo toukokuussa
 
 ## Projektin kulku
 
