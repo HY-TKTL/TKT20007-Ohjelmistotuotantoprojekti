@@ -1,4 +1,4 @@
-## Syksyn 2018 ohjelmistotuotantoprojektit
+## Kevään 2019 ohjelmistotuotantoprojektit
 
 ### Parhaat käytänteet
 
