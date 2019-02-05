@@ -4,7 +4,8 @@ Kurssin yleinen kuvaus: [courses.helsinki.fi](https://courses.helsinki.fi/fi/tkt
 
 ## Ajankohtaista
 
-* Loppudemo toukokuussa
+* Välidemo `TBA`
+* Loppudemo 3.5.2019 klo 14:00-16:00 CK112
 
 ## Projektin kulku
 
