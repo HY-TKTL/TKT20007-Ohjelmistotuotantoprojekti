@@ -17,6 +17,8 @@ Ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 
 - Partio
 - Ohtuprojekti-ilmo
+  - [Backlog](https://docs.google.com/spreadsheets/d/1205Vjsr9tYh99stufyOv2tWTvFBVQ1rwzXtABFH2EsI/edit?usp=sharing)
+  - [Tuntikirjanpito](https://docs.google.com/spreadsheets/d/1uagIAAlsbgqUgsZ5_jsUPeGgxEzarq86cyLeBCV282E/edit?usp=sharing)
 - [Kisallioppiminen.fi](https://docs.google.com/spreadsheets/d/e/2PACX-1vRPtzcQTtghurkIFXZ38BT5HgzWY6mAbIIx0y8FKe3SPWxwXvilJqsDdFW4aE9DMEN7EuQZhJhZ7NPl/pubhtml)
 - [TKT-ohjaajarekisteri](https://github.com/TKT-ohjaajarekisteri/TKT-ohjaajarekisteri-front/tree/master/documentation)
 
