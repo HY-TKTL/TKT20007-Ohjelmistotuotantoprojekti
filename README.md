@@ -90,6 +90,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
   - **Agenda** Asiakastapaamisiin kannattaa luoda melko yksityiskohtainen agenda ja se on hyvä lähettää asiakkaalle ennen varsinaista tapaamista.
   - **Roolit** Kiertävä puheenjohtajan roolit. Lisäksi ainakin kirjuri ja demovastaava. 
   * **Muistiinpanot** Asiakastapaamisista tehtävä muistiinpanot. Keskusteltuja asioita ei saa jättää muistin varaan vaan ne tulee kirjata backlogille.
+  - [Vinkkejä asiakaspalaveriin](ohjeita-asiakaspalaveriin.md)
 - Retrospektiivit dokumentoitava
 
 ## Projektin tavoite
@@ -122,6 +123,7 @@ Arvioinnissa kiinnitetään huomioita ainakin seuraaviin asioihin
 - Ohjelmiston arkkitehtuuriin kannattaa käyttää paljon huomiota ja jättää sprinttiin aikaa tehdä parannuksia sisäiseen laatuun. Puhdas User Story -hikipaja, jossa keskitytään ainoastaan mahdollisimman nopeaan ominaisuuksien tuottamiseen ei pitkällä tähtäimellä tuota hyviä tuloksia.
 - Voi olla hyvä idea hahmotella hyväksymiskriteerit ennen varsinaista asiakastapaamista. Kannattaa kuitenkin jättää hieman pureskeltavaa kriteereihin ennen tapaamista.
 - On hyvä käytäntö pitää agenda näkyvillä asiakastapaamisen aikana, jotta keskustelu saadaan pysymään paremmin aiheessa. Käydään kokouskäytäntöjä tarpeen mukaan läpi yhdessä.
+- [Vinkkejä asiakaspalaveriin](ohjeita-asiakaspalaveriin.md)
 
 ## Roolit
 
