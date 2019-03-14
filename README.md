@@ -4,7 +4,7 @@ Kurssin yleinen kuvaus: [courses.helsinki.fi](https://courses.helsinki.fi/fi/tkt
 
 ## Ajankohtaista
 
-* Välidemo 15.3 klo 10:15-12:00 Exactum ???
+* Välidemo 15.3 klo 9:15-12:00 Exactum B121
 * Loppudemo 3.5.2019 klo 14:00-16:00 Exactum CK112
 
 ## Projektin kulku
