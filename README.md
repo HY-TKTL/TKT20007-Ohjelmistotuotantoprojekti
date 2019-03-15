@@ -4,6 +4,10 @@ Kurssin yleinen kuvaus: [courses.helsinki.fi](https://courses.helsinki.fi/fi/tkt
 
 ## Ajankohtaista
 
+**Kurssilla kokeilukäytössä jatkuva palautteen keräys**. Anna palautetta kurssikäytännöistä [flingassa](https://edu.flinga.fi/s/E9XG8D5)!
+
+Demot:
+
 * Välidemo 15.3 klo 9:15-12:00 Exactum B121
 * Loppudemo 3.5.2019 klo 14:00-16:00 Exactum CK112
 
