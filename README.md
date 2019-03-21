@@ -11,6 +11,11 @@ Demot:
 * Välidemo 15.3 klo 9:15-12:00 Exactum B121
 * Loppudemo 3.5.2019 klo 14:00-16:00 Exactum CK112
 
+Vertaisarviot:
+
+* [Väliarvio](https://studies.cs.helsinki.fi/projekti/peerreview) - dl 15.3.2019 klo 23:59  
+* Loppuarvio - _tulossa IV periodin lopulla_
+
 ## Projektin kulku
 
 - Noudatetaan Scrum-henkistä prosessia.
