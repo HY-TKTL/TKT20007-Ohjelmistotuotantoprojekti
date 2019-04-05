@@ -4,6 +4,8 @@ Kurssin yleinen kuvaus: [courses.helsinki.fi](https://courses.helsinki.fi/fi/tkt
 
 ## Ajankohtaista
 
+- Kurssilla on telegram-kanava, linkki [fuksiwikissä](https://fuksiwiki.tko-aly.fi/Keskustelukanavat#Kurssikanavat)
+
 **Kurssilla kokeilukäytössä jatkuva palautteen keräys**. Anna palautetta kurssikäytännöistä [flingassa](https://edu.flinga.fi/s/E9XG8D5)!
 
 Demot:
