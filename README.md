@@ -10,15 +10,13 @@ Kurssin yleinen kuvaus: [courses.helsinki.fi](https://courses.helsinki.fi/fi/tkt
 
 Demot:
 
-* Tiivisprojektien loppudemo ja koko kesän projektien välidemo kesäkuun lopussa keskiviikkona 26.6. klo 12 salissa xxx
-* Koko kesän projektien loppudemo perjantaina 30.8. klo 11
+* Puolivälissä ja lopussa demo vielä määrittelemättömänä päivänä
 
 Vertaisarviot:
 
-* kesäkuun lopussa tiivisprojektien loppuarvio ja koko kesän projektien väliarvio  
-* elokuun lopussa koko kesän projektien loppuarvio 
+* puolessa välissä ja lopussa vertaisarvio
 
-[https://studies.cs.helsinki.fi/projekti/peerreview](https://studies.cs.helsinki.fi/projekti/peerreview) 
+[https://study.cs.helsinki.fi/projekti/peerreview](https://study.cs.helsinki.fi/projekti/peerreview) 
 
 ## Projektin kulku
 
