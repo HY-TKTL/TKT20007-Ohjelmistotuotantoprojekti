@@ -127,6 +127,7 @@ Arvioinnissa kiinnitetään huomioita ainakin seuraaviin asioihin
 - Ryhmätyöskentely tai _"tiimipelaus"_
 - Tekninen kontribuutio - koodi tai asiantuntijuus
 - Työtuntien määrä ja tasaisuus sekä merkintöjen asiallisuus
+- Valmistautuminen asiakastapaamisiin ja toiminta asiakaspalaverissa
 - ks. myös kohta projektin tavoite sekä [itseisarvioinnin kysymykset](itseisarvioinnin_kysymykset.md)
 
 ## Vinkkejä
