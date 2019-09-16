@@ -8,6 +8,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 
 - [Hintahaukka](https://github.com/Hintahaukka)
 - [Mobiilishakki](https://github.com/Mobiilishakki/Mobiilishakki)
+- [VR-peli](https://github.com/ohtuprojekti-farmasia/farmasia-vr)
 
 ### Dokumentaatio
 
@@ -15,6 +16,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
   - [backlog](https://docs.google.com/spreadsheets/d/1Mazq4EFbfbMsLPeCpOckbu11LNR1Ki2RiNf460z-rpU/edit#gid=517998298)
 - Mobiilishakki 
   - [backlog](https://docs.google.com/spreadsheets/d/1zG-0s1h2mIXxn2nuR7uvuNg6FT7avz7rtKZj1EuxpaE/edit#gid=1)
-
+- VR-peli
+  - [Product backlog](https://github.com/ohtuprojekti-farmasia/farmasia-vr/projects/1)
 
 ### Tuotantosovellukset
