@@ -10,6 +10,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 - [Mobiilishakki](https://github.com/Mobiilishakki/Mobiilishakki)
 - [VR-peli](https://github.com/ohtuprojekti-farmasia/farmasia-vr)
 - [Monihakusovellus](https://github.com/Ohtu-FaceTed)
+- [Saavutettava somepalvelu](https://github.com/kohdataan)
 
 ### Dokumentaatio
 
@@ -21,5 +22,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
   - [Product backlog](https://github.com/ohtuprojekti-farmasia/farmasia-vr/projects/1)
 - Monihakusovellus
   - [backlog](https://github.com/Ohtu-FaceTed/FaceTed-Search/projects)
+- Saavutettava somepalvelu
+  - [backlog](https://github.com/orgs/kohdataan/projects/2)
 
 ### Tuotantosovellukset
