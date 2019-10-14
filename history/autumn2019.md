@@ -24,5 +24,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
   - [backlog](https://github.com/Ohtu-FaceTed/FaceTed-Search/projects)
 - Saavutettava somepalvelu
   - [backlog](https://github.com/orgs/kohdataan/projects/2)
+- Data Structres and Algorithms Project Templates
+  - [backlog[(https://helsinkifi-my.sharepoint.com/:x:/g/personal/jermusto_ad_helsinki_fi/EbSHuSez9tVNi0CxTRtVU_sBo6SEdoqiayo5-I-wRxh_XA?e=TAZVRq)
 
 ### Tuotantosovellukset
