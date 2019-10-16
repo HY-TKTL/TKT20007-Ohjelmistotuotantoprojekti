@@ -11,6 +11,9 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 - [VR-peli](https://github.com/ohtuprojekti-farmasia/farmasia-vr)
 - [Monihakusovellus](https://github.com/Ohtu-FaceTed)
 - [Saavutettava somepalvelu](https://github.com/kohdataan)
+- Data Structures and Algorithms Project templates
+  - [Chess](https://github.com/TiraLabra/chess)
+  - [Minesweeper](https://github.com/TiraLabra/minesweeper)
 
 ### Dokumentaatio
 
