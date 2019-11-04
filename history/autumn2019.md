@@ -11,6 +11,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 - [VR-peli](https://github.com/ohtuprojekti-farmasia/farmasia-vr)
 - [Monihakusovellus](https://github.com/Ohtu-FaceTed)
 - [Saavutettava somepalvelu](https://github.com/kohdataan)
+- [Labtool-2019](https://github.com/UniversityOfHelsinkiCS/labtool)
 
 ### Dokumentaatio
 
@@ -24,5 +25,9 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
   - [backlog](https://github.com/Ohtu-FaceTed/FaceTed-Search/projects)
 - Saavutettava somepalvelu
   - [backlog](https://github.com/orgs/kohdataan/projects/2)
+- Labtool-2019
+  - [backlog](https://github.com/UniversityOfHelsinkiCS/labtool/projects/3)
 
 ### Tuotantosovellukset
+- Labtool-2019
+  - [sovellus](https://study.cs.helsinki.fi/labtool)
