@@ -6,7 +6,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 
 ### Ryhmien repot
 
--
+- [Kisatehtäväpankki](https://github.com/Partioprojekti/kisatehtavapankki)
 
 ### Backlogit
 
