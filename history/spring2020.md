@@ -26,5 +26,5 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 ### Tuotantosovellukset
 
 - [Graafinen funktionaalinen ohjelmointikieli](http://funkly.herokuapp.com/)
-- [Projektiryhmäytymistyökalu](https://toska.cs.helsinki.fi/prkl/)
+- [Projektiryhmäytymistyökalu](https://toska.cs.helsinki.fi/assembler/)
 - [Lunch Application](https://lunch-application.herokuapp.com/)
