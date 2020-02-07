@@ -11,6 +11,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 - [Kisatehtäväpankki](https://github.com/Partioprojekti/kisatehtavapankki)
 - [Lunch Application](https://github.com/team-lunch-app/lunch-app)
 - [Maastokartoitus sovellus](https://github.com/Maastokartoitusryhma/maastokartoitus-app)
+- [RPA Dashboard](https://github.com/Robo-Project)
 - [Suorituspolut-sovellus](https://github.com/suorituspolut/Suorituspolut)
 
 ### Backlogit
