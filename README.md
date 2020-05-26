@@ -2,6 +2,8 @@
 
 Kurssin yleinen kuvaus: [courses.helsinki.fi](https://courses.helsinki.fi/fi/tkt20007/)
 
+[Projektien repositorioita](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/tree/master/history)
+
 ## Ajankohtaista
 
 - Kurssilla on telegram-kanava, linkki [fuksiwikissä](https://fuksiwiki.tko-aly.fi/Keskustelukanavat#Kurssikanavat)
