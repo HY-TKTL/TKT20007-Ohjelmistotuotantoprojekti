@@ -11,10 +11,12 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 - [Remote Society Now - etätyön hyötyjen mittaaminen työntekijä- ja yritysdatalla](https://github.com/RemoteSocietyNow-ohtu/remotesocietynow)
 - [Robotin konenäkö mikropalveluna](https://github.com/Konenako/Ohtuprojekti-kesa2020)
 - C# and Bash Support for TMC
-  - [C# Support for TMC](https://github.com/TMC-C)
-  - [Bash Support for TMC](https://github.com/tmc-bash)
+  - [C# Support for TMC](https://github.com/TMC-CSharp/tmc-csharp)
+  - [Bash Support for TMC](https://github.com/tmc-bash/tmc-bash)
 
 ### Dokumentaatio
-- [C# Support for TMC](https://github.com/TMC-C/tmcc-documentation)
+- C# and Bash Support for TMC
+  - [C# Support for TMC](https://github.com/TMC-CSharp/tmc-csharp)
+  - [Bash Support for TMC](https://github.com/tmc-bash/tmc-bash)
 
 ### Tuotantosovellukset
