@@ -6,6 +6,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 
 ### Ryhmien repot
 
+[Lintuasemasovellus](https://github.com/Lintuasemasovellus/lintuasemasovellus)
 
 
 ### Dokumentaatio
