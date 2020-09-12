@@ -5,8 +5,9 @@
 ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/reference.md)
 
 ### Ryhmien repot
-[Web editor & version control](https://github.com/ohtuprojekti-eficode/WEVC)
 
+[Lintuasemasovellus](https://github.com/Lintuasemasovellus/lintuasemasovellus)
+[Web editor & version control](https://github.com/ohtuprojekti-eficode/WEVC)
 
 ### Dokumentaatio
 
