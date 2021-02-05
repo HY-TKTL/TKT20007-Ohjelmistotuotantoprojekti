@@ -6,19 +6,18 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 
 ### Ryhmien repot
 
-- [Bakteerien tunnistuspeli](https://github.com/Ohtu-bakteerien-tunnistuspeli/Bakteerien-tunnistuspeli)
 - [Lintuasemasovellus](https://github.com/luomus/lintuasemasovellus)
 - [DevOps itsearviointikysely](https://github.com/Devops-ohtuprojekti/DevOpsCSAOS)
+- [Adminapp Medified](https://github.com/ohtuprojekti-medified/adminapp-medified)
 
 
 ### Dokumentaatio
 
-- [Bakteerien tunnistuspeli](https://github.com/Ohtu-bakteerien-tunnistuspeli/Bakteerien-tunnistuspeli/blob/master/README.md)
 - [Lintuasemasovellus](https://github.com/luomus/lintuasemasovellus/blob/master/README.md)
 - [DevOps itsearviointikysely](https://github.com/Devops-ohtuprojekti/DevOpsCSAOS/blob/main/README.md)
+- [Adminapp Medified](https://github.com/ohtuprojekti-medified/adminapp-medified/blob/master/README.md)
 
 ### Tuotantosovellukset
 
-- [Bakteerien tunnistuspeli](https://bakteeripeli.it.helsinki.fi/kirjautuminen)
-- [Lintuasemasovellus](http://lintuasema-lintuasema-staging.rahtiapp.fi/login)
 - [DevOps itsearviointikysely](https://ohtu-csaos-staging.herokuapp.com/)
+- Adminapp Medified - tulossa
