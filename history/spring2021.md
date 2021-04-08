@@ -9,6 +9,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 - [Lintuasemasovellus](https://github.com/luomus/lintuasemasovellus)
 - [DevOps itsearviointikysely](https://github.com/Devops-ohtuprojekti/DevOpsCSAOS)
 - [Adminapp Medified](https://github.com/ohtuprojekti-medified/adminapp-medified)
+- [Kierrätysavustin](https://github.com/ohtuprojekti-Kierratysavustin/Kierratysavustin)
 
 
 ### Dokumentaatio
