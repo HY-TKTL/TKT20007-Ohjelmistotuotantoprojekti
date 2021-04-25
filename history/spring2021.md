@@ -17,6 +17,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 - [Lintuasemasovellus](https://github.com/luomus/lintuasemasovellus/blob/master/README.md)
 - [DevOps itsearviointikysely](https://github.com/Devops-ohtuprojekti/DevOpsCSAOS/blob/main/README.md)
 - [Adminapp Medified](https://github.com/ohtuprojekti-medified/adminapp-medified/blob/master/README.md)
+- [Kierrätysavustin](https://github.com/ohtuprojekti-Kierratysavustin/Kierratysavustin/tree/main/documents)
 - [ETIE](https://github.com/IELuomus/extractiontool/blob/main/README.md)
 ### Tuotantosovellukset
 
