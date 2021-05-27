@@ -6,14 +6,14 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 
 ### Ryhmien repot
 
-- [ryhmä](https://github.com/repo)
+- [CSES-järjestelmän komentorivityökalu](https://github.com/H4m5t3r/cses-cli)
 
 
 ### Dokumentaatio
 
-- [ryhmä](https://github.com/repo)
+- [CSES-järjestelmän komentorivityökalu](https://docs.google.com/spreadsheets/d/10vB2CXV9RVyM_wIMyXrgepMcKMDzQ1qXHvmtuqjiaio/edit?usp=sharing)
 
 
 ### Tuotantosovellukset
 
-- [ryhmä](https://github.com/repo)
+- [CSES-järjestelmän komentorivityökalu](https://github.com/H4m5t3r/cses-cli/releases)
