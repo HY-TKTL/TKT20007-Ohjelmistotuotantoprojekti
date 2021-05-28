@@ -8,14 +8,17 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 
 - [CSES-järjestelmän komentorivityökalu](https://github.com/H4m5t3r/cses-cli)
 - [Kristillisten sinkkujen deitti](https://github.com/Ohtu-KSDeitti/frontend_ksd)
+- [LUMA-tiedeluokkien varausjärjestelmä](https://github.com/lumawelhot/luma-varaukset)
 - [QuantMark](https://github.com/quantum-ohtu)
 
 ### Dokumentaatio
 
 - [CSES-järjestelmän komentorivityökalu](https://docs.google.com/spreadsheets/d/10vB2CXV9RVyM_wIMyXrgepMcKMDzQ1qXHvmtuqjiaio/edit?usp=sharing)
 - [Kristillisten sinkkujen deitti](https://github.com/Ohtu-KSDeitti/frontend_ksd/blob/main/README.md)
+- [LUMA-tiedeluokkien varausjärjestelmä](https://github.com/lumawelhot/luma-varaukset/blob/main/README.md)
 - [QuantMark](https://github.com/quantum-ohtu/QuantMark/wiki)
 
 ### Tuotantosovellukset
 
 - [CSES-järjestelmän komentorivityökalu](https://github.com/H4m5t3r/cses-cli/releases)
+- [LUMA-tiedeluokkien varausjärjestelmä](https://ohtup-staging.cs.helsinki.fi/luma-varaukset)
