@@ -13,7 +13,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 
 ### Dokumentaatio
 
-- [CSES-järjestelmän komentorivityökalu](https://docs.google.com/spreadsheets/d/10vB2CXV9RVyM_wIMyXrgepMcKMDzQ1qXHvmtuqjiaio/edit?usp=sharing)
+- [CSES-järjestelmän komentorivityökalu](https://github.com/H4m5t3r/cses-cli/blob/main/README.md)
 - [Kristillisten sinkkujen deitti](https://github.com/Ohtu-KSDeitti/frontend_ksd/blob/main/README.md)
 - [LUMA-tiedeluokkien varausjärjestelmä](https://github.com/lumawelhot/luma-varaukset/blob/main/README.md)
 - [QuantMark](https://github.com/quantum-ohtu/QuantMark/wiki)
