@@ -11,6 +11,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 - [LUMA-tiedeluokkien varausjärjestelmä](https://github.com/lumawelhot/luma-varaukset)
 - [QuantMark](https://github.com/quantum-ohtu)
 - [Discord kurssibotti](https://github.com/CS-DISCORD-BOT/cs-discord-bot)
+- [Mobiili-lähiruokasovellus](https://github.com/ohtu2021satoja/SatojaREKO)
 
 ### Dokumentaatio
 
@@ -19,6 +20,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 - [LUMA-tiedeluokkien varausjärjestelmä](https://github.com/lumawelhot/luma-varaukset/blob/main/README.md)
 - [QuantMark](https://github.com/quantum-ohtu/QuantMark/wiki)
 - [Discord kurssibotti](https://github.com/CS-DISCORD-BOT/project-info)
+- [Mobiili-lähiruokasovellus](https://github.com/ohtu2021satoja/SatojaREKO/blob/main/documents/databasedia.png)
 
 ### Tuotantosovellukset
 
