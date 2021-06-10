@@ -12,6 +12,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 - [QuantMark](https://github.com/quantum-ohtu)
 - [Discord kurssibotti](https://github.com/CS-DISCORD-BOT/cs-discord-bot)
 - [Mobiili-lähiruokasovellus](https://github.com/ohtu2021satoja/SatojaREKO)
+- [ChatbotTrolli](https://github.com/sumuh/Trollbot)
 
 ### Dokumentaatio
 
