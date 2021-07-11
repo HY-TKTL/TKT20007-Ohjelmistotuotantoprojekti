@@ -6,7 +6,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 
 ### Ryhmien repot
 
-- [CSES-järjestelmän komentorivityökalu](https://github.com/H4m5t3r/cses-cli)
+- [CSES-järjestelmän komentorivityökalu](https://github.com/csesfi/cses-cli)
 - [Kristillisten sinkkujen deitti](https://github.com/Ohtu-KSDeitti/frontend_ksd)
 - [LUMA-tiedeluokkien varausjärjestelmä](https://github.com/lumawelhot/luma-varaukset)
 - [QuantMark](https://github.com/quantum-ohtu)
@@ -16,7 +16,7 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 
 ### Dokumentaatio
 
-- [CSES-järjestelmän komentorivityökalu](https://github.com/H4m5t3r/cses-cli/blob/main/README.md)
+- [CSES-järjestelmän komentorivityökalu](https://github.com/csesfi/cses-cli/blob/main/README.md)
 - [Kristillisten sinkkujen deitti](https://github.com/Ohtu-KSDeitti/frontend_ksd/blob/main/README.md)
 - [LUMA-tiedeluokkien varausjärjestelmä](https://github.com/lumawelhot/luma-varaukset/blob/main/README.md)
 - [QuantMark](https://github.com/quantum-ohtu/QuantMark/wiki)
@@ -25,5 +25,5 @@ ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/
 
 ### Tuotantosovellukset
 
-- [CSES-järjestelmän komentorivityökalu](https://github.com/H4m5t3r/cses-cli/releases)
+- [CSES-järjestelmän komentorivityökalu](https://github.com/csesfi/cses-cli/releases)
 - [LUMA-tiedeluokkien varausjärjestelmä](https://ohtup-staging.cs.helsinki.fi/luma-varaukset)
