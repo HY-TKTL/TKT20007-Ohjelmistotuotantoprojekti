@@ -1,8 +1,8 @@
 ## Syksyn 2021 ohjelmistotuotantoprojektit
 
-### parhaat käytänteet
+### Parhaat käytänteet
 
-ota mallia [täältä](https://github.com/ohtu-ohjaajat/OhTuHistory/blob/master/reference.md)
+ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/best-practices.md)
 
 ### Ryhmien repot
 
