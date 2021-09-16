@@ -139,6 +139,7 @@ Arvioinnissa kiinnitetään huomioita ainakin seuraaviin asioihin
 - Voi olla hyvä idea hahmotella hyväksymiskriteerit ennen varsinaista asiakastapaamista. Kannattaa kuitenkin jättää hieman pureskeltavaa kriteereihin ennen tapaamista.
 - On hyvä käytäntö pitää agenda näkyvillä asiakastapaamisen aikana, jotta keskustelu saadaan pysymään paremmin aiheessa. Käydään kokouskäytäntöjä tarpeen mukaan läpi yhdessä.
 - [Vinkkejä asiakaspalaveriin](ohjeita-asiakaspalaveriin.md)
+- [ohtuprojektin staging-palvelin](https://github.com/UniversityOfHelsinkiCS/ohtup-staging)
 
 ## Roolit
 
