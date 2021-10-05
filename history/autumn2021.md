@@ -12,6 +12,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Mielentilatutkimus-thl](https://github.com/ohtuprojekti-mielentilatutkimus-thl/mielentilatutkimus-thl)
 - [RNames](https://github.com/karilint/rnames)
 - [Taudinpurkauspeli2021](https://github.com/taudinpurkauspeli/taudinpurkauspeli2021)
+- [Lintu- ja kasviatlas](https://github.com/ATLAS-ohtuprojekti/ATLAS)
 
 ### Dokumentaatio
 
