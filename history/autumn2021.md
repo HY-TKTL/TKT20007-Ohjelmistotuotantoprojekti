@@ -11,7 +11,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Kierratysavustin](https://github.com/ohtuprojekti-Kierratysavustin/Kierratysavustin)
 - [Mielentilatutkimus-thl](https://github.com/ohtuprojekti-mielentilatutkimus-thl/mielentilatutkimus-thl)
 - [RNames](https://github.com/karilint/rnames)
-- [Taudinpurkauspeli](https://version.helsinki.fi/machenna/taudinpurkaus)
+- [Taudinpurkauspeli2021](https://github.com/taudinpurkauspeli/taudinpurkauspeli2021)
 - [Lintu- ja kasviatlas](https://github.com/ATLAS-ohtuprojekti/ATLAS)
 
 ### Dokumentaatio
