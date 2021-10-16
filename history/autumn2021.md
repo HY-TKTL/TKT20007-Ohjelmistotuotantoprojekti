@@ -13,6 +13,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [RNames](https://github.com/karilint/rnames)
 - [Taudinpurkauspeli2021](https://github.com/taudinpurkauspeli/taudinpurkauspeli2021)
 - [Lintu- ja kasviatlas](https://github.com/ATLAS-ohtuprojekti/ATLAS)
+- [Hybridityöskentelyn tukisovellus Slack-integraatiolla](https://github.com/hytuslain/hytuslain)
 
 ### Dokumentaatio
 
