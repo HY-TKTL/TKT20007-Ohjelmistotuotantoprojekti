@@ -12,7 +12,7 @@ Kurssin yleinen kuvaus: [courses.helsinki.fi](https://courses.helsinki.fi/fi/tkt
 
 Demot:
 
-* Puolivälissä(ke 20.10. klo 8.15-10.15)  ja lopussa demo vielä määrittelemättömänä päivänä
+* Loppudemo (ke 15.12. klo 8.00-11) 
 
 Vertaisarviot:
 
