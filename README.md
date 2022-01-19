@@ -12,7 +12,7 @@ Kurssin yleinen kuvaus: [courses.helsinki.fi](https://courses.helsinki.fi/fi/tkt
 
 Demot:
 
-* Loppudemo (ke 15.12. klo 8.00-11) 
+* Loppudemo (toukokuu 2022) 
 
 Vertaisarviot:
 
@@ -42,9 +42,10 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
   - [README standardin mukaiseksi](https://guides.github.com/features/wikis/), lisäksi "päärepoon" linkit muihin repositorioihin, backlogiin sekä sovellukseen.
 - [ ] Sopikaa käytettävät teknologiat
   - Huom! Asiakkailla voi olla mielipide käytettävistä teknologioista tai koodauskäytännöistä.
-- [ ] CI- ja staging-ympäristö mahdollisimman nopeasti pystyyn.
+- [ ] CI- ja staging-ympäristö mahdollisimman nopeasti pystyyn
 - [ ] Branching-käytännöistä sopiminen
   - Hyvä käytäntö on pitää master-haarassa vain tuotantokelpoista (deployable) koodia. Näin voidaan aina siirtää koodi staging-palvelimelle (ja myöhemmin tuotantoon.)
+  - https://github.com/UniversityOfHelsinkiCS/ohtup-staging voi käyttää staging-ympäristönä
 - [ ] Koodauskäytännöt
   - Sopikaa Definition of Done
   - Pitää olla sellainen, että DoDin kriteerit täyttävä story voitaisiin viedä sellaisenaan tuotantoon!
@@ -76,6 +77,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 
 ### Deployment environments
   - **Staging-ympäristö** mahdollisimman tuotannon kaltainen.
+     - https://github.com/UniversityOfHelsinkiCS/ohtup-staging 
   - **Tuotantoon!** Tuotos täytyy saada tuotantoon jo projektin aikana, mielellään mahdollisimman nopeasti.
   - **CD** Tuotantoon päivityksen pitää olla [tehokasta ja/tai jatkuvaa](https://puppet.com/blog/continuous-delivery-vs-continuous-deployment-what-s-diff)
   - **Demot stagingista** Asiakkaalle demotaan ainoastaan vain ja ainoastaan staging-palvelimelta, ei omalta koneelta.
