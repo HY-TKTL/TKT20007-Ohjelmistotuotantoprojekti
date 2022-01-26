@@ -6,12 +6,12 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 
 ### Ryhmien repot
 
-- [ryhmä](https://github.com/ryhma)
+- [TaxonManager](https://github.com/karilint/TaxonManager)
 
 ### Dokumentaatio
 
-- [ryhmä](https://github.com/ryhma)
+- [TaxonManager](https://github.com/karilint/TaxonManager/tree/main/docs)
 
 ### Tuotantosovellukset
 
-- [ryhmä](https://github.com/ryhma)
+- [TaxonManager](https://Taxonmanager.it.helsinki.fi)
