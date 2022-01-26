@@ -1,4 +1,4 @@
-## KEeään 2022 ohjelmistotuotantoprojektit
+## Kevään 2022 ohjelmistotuotantoprojektit
 
 ### Parhaat käytänteet
 
