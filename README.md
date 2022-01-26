@@ -12,7 +12,8 @@ Kurssin yleinen kuvaus: [courses.helsinki.fi](https://courses.helsinki.fi/fi/tkt
 
 Demot:
 
-* Loppudemo (toukokuu 2022) 
+* Välidemo ke 2.3.2022 klo 8:00-10
+* Loppudemo ke 4.5.2022 klo 8:00-11 
 
 Vertaisarviot:
 
