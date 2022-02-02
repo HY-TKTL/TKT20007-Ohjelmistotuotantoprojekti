@@ -11,6 +11,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Farmasian VR-peli](https://github.com/MikkoHimanka/farmasia-vr)
 - [Webbipohjainen (Moodle) työkalu suullisen kielitaidon harjoitteluun](https://github.com/aalto-speech/moodle-puheentunnistus)
 - [Serverless data parser tool for project proposals](https://github.com/Ohtu-org/Serverless-data-parser-tool-for-project-proposals)
+- [Assembler - Projektiryhmäytymistyökalu](https://github.com/UniversityOfHelsinkiCS/prkl)
 
 ### Dokumentaatio
 
@@ -19,6 +20,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Farmasian VR-peli](https://github.com/MikkoHimanka/farmasia-vr/tree/dev/Docs)
 - [Webbipohjainen (Moodle) työkalu suullisen kielitaidon harjoitteluun](https://github.com/aalto-speech/moodle-puheentunnistus/tree/main/docs)
 - [Serverless data parser tool for project proposals](https://github.com/Ohtu-org/Serverless-data-parser-tool-for-project-proposals)
+- [Assembler - Projektiryhmäytymistyökalu](https://github.com/UniversityOfHelsinkiCS/prkl#documentation)
 
 ### Tuotantosovellukset
 
@@ -26,3 +28,4 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Sukellusilmoitus](https://sukellusilmoitus-staging-front.herokuapp.com/)
 - [Farmasian VR-peli](https://github.com/MikkoHimanka/farmasia-vr/releases)
 - [Serverless data parser tool for project proposals](http://135.181.37.120/)
+- [Assembler - Projektiryhmäytymistyökalu](https://study.cs.helsinki.fi/assembler)
