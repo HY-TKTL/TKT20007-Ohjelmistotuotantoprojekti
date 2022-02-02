@@ -11,6 +11,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Farmasian VR-peli](https://github.com/MikkoHimanka/farmasia-vr)
 - [Webbipohjainen (Moodle) työkalu suullisen kielitaidon harjoitteluun](https://github.com/aalto-speech/moodle-puheentunnistus)
 - [Serverless data parser tool for project proposals](https://github.com/Ohtu-org/Serverless-data-parser-tool-for-project-proposals)
+- [XR demonstrator](https://github.com/UbiKampus-ohtu)
 
 ### Dokumentaatio
 
