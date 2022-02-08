@@ -13,6 +13,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Serverless data parser tool for project proposals](https://github.com/Ohtu-org/Serverless-data-parser-tool-for-project-proposals)
 - [Assembler - Projektiryhmäytymistyökalu](https://github.com/UniversityOfHelsinkiCS/prkl)
 - [XR demonstrator](https://github.com/UbiKampus-ohtu)
+- [Eläinlääkiksen luupeli](https://version.helsinki.fi/luupeli/Luupeli)
 
 ### Dokumentaatio
 
@@ -22,6 +23,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Webbipohjainen (Moodle) työkalu suullisen kielitaidon harjoitteluun](https://github.com/aalto-speech/moodle-puheentunnistus/tree/main/docs)
 - [Serverless data parser tool for project proposals](https://github.com/Ohtu-org/Serverless-data-parser-tool-for-project-proposals)
 - [Assembler - Projektiryhmäytymistyökalu](https://github.com/UniversityOfHelsinkiCS/prkl#documentation)
+- [Eläinlääkiksen luupeli](https://version.helsinki.fi/luupeli/Luupeli/-/blob/staging/README.md)
 
 ### Tuotantosovellukset
 
@@ -30,3 +32,4 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Farmasian VR-peli](https://github.com/MikkoHimanka/farmasia-vr/releases)
 - [Serverless data parser tool for project proposals](http://135.181.37.120/)
 - [Assembler - Projektiryhmäytymistyökalu](https://study.cs.helsinki.fi/assembler)
+- [Eläinlääkiksen luupeli - ei vielä tuotannossa](http://luupeli.helsinki.fi/)
