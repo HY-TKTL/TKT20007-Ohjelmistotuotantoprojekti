@@ -22,7 +22,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Farmasian VR-peli](https://github.com/MikkoHimanka/farmasia-vr/tree/dev/Docs)
 - [Webbipohjainen (Moodle) työkalu suullisen kielitaidon harjoitteluun](https://github.com/aalto-speech/moodle-puheentunnistus/tree/main/docs)
 - [Serverless data parser tool for project proposals](https://github.com/Ohtu-org/Serverless-data-parser-tool-for-project-proposals)
-- [Assembler - Projektiryhmäytymistyökalu](https://github.com/UniversityOfHelsinkiCS/prkl#documentation)
+- [Assembler - Projektiryhmäytymistyökalu](https://github.com/UniversityOfHelsinkiCS/prkl/tree/trunk#readme)
 - [Eläinlääkiksen luupeli](https://version.helsinki.fi/luupeli/Luupeli/-/blob/staging/README.md)
 
 ### Tuotantosovellukset
