@@ -21,7 +21,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Sukellusilmoitus](https://helsinkifi-my.sharepoint.com/:w:/g/personal/juhasik_ad_helsinki_fi/EcePdrwaPSdKkFvCSziiHZ8BvUHol3_TtcW4fdK60JyLJQ?e=1fDkQA)
 - [Farmasian VR-peli](https://github.com/MikkoHimanka/farmasia-vr/tree/dev/Docs)
 - [Webbipohjainen (Moodle) työkalu suullisen kielitaidon harjoitteluun](https://github.com/aalto-speech/moodle-puheentunnistus/tree/main/docs)
-- [Serverless data parser tool for project proposals](https://github.com/Ohtu-org/Serverless-data-parser-tool-for-project-proposals)
+- [Serverless data parser tool for project proposals](https://github.com/Ohtu-org/Serverless-data-parser-tool-for-project-proposals/tree/main/documentation)
 - [Assembler - Projektiryhmäytymistyökalu](https://github.com/UniversityOfHelsinkiCS/prkl/tree/trunk#readme)
 - [Eläinlääkiksen luupeli](https://version.helsinki.fi/luupeli/Luupeli/-/blob/staging/README.md)
 
@@ -30,6 +30,6 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [TaxonManager](https://Taxonmanager.it.helsinki.fi)
 - [Sukellusilmoitus](https://sukellusilmoitus-staging-front.herokuapp.com/)
 - [Farmasian VR-peli](https://github.com/MikkoHimanka/farmasia-vr/releases)
-- [Serverless data parser tool for project proposals](http://135.181.37.120/)
+- [Serverless data parser tool for project proposals](https://main.dtatk8xusyguu.amplifyapp.com/)
 - [Assembler - Projektiryhmäytymistyökalu](https://study.cs.helsinki.fi/assembler)
 - [Eläinlääkiksen luupeli - ei vielä tuotannossa](http://luupeli.helsinki.fi/)
