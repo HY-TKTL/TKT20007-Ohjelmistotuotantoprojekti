@@ -28,7 +28,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 ### Tuotantosovellukset
 
 - [TaxonManager](https://Taxonmanager.it.helsinki.fi)
-- [Sukellusilmoitus](https://sukellusilmoitus-staging-front.herokuapp.com/)
+- [Sukellusilmoitus](https://sukellusilmoitus.herokuapp.com/)
 - [Farmasian VR-peli](https://github.com/MikkoHimanka/farmasia-vr/releases)
 - [Serverless data parser tool for project proposals](https://main.dtatk8xusyguu.amplifyapp.com/)
 - [Assembler - Projektiryhmäytymistyökalu](https://study.cs.helsinki.fi/assembler)
