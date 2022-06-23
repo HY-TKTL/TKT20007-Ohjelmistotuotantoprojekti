@@ -7,6 +7,7 @@
 - [MammalBase](https://github.com/karilint/mammalbase)
 - [Helsinki Genomic Graph Database](https://github.com/Helsinki-Genomic-Graph-Database/HGGD)
 - [Pharmacy VR Game Part 3](https://github.com/tjvalkonen/farmasia-vr)
+- [Robot Logo Compiler](https://github.com/Robot-Logo-Compiler/Robot-Logo-Compiler)
 
 ### Dokumentaatio
 
@@ -15,6 +16,7 @@
 - [MammalBase](https://github.com/karilint/mammalbase/tree/main/documentation)
 - [Helsinki Genomic Graph Database](https://github.com/Helsinki-Genomic-Graph-Database/HGGD/tree/main/documentation)
 - [Pharmacy VR Game Part 3](https://github.com/tjvalkonen/farmasia-vr/tree/dev/Docs)
+- [Robot Logo Compiler](https://github.com/Robot-Logo-Compiler/Robot-Logo-Compiler/blob/main/Documentation/instructions.MD)
 
 
 ### Tuotantosovellukset
