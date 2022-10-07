@@ -11,6 +11,8 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Admin application for existing Online Questionnaire tool](https://github.com/QueryAdmin-ohtu/SuperAdmin3000)
 - [Kokoushuoneiden varaaminen](https://github.com/ohtuprojekti-kokoushuone/kokoushuoneiden-varaaminen)
 - [RDM Intro platform](https://version.helsinki.fi/rdmintro/rdmintro)
+- [Logomotion](https://github.com/logo-to-lego/logomotion)
+
 
 ### Dokumentaatio
 
@@ -19,6 +21,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Admin application for existing Online Questionnaire tool](https://github.com/QueryAdmin-ohtu/SuperAdmin3000)
 - [Kokoushuoneiden varaaminen](https://github.com/ohtuprojekti-kokoushuone/kokoushuoneiden-varaaminen/tree/main/documentation)
 - [RDM Intro platform](https://version.helsinki.fi/rdmintro/rdmintro)
+- [Logomotion](https://github.com/logo-to-lego/logomotion/tree/main/documentation)
 
 ### Tuotantosovellukset
 
