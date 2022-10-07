@@ -10,7 +10,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Vesialueen inventointi-ilmoitus](https://github.com/ohtuprojekti-2022)
 - [Admin application for existing Online Questionnaire tool](https://github.com/QueryAdmin-ohtu/SuperAdmin3000)
 - [Kokoushuoneiden varaaminen](https://github.com/ohtuprojekti-kokoushuone/kokoushuoneiden-varaaminen)
-- 
+
 ### Dokumentaatio
 
 - [Berrry picker tracker](https://github.com/hy-ohtu-syksy-22-bpt/berry-picker-tracker-docs)
