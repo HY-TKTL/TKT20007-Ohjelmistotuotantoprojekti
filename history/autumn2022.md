@@ -10,6 +10,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Vesialueen inventointi-ilmoitus](https://github.com/ohtuprojekti-2022)
 - [Admin application for existing Online Questionnaire tool](https://github.com/QueryAdmin-ohtu/SuperAdmin3000)
 - [Kokoushuoneiden varaaminen](https://github.com/ohtuprojekti-kokoushuone/kokoushuoneiden-varaaminen)
+- [Logomotion](https://github.com/logo-to-lego/logomotion)
 
 ### Dokumentaatio
 
@@ -17,6 +18,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Vesialueen inventointi-ilmoitus](https://github.com/ohtuprojekti-2022/vesialueen-inventointi-ilmoitus)
 - [Admin application for existing Online Questionnaire tool](https://github.com/QueryAdmin-ohtu/SuperAdmin3000)
 - [Kokoushuoneiden varaaminen](https://github.com/ohtuprojekti-kokoushuone/kokoushuoneiden-varaaminen/tree/main/documentation)
+- [Logomotion](https://github.com/logo-to-lego/logomotion/tree/main/documentation)
 
 ### Tuotantosovellukset
 
