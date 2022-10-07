@@ -10,6 +10,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Vesialueen inventointi-ilmoitus](https://github.com/ohtuprojekti-2022)
 - [Admin application for existing Online Questionnaire tool](https://github.com/QueryAdmin-ohtu/SuperAdmin3000)
 - [Kokoushuoneiden varaaminen](https://github.com/ohtuprojekti-kokoushuone/kokoushuoneiden-varaaminen)
+- [Platform for RDM Intro -teaching tool](https://version.helsinki.fi/rdmintro/rdmintro)
 
 ### Dokumentaatio
 
@@ -17,6 +18,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Vesialueen inventointi-ilmoitus](https://github.com/ohtuprojekti-2022/vesialueen-inventointi-ilmoitus)
 - [Admin application for existing Online Questionnaire tool](https://github.com/QueryAdmin-ohtu/SuperAdmin3000)
 - [Kokoushuoneiden varaaminen](https://github.com/ohtuprojekti-kokoushuone/kokoushuoneiden-varaaminen/tree/main/documentation)
+- [Platform for RDM Intro -teaching tool](https://version.helsinki.fi/rdmintro/rdmintro)
 
 ### Tuotantosovellukset
 
@@ -24,3 +26,4 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Vesialueen inventointi-ilmoitus](https://vesialue-front.herokuapp.com/)
 - [Admin application for existing Online Questionnaire tool](https://superadmin3000.herokuapp.com)
 - [Kokoushuoneiden varaaminen](https://kokoushuone.cs.helsinki.fi)
+- [Platform for RDM Intro -teaching tool](https://rdmintro-frontend-rdm-intro.ext.ocp-prod-0.k8s.it.helsinki.fi/)
