@@ -11,6 +11,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Admin application for existing Online Questionnaire tool](https://github.com/QueryAdmin-ohtu/SuperAdmin3000)
 - [Kokoushuoneiden varaaminen](https://github.com/ohtuprojekti-kokoushuone/kokoushuoneiden-varaaminen)
 - [Logomotion](https://github.com/logo-to-lego/logomotion)
+- [Transpilation methods for quantum computers](https://github.com/Helsinki-Qubits/Ohtu-A2022-Transpilation_methods_for_quantum_computers)
 
 ### Dokumentaatio
 
