@@ -12,6 +12,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Kokoushuoneiden varaaminen](https://github.com/ohtuprojekti-kokoushuone/kokoushuoneiden-varaaminen)
 - [Logomotion](https://github.com/logo-to-lego/logomotion)
 - [Transpilation methods for quantum computers](https://github.com/Helsinki-Qubits/Ohtu-A2022-Transpilation_methods_for_quantum_computers)
+- [RDM Intro platform](https://version.helsinki.fi/rdmintro/rdmintro)
 
 ### Dokumentaatio
 
@@ -20,6 +21,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Admin application for existing Online Questionnaire tool](https://github.com/QueryAdmin-ohtu/SuperAdmin3000)
 - [Kokoushuoneiden varaaminen](https://github.com/ohtuprojekti-kokoushuone/kokoushuoneiden-varaaminen/tree/main/documentation)
 - [Logomotion](https://github.com/logo-to-lego/logomotion/tree/main/documentation)
+- [RDM Intro platform](https://version.helsinki.fi/rdmintro/rdmintro)
 
 ### Tuotantosovellukset
 
@@ -27,3 +29,4 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Vesialueen inventointi-ilmoitus](https://vesialue-front.herokuapp.com/)
 - [Admin application for existing Online Questionnaire tool](https://superadmin3000.herokuapp.com)
 - [Kokoushuoneiden varaaminen](https://kokoushuone.cs.helsinki.fi)
+- [RDM Intro platform](https://rdmintro-frontend-rdm-intro.ext.ocp-prod-0.k8s.it.helsinki.fi/)
