@@ -1,4 +1,4 @@
-# Itseisarvionnin kysymykset
+# Itsearvionnin kysymykset
 
 Ohje: Anna avovastauksiin vapaamuotoiset perustelut arvosanaehdotuksille. Voit käyttää apuna vinkkeinä annettuna esimerkkejä asioista, joihin voi kiinnittää huomiota. Voit myös kertoa vapaasti mielestäsi olennaisista asioista.
 
