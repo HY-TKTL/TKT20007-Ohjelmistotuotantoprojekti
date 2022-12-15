@@ -28,5 +28,5 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Berry picker tracker](https://berry-picker-tracker.cs.helsinki.fi)
 - [Vesialueen inventointi-ilmoitus](https://vesialue-front.herokuapp.com/)
 - [Admin application for existing Online Questionnaire tool](https://superadmin3000.herokuapp.com)
-- [Kokoushuoneiden varaaminen](https://kokoushuone.cs.helsinki.fi)
+- [Kokoushuoneiden varaaminen](https://reservator.ubikampus.net)
 - [RDM Intro platform](https://rdmintro-frontend-rdm-intro.ext.ocp-prod-0.k8s.it.helsinki.fi/)
