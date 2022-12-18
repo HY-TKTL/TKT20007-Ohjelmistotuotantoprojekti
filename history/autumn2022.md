@@ -29,4 +29,4 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Vesialueen inventointi-ilmoitus](https://vesialue-front.herokuapp.com/)
 - [Admin application for existing Online Questionnaire tool](https://superadmin3000.herokuapp.com)
 - [Kokoushuoneiden varaaminen](https://reservator.ubikampus.net)
-- [RDM Intro platform](https://rdmintro-frontend-rdm-intro.ext.ocp-prod-0.k8s.it.helsinki.fi/)
+- [RDM Intro platform](https://rdmintro.helsinki.fi/)
