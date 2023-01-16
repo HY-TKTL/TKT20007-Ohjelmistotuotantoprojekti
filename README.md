@@ -12,7 +12,7 @@ Kurssin yleinen kuvaus: [courses.helsinki.fi](https://courses.helsinki.fi/fi/tkt
 
 Demot:
 
-* Välidemo keesäkuun lopussa 
+* Välidemo kesäkuun lopussa 
 * Loppudemo syyskuun alussa
 
 Vertaisarviot:
