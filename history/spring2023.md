@@ -8,15 +8,16 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 
 - [TMC-Coach](https://github.com/tmc-coach/tmc-coach)
 - [Anturidatan_visualisointi](https://github.com/Anturit/Anturidatan_visualisointi)
-- [Cast2023](https://github.com/Cast2023/cast)
+- [Koululentovaraukset](https://github.com/Ohtuprojekti-Fintraffic/lentovaraukset)
 
 
 ### Dokumentaatio
 
 - [TMC-Coach](https://github.com/tmc-coach/tmc-coach/tree/main/documentation)
 - [Anturidatan_visualisointi](https://github.com/Anturit/Anturidatan_visualisointi/tree/main/documentation)
+- [Koululentovaraukset](https://github.com/Ohtuprojekti-Fintraffic/lentovaraukset/wiki)
 - [Cast2023](https://github.com/Cast2023/cast/tree/master/documentation)
  
 ### Tuotantosovellukset
 
-- [ryhmä](linkki)
+- [Koululentovaraukset](https://ohtup-staging.cs.helsinki.fi/lentovaraukset/)
