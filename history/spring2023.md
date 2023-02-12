@@ -12,6 +12,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Koululentovaraukset](https://github.com/Ohtuprojekti-Fintraffic/lentovaraukset)
 - [Revita](https://github.com/UniversityOfHelsinkiCS/mobvita)
 - [TMC-Coach](https://github.com/tmc-coach/tmc-coach)
+- [Origami-TinyML](https://github.com/Origami-TinyML/tflm_hello_world)
 
 ### Dokumentaatio
 
