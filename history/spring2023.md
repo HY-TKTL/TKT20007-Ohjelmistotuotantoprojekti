@@ -13,6 +13,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Revita](https://github.com/UniversityOfHelsinkiCS/mobvita)
 - [TMC-Coach](https://github.com/tmc-coach/tmc-coach)
 - [Origami-TinyML](https://github.com/Origami-TinyML/tflm_hello_world)
+- [Movie-Book Recommender](https://github.com/movie-book-recommender/movie-book-recommender-project)
 
 ### Dokumentaatio
 
@@ -22,9 +23,11 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Cast2023](https://github.com/Cast2023/cast/tree/master/documentation)
 - [Koululentovaraukset](https://github.com/Ohtuprojekti-Fintraffic/lentovaraukset/wiki)
 - [TMC-Coach](https://github.com/tmc-coach/tmc-coach/tree/main/documentation)
+- [Movie-Book Recommender](https://github.com/movie-book-recommender/movie-book-recommender-project/tree/main/Documentation)
 
 ### Tuotantosovellukset
 
 - [Cast2023](https://cast23.lol)
 - [Koululentovaraukset](https://ohtup-staging.cs.helsinki.fi/lentovaraukset/)
 - [Revita](https://revita.cs.helsinki.fi)
+- [Movie-Book Recommender](http://128.214.253.51:5000/)
