@@ -9,16 +9,14 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Anturidatan_visualisointi](https://github.com/Anturit/Anturidatan_visualisointi)
 - [Berry Picker Tracker](https://github.com/marjanpoimijat)
 - [Cast2023](https://github.com/Cast2023/cast)
+- [FarmasiaVR](https://github.com/FarmasiaVR/farmasia-vr)
 - [Koululentovaraukset](https://github.com/Ohtuprojekti-Fintraffic/lentovaraukset)
 - [Movie-Book Recommender](https://github.com/movie-book-recommender/movie-book-recommender-project)
 - [Origami-TinyML](https://github.com/Origami-TinyML/tflm_hello_world)
 - [Revita](https://github.com/UniversityOfHelsinkiCS/mobvita)
 - [TMC-Coach](https://github.com/tmc-coach/tmc-coach)
-- [FarmasiaVR](https://github.com/FarmasiaVR/farmasia-vr)
-
 
 ### Dokumentaatio
-
 
 - [Anturidatan_visualisointi](https://github.com/Anturit/Anturidatan_visualisointi/tree/main/documentation)
 - [Berry Picker Tracker](https://github.com/marjanpoimijat/berry-picker-tracker-docs)
