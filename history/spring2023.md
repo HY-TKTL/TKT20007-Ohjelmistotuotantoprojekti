@@ -10,10 +10,12 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Berry Picker Tracker](https://github.com/marjanpoimijat)
 - [Cast2023](https://github.com/Cast2023/cast)
 - [Koululentovaraukset](https://github.com/Ohtuprojekti-Fintraffic/lentovaraukset)
+- [Movie-Book Recommender](https://github.com/movie-book-recommender/movie-book-recommender-project)
+- [Origami-TinyML](https://github.com/Origami-TinyML/tflm_hello_world)
 - [Revita](https://github.com/UniversityOfHelsinkiCS/mobvita)
 - [TMC-Coach](https://github.com/tmc-coach/tmc-coach)
-- [Origami-TinyML](https://github.com/Origami-TinyML/tflm_hello_world)
-- [Movie-Book Recommender](https://github.com/movie-book-recommender/movie-book-recommender-project)
+
+
 
 ### Dokumentaatio
 
