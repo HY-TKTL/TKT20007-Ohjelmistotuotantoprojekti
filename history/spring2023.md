@@ -14,7 +14,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Origami-TinyML](https://github.com/Origami-TinyML/tflm_hello_world)
 - [Revita](https://github.com/UniversityOfHelsinkiCS/mobvita)
 - [TMC-Coach](https://github.com/tmc-coach/tmc-coach)
-
+- [FarmasiaVR](https://github.com/FarmasiaVR/farmasia-vr)
 
 
 ### Dokumentaatio
