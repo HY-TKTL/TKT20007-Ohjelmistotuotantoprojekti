@@ -9,7 +9,11 @@ Näistä vanhojen ohtuprojektin artefakteista voi ottaa mallia omaa projektia va
 ## Backlog
 
 ### Product backlog
+Ajan kuluessa GitHub Projects on saavuttanut suosiotaan niin product kuin sprint backlogien alustana. Tässä pari esimerkkiä näistä 
+- https://github.com/orgs/Anturit/projects/2/views/1
+- https://github.com/orgs/marjanpoimijat/projects/3
 
+Toinen suosittu alusta backlogeille on ollut Google Sheets. 
 - https://docs.google.com/spreadsheets/d/1a6bmQr5vvjFKoaNGr8-ilExtwjr2A6OBHpKnpp8d45Y/edit#gid=0
 
 ### Sprint backlog
