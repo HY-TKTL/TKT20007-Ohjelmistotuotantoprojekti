@@ -21,6 +21,7 @@ ota mallia [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantopro
 - [Anturidatan_visualisointi](https://github.com/Anturit/Anturidatan_visualisointi/tree/main/documentation)
 - [Berry Picker Tracker](https://github.com/marjanpoimijat/berry-picker-tracker-docs)
 - [Cast2023](https://github.com/Cast2023/cast/tree/master/documentation)
+- [FarmasiaVR](https://github.com/FarmasiaVR/farmasia-vr/tree/dev/Docs)
 - [Koululentovaraukset](https://github.com/Ohtuprojekti-Fintraffic/lentovaraukset/wiki)
 - [TMC-Coach](https://github.com/tmc-coach/tmc-coach/tree/main/documentation)
 - [Movie-Book Recommender](https://github.com/movie-book-recommender/movie-book-recommender-project/tree/main/Documentation)
