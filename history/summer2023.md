@@ -2,7 +2,7 @@
 
 ### Ryhmien repot
 
-- [project name](https://linkhere)
+- [Urheiluseura 3.0](https://github.com/Urheiluseura-3-0)
 
 ### Dokumentaatio
 
