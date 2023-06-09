@@ -4,6 +4,7 @@
 
 - [Urheiluseura 3.0](https://github.com/Urheiluseura-3-0)
 - [Tiny Machine Learning as a Service](https://github.com/orgs/TinyMLaas/repositories)
+- [Improved tools for data scientists](https://github.com/Order-Team/bring-order)
 
 ### Dokumentaatio
 
