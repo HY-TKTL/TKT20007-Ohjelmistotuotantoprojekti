@@ -7,11 +7,9 @@
 
 ### Dokumentaatio
 
-- [project name](https://linkhere)
 - [Tiny Machine Learning as a Service](https://github.com/TinyMLaas/TinyMLaaS/tree/main/docs)
   - [Staging API docs](https://ohtup-staging.cs.helsinki.fi/api-TinyMLaaS/docs)
 
 ### Tuotantosovellukset
 
-- [project name](https://linkhere)
 - [Tiny Machine Learning as a Service](https://ohtup-staging.cs.helsinki.fi/TinyMLaaS/)
