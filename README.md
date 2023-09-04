@@ -46,7 +46,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 - [ ] CI- ja staging-ympäristö mahdollisimman nopeasti pystyyn
 - [ ] Branching-käytännöistä sopiminen
   - Hyvä käytäntö on pitää master-haarassa vain tuotantokelpoista (deployable) koodia. Näin voidaan aina siirtää koodi staging-palvelimelle (ja myöhemmin tuotantoon.)
-  - https://github.com/UniversityOfHelsinkiCS/ohtup-staging voi käyttää staging-ympäristönä
+  - [https://github.com/UniversityOfHelsinkiCS/ohtup-staging](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/README.md#ohtuprojekti-staging) voi käyttää staging-ympäristönä, erityisesti jos asiakas HY:llä
 - [ ] Koodauskäytännöt
   - Sopikaa Definition of Done
   - Pitää olla sellainen, että DoDin kriteerit täyttävä story voitaisiin viedä sellaisenaan tuotantoon!
@@ -78,7 +78,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 
 ### Deployment environments
   - **Staging-ympäristö** mahdollisimman tuotannon kaltainen.
-     - https://github.com/UniversityOfHelsinkiCS/ohtup-staging 
+     - ks [https://github.com/UniversityOfHelsinkiCS/ohtup-staging ](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/README.md#ohtuprojekti-staging)
   - **Tuotantoon!** Tuotos täytyy saada tuotantoon jo projektin aikana, mielellään mahdollisimman nopeasti.
   - **CD** Tuotantoon päivityksen pitää olla [tehokasta ja/tai jatkuvaa](https://puppet.com/blog/continuous-delivery-vs-continuous-deployment-what-s-diff)
   - **Demot stagingista** Asiakkaalle demotaan ainoastaan vain ja ainoastaan staging-palvelimelta, ei omalta koneelta.
