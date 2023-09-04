@@ -155,6 +155,10 @@ Arvioinnissa kiinnitetään huomioita ainakin seuraaviin asioihin
   - Myös muita saleja voi käyttää: esim B221 (yläpaja), BK107 (alapaja), C221, DK108 (haxo)
 - **Sali asiakaspalaverille:** Palaverin voi pitää tiimitilassa tai "neukkarissa". Pyydä tilavaraus Reijo Siveniltä tai kysy ohjaajalta. Myös kirjaston ryhmätyötiloja voi käyttää. Varausohjeet: http://www.helsinki.fi/kirjasto/fi/asioi/tyoskentele-kirjastossa/ryhmatyotilat/
 
+## Ohtuprojekti staging
+
+Staging nykyään Tiken [Openshift](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/README.md)-klusterissa
+
 ## Parhaat käytänteet
 
 Aina ei tarvitse keksiä pyörää uudelleen - katso vinkkejä [täältä](best-practices.md) tai [edellisten ryhmien repoista](history/).
