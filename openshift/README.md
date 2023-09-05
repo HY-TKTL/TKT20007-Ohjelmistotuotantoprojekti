@@ -16,7 +16,7 @@ Tietokantaa voi suorittaa konttialustalla, mutta tätä ei yleensä suositella. 
 
 Konttialustalla toimivan tietokannan pysyväistallentaminen vaati persistent volume claimin käyttöä ks. [ohjeet](https://wiki.helsinki.fi/pages/viewpage.action?pageId=350278065). Projektin `storageClassName` on `pomppa25`. Mallia voi katsoa esimerkkisovelluksista, joille on konfiguroitu pysyväistallennetut Postgres- ja Mongo-tietokannat.
 
-## Tietokantaan yhdistäminen
+### Tietokantaan yhdistäminen
 
 Konttialustan suuntaan avattuihin yliopiston yhteiskäyttökantoihin ei voi yhdistää OpenShiftin ulkopuolelta. Vastaavasti konttialustan sisällä ajettaville tietokannoille ei ole tarvetta luoda klusterin ulkopuolisen yhteyden mahdollistavaa `route`-resurssia.
 
