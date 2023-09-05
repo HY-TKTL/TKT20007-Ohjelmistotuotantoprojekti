@@ -2,12 +2,12 @@
 
 ### Ryhmien repot
 
-- [Robottikoodieditori](https://github.com/linkkitanne](https://github.com/robottikoodieditor)
+- [Robottikoodieditori](https://github.com/linkkitanne](https://github.com/robottikoodieditori)
 
 ### Dokumentaatio
 
-- [Robottikoodieditori](https://github.com/linkkitanne](https://github.com/robottikoodieditor)
-- 
+- [Robottikoodieditori](https://github.com/linkkitanne](https://github.com/robottikoodieditori)
+  
 ### Tuotantosovellukset
 
-- [Robottikoodieditori](https://github.com/linkkitanne](https://github.com/robottikoodieditor)
+- [Robottikoodieditori](https://github.com/linkkitanne](https://github.com/robottikoodieditori)
