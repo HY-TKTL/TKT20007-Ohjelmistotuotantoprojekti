@@ -6,6 +6,7 @@
 - [Training Hub](https://github.com/ohtutraininghub/traininghub)
 - [Ilmastokompassi](https://github.com/Ilmastokompassi/Ilmastokompassi)
 - [ILMOWEB](https://github.com/ILMOWEB/ilmo)
+- [SAT-STEP](https://github.com/SAT-STEP/SAT-STEP)
 
 ### Dokumentaatio
 
@@ -13,6 +14,7 @@
 - [Training Hub](https://github.com/ohtutraininghub/traininghub)
 - [Ilmastokompassi](https://github.com/Ilmastokompassi/Ilmastokompassi)
 - [ILMOWEB](https://github.com/ILMOWEB/ilmo/tree/main/documentation)
+- [SAT-STEP](https://github.com/SAT-STEP/SAT-STEP)
 
 ### Tuotantosovellukset
 
