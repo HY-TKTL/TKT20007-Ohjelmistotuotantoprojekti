@@ -4,11 +4,13 @@
 
 - [Robottikoodieditori](https://github.com/robottikoodieditori)
 - [Training Hub](https://github.com/ohtutraininghub/traininghub)
+- [Ilmastokompassi](https://github.com/Ilmastokompassi/Ilmastokompassi)
 
 ### Dokumentaatio
 
 - [Robottikoodieditori](https://github.com/robottikoodieditori)
 - [Training Hub](https://github.com/ohtutraininghub/traininghub)
+- [Ilmastokompassi](https://github.com/Ilmastokompassi/Ilmastokompassi)
 
 ### Tuotantosovellukset
 
