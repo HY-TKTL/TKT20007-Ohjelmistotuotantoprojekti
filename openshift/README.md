@@ -36,3 +36,9 @@ OpenShiftin verkkokonsolin avulla voi helposti lisätä konttirekisteristä löy
 Administrator-näkymässä -> Builds -> ImageStreams, muokkaa luotua `imageStream`-resurssia asettamalla `importPolicy` arvoksi `scheduled: true`. Tämän jälkeen OpenShift hakee 15 minuutin välein konttirekisteristä uudet julkaisut.
 
 Esimerkkisovelluksille on konfiguroitu Github Actions ja quay.io pohjainen julkaisuputki konttialustalle ks. [esimerkki](https://github.com/UniversityOfHelsinkiCS/shibboleth-postgres-example/blob/main/.github/workflows/staging.yaml).
+
+## Resurssirajat
+
+Kun sovellus on lisätty OpenShiftiin aseta resurssirajat Topology-näkymässä painamalla sovelluksen podin kohdalla hiiren oikealla näppäimellä -> Edit resource limits. Podin Observe-tabista näkee nykyisen CPU:n ja RAM:in käytön, joita kannattaa käyttää hyödyksi rajoja asettaessa.
+
+Klusteri priorisoi sovelluksia, joille on asetettu resurssirajat. Jos resursseista on pulaa, niin ilman rajojen asettamista sovellus ei välttämättä edes käynnisty.
