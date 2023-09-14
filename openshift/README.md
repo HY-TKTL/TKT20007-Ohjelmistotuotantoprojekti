@@ -37,7 +37,7 @@ Administrator-näkymässä -> Builds -> ImageStreams, muokkaa luotua `imageStrea
 
 Esimerkkisovelluksille on konfiguroitu Github Actions ja quay.io pohjainen julkaisuputki konttialustalle ks. [esimerkki](https://github.com/UniversityOfHelsinkiCS/shibboleth-postgres-example/blob/main/.github/workflows/staging.yaml).
 
-## Resurssirajat
+### Resurssirajat
 
 Kun sovellus on lisätty OpenShiftiin aseta resurssirajat Topology-näkymässä painamalla sovelluksen podin kohdalla hiiren oikealla näppäimellä -> Edit resource limits. Podin Observe-tabista näkee nykyisen CPU:n ja RAM:in käytön, joita kannattaa käyttää hyödyksi rajoja asettaessa.
 
