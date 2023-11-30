@@ -22,29 +22,31 @@ Laita nimeksi mongo, tätä nimeä käytetään tietokantaan yhdistäessä, äl�
 
 ## 3. Luo secretit
 
-Mene kohtaan `Developer` -> `Secrets` -> `Create` -> `Key/value secret`
+Mene kohtaan `Developer` -> `Secrets` -> `Create` -> `Key/value secret`.
 
 Luo secretit:
 
-- `MONGO_INITDB_DATABASE`: admin
+- `MONGO_INITDB_DATABASE`: <tietokannan_nimi>
 - `MONGO_INITDB_ROOT_PASSWORD`: <tähän joku vahva salasana, älä kuitenkaan käytä erikoismerkkejä>
 - `MONGO_INITDB_ROOT_USERNAME`: root
 
-Paina `Save`, sen jälkeen `Add Secret to workload` ja valitse mongo
+Paina `Save`, sen jälkeen `Add Secret to workload` ja valitse mongo.
 
 Käynnistä mongo podi uudestaan, jotta secretit tulevat voimaan.
+
+Podi voidaan käynnistää uudestaan painamalla alanuolta ja sen jälkeen ylänuolta podin `Details` näkymästä.
 
 Tässä vaiheessa voit laittaa sovelluksen tietokantaosoitteeksi:
 
 ```bash
-mongodb://root:<salasana>@<podin_nimi>/admin
+mongodb://root:<salasana>@<podin_nimi>/<tietokannan_nimi>?authSource=admin
 ```
 
 Käynnistä sovelluksesi uudestaan, tietokantayhteyden pitäisi toimia nyt. Sovelluksessa ei kuitenkaan vielä tässä vaiheessa ole määritelty pysyväistallennusta, eli tietokannan tiedot häviävät, jos käynnistät tietokannan uudelleen.
 
 ## 4. Ota käyttöön pysyväistallennus
 
-Paina hiiren oikealla näppäimellä mongo podista topology näkymässä ja valitse `Edit Deployment`
+Paina hiiren oikealla näppäimellä mongo podista topology näkymässä ja valitse `Edit Deployment`.
 
 YAML-näkymässä korvaa `volumes` ja `volumeMounts` seuraavilla:
 
