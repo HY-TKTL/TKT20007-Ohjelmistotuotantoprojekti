@@ -13,7 +13,7 @@
 
 - [Robottikoodieditori](https://github.com/robottikoodieditori)
 - [Training Hub](https://github.com/ohtutraininghub/traininghub)
-- [Ilmastokompassi](https://github.com/Ilmastokompassi/Ilmastokompassi)
+- [Ilmastokompassi](https://github.com/Ilmastokompassi/Ilmastokompassi/tree/main/docs)
 - [ILMOWEB](https://github.com/ILMOWEB/ilmo/tree/main/documentation)
 - [SAT-STEP](https://github.com/SAT-STEP/SAT-STEP)
 
@@ -22,3 +22,4 @@
 - [Robottikoodieditori](https://github.com/robottikoodieditori)
 - [Training Hub](https://github.com/ohtutraininghub/traininghub)
 - [ILMOWEB](https://github.com/ILMOWEB/ilmo)
+- [Ilmastokompassi](https://ilmastokompassi.helsinki.fi)
