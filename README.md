@@ -12,8 +12,8 @@ Kurssin yleinen kuvaus: [courses.helsinki.fi]([https://courses.helsinki.fi/fi/tk
 
 Demot:
 
-* Välidemo kesäkuun lopussa 
-* Loppudemo syyskuun alussa
+* Välidemo 1.3. klo 9-12 CK112
+* Loppudemo 3.5. klo 9-12 CK112
 
 Vertaisarviot:
 
