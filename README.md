@@ -126,14 +126,15 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 
 ## Arvosteluperusteet
 
-Arvioinnissa kiinnitetään huomioita ainakin seuraaviin asioihin
+Arvostelu perustuu seuraaviin asioihin
 - Ryhmän sopimien työskentelytapojen noudattaminen
 - Ryhmän työskentelytapojen (=prosessin) kehittäminen
 - Ryhmätyöskentely tai _"tiimipelaus"_
 - Tekninen kontribuutio - koodi tai asiantuntijuus
 - Työtuntien määrä ja tasaisuus sekä merkintöjen asiallisuus
 - Valmistautuminen asiakastapaamisiin ja toiminta asiakaspalaverissa
-- ks. myös kohta projektin tavoite sekä [itseisarvioinnin kysymykset](itseisarvioinnin_kysymykset.md)
+
+Katso tarkemmat kriteerit [arvostelumatriisista](https://docs.google.com/spreadsheets/d/1fMmlOMQDZMRFMCbgGtPuXB1n9w3hXnmotDZO3n_TdUI/edit#gid=428576263)
 
 ## Vinkkejä
 - Töitä kannattaa tehdä mahdollisimman paljon muiden kanssa fyysisesti samassa tilassa.
