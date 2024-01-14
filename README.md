@@ -129,10 +129,10 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 Arvostelu perustuu seuraaviin asioihin
 - Ryhmän sopimien työskentelytapojen noudattaminen
 - Ryhmän työskentelytapojen (=prosessin) kehittäminen
-- Ryhmätyöskentely tai _"tiimipelaus"_
+- Ryhmätyöskentely
 - Tekninen kontribuutio - koodi tai asiantuntijuus
-- Työtuntien määrä ja tasaisuus sekä merkintöjen asiallisuus
 - Valmistautuminen asiakastapaamisiin ja toiminta asiakaspalaverissa
+- Työtuntien määrä ja tasaisuus sekä merkintöjen asiallisuus
 
 Katso tarkemmat kriteerit [arvostelumatriisista](https://docs.google.com/spreadsheets/d/1fMmlOMQDZMRFMCbgGtPuXB1n9w3hXnmotDZO3n_TdUI/edit#gid=428576263)
 
