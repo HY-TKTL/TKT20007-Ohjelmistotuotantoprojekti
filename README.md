@@ -46,7 +46,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 - [ ] CI- ja staging-ympäristö mahdollisimman nopeasti pystyyn
 - [ ] Branching-käytännöistä sopiminen
   - Hyvä käytäntö on pitää master-haarassa vain tuotantokelpoista (deployable) koodia. Näin voidaan aina siirtää koodi staging-palvelimelle (ja myöhemmin tuotantoon.)
-  - [https://github.com/UniversityOfHelsinkiCS/ohtup-staging](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/README.md#ohtuprojekti-staging) voi käyttää staging-ympäristönä, erityisesti jos asiakas HY:llä
+  - Ohtuprojektien [OpenShift-konttialustaa](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/tree/master/openshift) voi käyttää staging-ympäristönä, erityisesti jos asiakas HY:llä
 - [ ] Koodauskäytännöt
   - Sopikaa Definition of Done
   - Pitää olla sellainen, että DoDin kriteerit täyttävä story voitaisiin viedä sellaisenaan tuotantoon!
@@ -78,10 +78,10 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 
 ### Deployment environments
   - **Staging-ympäristö** mahdollisimman tuotannon kaltainen.
-     - ks [https://github.com/UniversityOfHelsinkiCS/ohtup-staging ](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/README.md#ohtuprojekti-staging)
+     - ks [ohtuprojektin OpenShift](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/tree/master/openshift)
   - **Tuotantoon!** Tuotos täytyy saada tuotantoon jo projektin aikana, mielellään mahdollisimman nopeasti.
   - **CD** Tuotantoon päivityksen pitää olla [tehokasta ja/tai jatkuvaa](https://puppet.com/blog/continuous-delivery-vs-continuous-deployment-what-s-diff)
-  - **Demot stagingista** Asiakkaalle demotaan ainoastaan vain ja ainoastaan staging-palvelimelta, ei omalta koneelta.
+  - **Demot stagingista tai tuotannosta** Asiakkaalle demotaan ainoastaan vain ja ainoastaan staging- tai tuotantopalvelimelta, ei omalta koneelta.
 - **Testaus**
   - Automaatiotestauksen pitää olla riittävän kattava ja hyvin toteutettu
   - Kaikkien yksikkötestien ajaminen on hyvä kestää korkeintaan muutaman minuutin. Korkeamman tason testien, kuten UI-testien ajo saa kestää pidempään, eikä niitä tarvitse ajaa yhtä usein.
@@ -143,7 +143,7 @@ Katso tarkemmat kriteerit [arvostelumatriisista](https://docs.google.com/spreads
 - Voi olla hyvä idea hahmotella hyväksymiskriteerit ennen varsinaista asiakastapaamista. Kannattaa kuitenkin jättää hieman pureskeltavaa kriteereihin ennen tapaamista.
 - On hyvä käytäntö pitää agenda näkyvillä asiakastapaamisen aikana, jotta keskustelu saadaan pysymään paremmin aiheessa. Käydään kokouskäytäntöjä tarpeen mukaan läpi yhdessä.
 - [Vinkkejä asiakaspalaveriin](ohjeita-asiakaspalaveriin.md)
-- [ohtuprojektin staging-palvelin](https://github.com/UniversityOfHelsinkiCS/ohtup-staging)
+- [ohtuprojektin OpenShift-konttialusta](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/tree/master/openshift)
 
 ## Roolit
 
@@ -158,7 +158,7 @@ Katso tarkemmat kriteerit [arvostelumatriisista](https://docs.google.com/spreads
 
 ## Ohtuprojekti staging
 
-Staging nykyään Tiken [Openshift](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/README.md)-klusterissa
+Staging nykyään Tiken [OpenShift](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/README.md)-klusterissa
 
 ## Parhaat käytänteet
 

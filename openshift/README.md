@@ -1,6 +1,7 @@
 # OpenShift
 
-Yliopistolla on käytössä OpenShift-konttialusta, jolla voi ajaa projektin testi- sekä tuotantoversioita. Konttialustan wiki-sivut löytyvät [täältä](https://wiki.helsinki.fi/display/SO/Tiken+konttialusta). Ohtuprojektin osallistujilla on käyttöoikeudet konttialustan testipuolen projektiin `ohtuprojekti-staging` osoitteessa [console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi](https://console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi/).
+Yliopistolla on käytössä OpenShift-konttialusta, jolla voi ajaa projektin testi- sekä tuotantoversioita. Konttialustan wiki-sivut löytyvät [täältä](https://wiki.helsinki.fi/display/SO/Tiken+konttialusta). Ohtuprojektin osallistujilla on käyttöoikeudet (sen jälkeen kun ne lisätään, eli jos tarvitsette OpenShiftiä, pyytäkää pääsyä ohjaajaltanne) konttialustan testipuolen projektiin `ohtuprojekti-staging` osoitteessa [console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi](https://console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi/).
+
 
 ## Esimerkkiprojektit
 
