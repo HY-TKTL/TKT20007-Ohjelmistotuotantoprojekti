@@ -53,9 +53,3 @@ OpenShift ei salli tietoturvasyistä konttien ajoa root-oikeuksilla. Suoritusaik
 ```bash
 chgrp root tiedosto && chmod 660 tiedosto
 ```
-
-Dockerfilessa tämän voi tehdä tarvittessa osana `COPY`-komentoa:
-
-```bash
-COPY --chown=:root --chmod=660 tiedosto .
-```
