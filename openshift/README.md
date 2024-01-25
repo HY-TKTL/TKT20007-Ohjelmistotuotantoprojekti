@@ -24,6 +24,7 @@ Konttialustan suuntaan avattuihin yliopiston yhteiskäyttökantoihin ei voi yhdi
 Tietokantoihin on siis yhdistettävä klusterin sisältä käsin. `ohtuprojekti-staging`-projektille on tätä varten konfiguroitu `db-tools` podi, joka sisältää manuaalisten tietokantayhteyksien kannalta tarvittavat työkalut, kuten `psql` ja `mongosh`. Podin sisälle pääsee käyttöliittymän kautta Topology-näkymästä painamalla podia `db-tools` -> View logs -> Terminal.
 
 Tietokantoihin voi yhdistää podin kautta myös komentorivityökalun `oc` avulla esim.
+
 ```bash
 oc exec -it $(oc get pods -l deployment=db-tools -o jsonpath='{.items[0].metadata.name}') -- psql postgres://kayttaja:salasana@possu-test.it.helsinki.fi:5432/tietokanta
 ```
@@ -43,3 +44,18 @@ Esimerkkisovelluksille on konfiguroitu Github Actions ja quay.io pohjainen julka
 Kun sovellus on lisätty OpenShiftiin aseta resurssirajat Topology-näkymässä painamalla sovelluksen podin kohdalla hiiren oikealla näppäimellä -> Edit resource limits. Podin Observe-tabista näkee nykyisen CPU:n ja RAM:in käytön, joita kannattaa käyttää hyödyksi rajoja asettaessa.
 
 Klusteri priorisoi sovelluksia, joille on asetettu resurssirajat. Jos resursseista on pulaa, niin ilman rajojen asettamista sovellus ei välttämättä edes käynnisty.
+
+
+### Käyttöoikeudet
+
+OpenShift ei salli tietoturvasyistä konttien ajoa root-oikeuksilla. Suoritusaikaisen kontin käyttäjän UID on sattumanvarainen ja käyttäjä kuuluu aina root-ryhmään. Näin ollen tiedostoon voi antaa oikeudet esim.
+
+```bash
+chgrp root tiedosto && chmod 660 tiedosto
+```
+
+Dockerfilessa tämän voi tehdä tarvittessa osana `COPY`-komentoa:
+
+```bash
+COPY --chown=:root --chmod=660 tiedosto .
+```

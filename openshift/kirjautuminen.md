@@ -11,7 +11,7 @@ Ohtuprojektien käyttöön on luotu yliopiston kirjautumisen testipuolella toimi
 - [Yliopiston Shibboleth ohjeet](https://wiki.helsinki.fi/display/IAMasioita/Ohjeet+Shibbolointiinhttps://wiki.helsinki.fi/display/IAMasioita/Ohjeet+Shibbolointiin)
 - [Konttialustan Shibboleth ohjeet](https://wiki.helsinki.fi/display/SO/Shibboleth-kirjautuminen+sovelluksellesi)
 
-Shibboleth-kirjautumiseen on mahdollista käyttää valmiiksi OpenShift:iin konfiguroitua instanssia. Riittää, että sovelluksen lisää tähän [Apache-konfiguraatiotiedostoon](https://console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi/k8s/ns/ohtuprojekti-staging/configmaps/httpd-config) ja uudelleenkäynistää Shibbolethin. Tämän jälkeen sovellukseen voi tunnistautua osoitteessa [shibboleth.ext.ocp-test-0.k8s.it.helsinki.fi/osoite](https://shibboleth.ext.ocp-test-0.k8s.it.helsinki.fi/sovellus/). Sovellus sää käyttäjän atribuutit pyyntöjen headereissa.
+Shibboleth-kirjautumiseen on mahdollista käyttää valmiiksi OpenShift:iin konfiguroitua instanssia. Riittää, että sovelluksen lisää tähän [Apache-konfiguraatiotiedostoon](https://console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi/k8s/ns/ohtuprojekti-staging/configmaps/httpd-config) ja uudelleenkäynnistää Shibbolethin. Tämän jälkeen sovellukseen voi tunnistautua osoitteessa [shibboleth.ext.ocp-test-0.k8s.it.helsinki.fi/osoite](https://shibboleth.ext.ocp-test-0.k8s.it.helsinki.fi/sovellus/). Sovellus sää käyttäjän atribuutit pyyntöjen headereissa.
 
 Esimerkkitoteutus ks. [shibboleth-postgres-example](https://github.com/UniversityOfHelsinkiCS/shibboleth-postgres-example/blob/main/src/server/middleware/user.ts).
 
