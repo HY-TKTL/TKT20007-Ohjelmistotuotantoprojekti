@@ -2,6 +2,7 @@
 
 Yliopistolla on käytössä OpenShift-konttialusta, jolla voi ajaa projektin testi- sekä tuotantoversioita. Konttialustan wiki-sivut löytyvät [täältä](https://wiki.helsinki.fi/display/SO/Tiken+konttialusta). Ohtuprojektin osallistujilla on käyttöoikeudet (sen jälkeen kun ne lisätään, eli jos tarvitsette OpenShiftiä, pyytäkää pääsyä ohjaajaltanne) konttialustan testipuolen projektiin `ohtuprojekti-staging` osoitteessa [console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi](https://console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi/).
 
+Usein kysyttyjä kysymyksiä https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/faq.md
 
 ## Esimerkkiprojektit
 
