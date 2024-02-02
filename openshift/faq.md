@@ -19,3 +19,7 @@ jonka jälkeen käyttäjän oikeudet ulottuvat kansion /app alikansioihin ja tie
 ```bash
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 ``` 
+
+## Näin saan konsoliyhteyden klusterilla olevaan tietokantaan
+
+Antin ryhmä kirjoittaa ohjeen
