@@ -2,11 +2,13 @@
 
 ### Ryhmien repot
 
-- [ryhmä](https://github.com/xx)
+- [MammalBase](https://github.com/karilint/mammalbase)
 
 ### Dokumentaatio
 
-- [ryhmä](https://github.com/xx)
+- [MammalBase](https://github.com/karilint/mammalbase/tree/main/documentation)
+
 ### Tuotantosovellukset
 
-- [ryhmä](https://github.com/xx)
+- [MammalBase](https://staging.mammalbase.net/)
+
