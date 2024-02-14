@@ -6,6 +6,7 @@
 - [Klusteri website](https://github.com/matlury/klusteri-website)
 - [game-ai-platform-team](https://github.com/game-ai-platform-team/tira-ai-platform)
 - [Kurssi-Esitieto](https://github.com/Kurssiesitieto/kurssiesitieto-ohtuprojekti)
+- [Kitsain](https://github.com/ohtuprojektiryhma/kitsain)
 
 ### Dokumentaatio
 
@@ -13,8 +14,10 @@
 - [Klusteri website](https://github.com/matlury/klusteri-website)
 - [game-ai-platform-team](https://github.com/game-ai-platform-team/tira-ai-platform/tree/main/docs)
 - [Kurssi-Esitieto](https://github.com/Kurssiesitieto/kurssiesitieto-ohtuprojekti/tree/main/documentation)
+- [Kitsain](https://github.com/ohtuprojektiryhma/kitsain/tree/main/documentation)
 
 ### Tuotantosovellukset
 
 - [MammalBase](https://staging.mammalbase.net/)
 - [game-ai-platform-team](PLACEHOLDER)
+- [Kitsain](PLACEHOLDER)
