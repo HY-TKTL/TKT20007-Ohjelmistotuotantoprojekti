@@ -6,6 +6,7 @@
 - [Klusteri website](https://github.com/matlury/klusteri-website)
 - [game-ai-platform-team](https://github.com/game-ai-platform-team/tira-ai-platform)
 - [Kurssi-Esitieto](https://github.com/Kurssiesitieto/kurssiesitieto-ohtuprojekti)
+- [Training Hub](https://github.com/ohtutraininghub/traininghub)
 
 ### Dokumentaatio
 
@@ -13,6 +14,7 @@
 - [Klusteri website](https://github.com/matlury/klusteri-website)
 - [game-ai-platform-team](https://github.com/game-ai-platform-team/tira-ai-platform/tree/main/docs)
 - [Kurssi-Esitieto](https://github.com/Kurssiesitieto/kurssiesitieto-ohtuprojekti/tree/main/documentation)
+- [Training Hub](https://github.com/ohtutraininghub/traininghub/tree/main/docs)
 
 ### Tuotantosovellukset
 
