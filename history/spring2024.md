@@ -10,6 +10,7 @@
 - [MTK-logistics-optimization](https://github.com/MTK-ohtu/mtk-ohtu)
 - [Palkkatietopalvelu](https://github.com/Palkkatietopalvelu/palkkatietopalvelu)
 - [Training Hub](https://github.com/ohtutraininghub/traininghub)
+- [Ohtuprojektin Ilmoittautumissovellus](https://github.com/Ohtuilmo/ohtuilmo)
 
 ### Dokumentaatio
 
