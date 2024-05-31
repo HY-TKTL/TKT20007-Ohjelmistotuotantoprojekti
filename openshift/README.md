@@ -1,6 +1,6 @@
 # OpenShift
 
-Yliopistolla on käytössä OpenShift-konttialusta, jolla voi ajaa projektin testi- sekä tuotantoversioita. Konttialustan wiki-sivut löytyvät [täältä](https://wiki.helsinki.fi/display/SO/Tiken+konttialusta). Ohtuprojektin osallistujilla on käyttöoikeudet (sen jälkeen kun ne lisätään, eli jos tarvitsette OpenShiftiä, pyytäkää pääsyä ohjaajaltanne) konttialustan testipuolen projektiin `ohtuprojekti-staging` osoitteessa [console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi](https://console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi/).
+Yliopistolla on käytössä OpenShift-konttialusta, jolla voi ajaa projektin testi- sekä tuotantoversioita. Konttialustan wiki-sivut löytyvät [täältä](https://wiki.helsinki.fi/xwiki/bin/view/SO/Sovelluskehitt%C3%A4j%C3%A4n%20ohjeet/Alustat/Tiken%20konttialusta/). Ohtuprojektin osallistujilla on käyttöoikeudet (sen jälkeen kun ne lisätään, eli jos tarvitsette OpenShiftiä, pyytäkää pääsyä ohjaajaltanne) konttialustan testipuolen projektiin `ohtuprojekti-staging` osoitteessa [console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi](https://console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi/).
 
 Usein kysyttyjä kysymyksiä https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/faq.md
 
@@ -12,11 +12,11 @@ Jos on tarve yliopiston kirjautumiselle ks. [kirjautuminen.md](kirjautuminen.md)
 
 ## Tietokannat
 
-- [Konttialustan ohjeet](https://wiki.helsinki.fi/display/SO/Tietokannat)
+- [Konttialustan ohjeet](https://wiki.helsinki.fi/xwiki/bin/view/SO/Sovelluskehitt%C3%A4j%C3%A4n%20ohjeet/Alustat/Tiken%20konttialusta/3%20-%20Ohjeet/Tietokannat/)
 
-Tietokantaa voi suorittaa konttialustalla, mutta tätä ei yleensä suositella. Parempi ratkaisu on tilata Postgres-tietokanta yliopiston yhteiskäyttöklusterille ks. [wiki.helsinki.fi/display/SO/PostgreSQL](https://wiki.helsinki.fi/display/SO/PostgreSQL).
+Tietokantaa voi suorittaa konttialustalla, mutta tätä ei yleensä suositella. Parempi ratkaisu on tilata Postgres-tietokanta yliopiston yhteiskäyttöklusterille ks. [wiki.helsinki.fi/xwiki/bin/view/SO/Sovelluskehittäjän ohjeet/Alustat/Yhteiskäyttöiset tietokannat/PostgreSQL/](https://wiki.helsinki.fi/xwiki/bin/view/SO/Sovelluskehitt%C3%A4j%C3%A4n%20ohjeet/Alustat/Yhteisk%C3%A4ytt%C3%B6iset%20tietokannat/PostgreSQL/).
 
-Konttialustalla toimivan tietokannan pysyväistallentaminen vaati persistent volume claimin käyttöä ks. [ohjeet](https://wiki.helsinki.fi/pages/viewpage.action?pageId=350278065). Projektin `storageClassName` on `pomppa25`. Mallia voi katsoa esimerkkisovelluksista, joille on konfiguroitu pysyväistallennetut Postgres- ja Mongo-tietokannat.
+Konttialustalla toimivan tietokannan pysyväistallentaminen vaati persistent volume claimin käyttöä ks. [ohjeet]([https://wiki.helsinki.fi/pages/viewpage.action?pageId=350278065](https://wiki.helsinki.fi/xwiki/bin/view/SO/Sovelluskehitt%C3%A4j%C3%A4n%20ohjeet/Alustat/Tiken%20konttialusta/3%20-%20Ohjeet/3.8%20Levyn%20k%C3%A4ytt%C3%B6%20Tiken%20OpenShiftiss%C3%A4/)). Projektin `storageClassName` on `pomppa25`. Mallia voi katsoa esimerkkisovelluksista, joille on konfiguroitu pysyväistallennetut Postgres- ja Mongo-tietokannat.
 
 ### Tietokantaan yhdistäminen
 
