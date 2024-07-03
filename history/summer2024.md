@@ -4,9 +4,11 @@
 
 - [Food-Waste-Optimization](https://github.com/Food-Waste-Optimization/Food-Waste-Optimization)
 - [Ruokalaskuri](https://github.com/ohturuokasovellus/OhtuRuokasovellus)
+- [OSRM-reitityksen dynaaminen kulkueste](https://github.com/HY-OHTUPROJ-OSRM)
 
 ### Dokumentaatio
 - [Ruokalaskuri](https://github.com/ohturuokasovellus/OhtuRuokasovellus/tree/main/documentation)
+- [OSRM-reitityksen dynaaminen kulkueste](https://github.com/HY-OHTUPROJ-OSRM/osrm-project/wiki)
 
 ### Tuotantosovellukset
 - [Ruokalaskuri](https://ruokalaskuri.fi)
