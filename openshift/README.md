@@ -4,6 +4,8 @@ Yliopistolla on käytössä OpenShift-konttialusta, jolla voi ajaa projektin tes
 
 Usein kysyttyjä kysymyksiä https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/faq.md
 
+Lue https://devops.pages.helsinki.fi/guides/tike-container-platform/instructions/all-in-one.html
+
 ## Esimerkkiprojektit
 
 OpenShiftiin on konfiguroitu kaksi yliopiston kirjautumista käyttävää esimerkkiprojektia ks. [github.com/UniversityOfHelsinkiCS/shibboleth-postgres-example](https://github.com/UniversityOfHelsinkiCS/shibboleth-postgres-example) sekä [github.com/UniversityOfHelsinkiCS/openid-mongo-example](https://github.com/UniversityOfHelsinkiCS/openid-mongo-example/).

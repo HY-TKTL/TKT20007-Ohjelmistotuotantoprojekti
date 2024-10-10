@@ -144,6 +144,7 @@ Katso tarkemmat kriteerit [arvostelumatriisista](https://docs.google.com/spreads
 - On hyvä käytäntö pitää agenda näkyvillä asiakastapaamisen aikana, jotta keskustelu saadaan pysymään paremmin aiheessa. Käydään kokouskäytäntöjä tarpeen mukaan läpi yhdessä.
 - [Vinkkejä asiakaspalaveriin](ohjeita-asiakaspalaveriin.md)
 - [ohtuprojektin OpenShift-konttialusta](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/tree/master/openshift)
+- Eräs hyväksi havaittu sovellus retrojen pitoon on <https://retrotool.io/>
 
 ## Roolit
 
