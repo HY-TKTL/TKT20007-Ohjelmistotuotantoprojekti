@@ -12,8 +12,10 @@ Kurssin yleinen kuvaus: [courses.helsinki.fi]([https://courses.helsinki.fi/fi/tk
 
 Demot:
 
-* Välidemo 1.3. klo 9-12 CK112
-* Loppudemo 3.5. klo 9-12 CK112
+* Välidemo 19.10. klo 9-12 A111
+* Loppudemo 13.12. klo 9-12 A111
+
+Aloitetaan tasalta ilman akateemista varttia
 
 Vertaisarviot:
 
