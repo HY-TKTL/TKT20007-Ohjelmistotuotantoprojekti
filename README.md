@@ -23,6 +23,18 @@ Vertaisarviot:
 
 [https://study.cs.helsinki.fi/projekti/peerreview](https://study.cs.helsinki.fi/projekti/peerreview) 
 
+## Arvosteluperusteet
+
+Arvostelu perustuu seuraaviin asioihin
+- Ryhmän sopimien työskentelytapojen noudattaminen
+- Ryhmän työskentelytapojen (=prosessin) kehittäminen
+- Ryhmätyöskentely
+- Tekninen kontribuutio - koodi tai asiantuntijuus
+- Valmistautuminen asiakastapaamisiin ja toiminta asiakaspalaverissa
+- Työtuntien määrä ja tasaisuus sekä merkintöjen asiallisuus
+
+Katso tarkemmat kriteerit [arvostelumatriisista](https://docs.google.com/spreadsheets/d/1fMmlOMQDZMRFMCbgGtPuXB1n9w3hXnmotDZO3n_TdUI/edit#gid=428576263)
+
 ## Projektin kulku
 
 - Noudatetaan Scrum-henkistä prosessia.
@@ -125,18 +137,6 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
   - Transparency
   - Inspect & Adapt
 - [Miksi Scrum?](learning-goals-of-software-engineering-lab.md) Kirjoitus ohtuprojektin tavoitteista ja miten scrum auttaa niiden saavuttamisessa.
-
-## Arvosteluperusteet
-
-Arvostelu perustuu seuraaviin asioihin
-- Ryhmän sopimien työskentelytapojen noudattaminen
-- Ryhmän työskentelytapojen (=prosessin) kehittäminen
-- Ryhmätyöskentely
-- Tekninen kontribuutio - koodi tai asiantuntijuus
-- Valmistautuminen asiakastapaamisiin ja toiminta asiakaspalaverissa
-- Työtuntien määrä ja tasaisuus sekä merkintöjen asiallisuus
-
-Katso tarkemmat kriteerit [arvostelumatriisista](https://docs.google.com/spreadsheets/d/1fMmlOMQDZMRFMCbgGtPuXB1n9w3hXnmotDZO3n_TdUI/edit#gid=428576263)
 
 ## Vinkkejä
 - Töitä kannattaa tehdä mahdollisimman paljon muiden kanssa fyysisesti samassa tilassa.
