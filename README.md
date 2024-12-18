@@ -2,7 +2,7 @@
 
 Kurssin yleinen kuvaus: [courses.helsinki.fi]([https://courses.helsinki.fi/fi/tkt20007/](https://studies.helsinki.fi/kurssit/opintojakso/otm-f07aa52f-df4c-4a9a-8e89-d6222b88e2f2/TKT20007))
 
-Ohtuprojekti osallistujan silmin:  [syksyn 2024 NOW-tietokanta -ryhmän [kertomus](https://www.youtube.com/watch?v=yrxqB_y0lMs&t=165s)
+Ohtuprojekti osallistujan silmin: syksyn 2024 NOW-tietokanta-tiimin [kertomus](https://www.youtube.com/watch?v=yrxqB_y0lMs&t=165s)
 
 [Projektien repositorioita](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/tree/master/history)
 
