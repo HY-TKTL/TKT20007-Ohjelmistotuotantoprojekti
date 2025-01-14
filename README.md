@@ -14,8 +14,8 @@ Ohtuprojekti osallistujan silmin: syksyn 2024 NOW-tietokanta-tiimin [kertomus](h
 
 Demot:
 
-* Välidemo 19.10. klo 9-12 A111
-* Loppudemo 13.12. klo 9-12 A111
+* Välidemo pe 28.2. klo 9-12 B123
+* Loppudemo pe 2.5. klo 9-12 A111
 
 Aloitetaan tasalta ilman akateemista varttia
 
