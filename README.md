@@ -123,8 +123,10 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
   - **Roolit** Kiertävä puheenjohtajan roolit. Lisäksi ainakin kirjuri ja demovastaava. 
   * **Muistiinpanot** Asiakastapaamisista tehtävä muistiinpanot. Keskusteltuja asioita ei saa jättää muistin varaan vaan ne tulee kirjata backlogille.
   - [Vinkkejä asiakaspalaveriin](ohjeita-asiakaspalaveriin.md)
-- Retrospektiivit dokumentoitava
+- **Retrospektiivit dokumentoitava**
   - Ohjaajan oltava paikalla jokaisessa retrospektiivissä. Doodlaus tiimin vastuulla.
+- **"Kamerapakko"**
+  - Etäyhteydellä tapahtuvissa asiakastapaamisissa, retrospektiiveissä ja dailyissä on pidettävä kamera päällä.
 
 ## Projektin tavoite
 
