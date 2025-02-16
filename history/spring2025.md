@@ -7,3 +7,4 @@
 - [Farmasia VR](https://github.com/FarmasiaVR/farmasia-vr)
 - [Elisa-ohtuprojekti](https://github.com/ohtuprojekti-Elisa/elisaohtuprojekti)
 - [Library App for Eficode](https://github.com/tuulestatemmattu/libraryapp)
+- [Ruokavälitys (RV) management frontend](https://github.com/Ruokavalitys/rv-management-update-frontend)
