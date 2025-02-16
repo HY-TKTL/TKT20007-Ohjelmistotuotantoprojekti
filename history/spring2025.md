@@ -7,3 +7,4 @@
 - [Farmasia VR](https://github.com/FarmasiaVR/farmasia-vr)
 - [Elisa-ohtuprojekti](https://github.com/ohtuprojekti-Elisa/elisaohtuprojekti)
 - [Library App for Eficode](https://github.com/tuulestatemmattu/libraryapp)
+- [AI CTO](https://github.com/AI-CTO/AI-CTO)
