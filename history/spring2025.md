@@ -11,3 +11,4 @@
 - [German Grammar Interactive Learning and Exercising Website](https://github.com/OHTU-German-learning-website/OHTU-German-learning-website)
 - [AI CTO](https://github.com/AI-CTO/AI-CTO)
 - [Megasense ERP](https://github.com/ohtu-megasense/erp)
+- [Future Customer](https://github.com/ohtu-kohtalo/ohjelmistotuotantoprojekti)
