@@ -93,6 +93,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 - **GitHub** Ohjaajan päästävä näkemään lähdekoodi ja commitit
 
 ### Deployment environments
+
   - **Staging-ympäristö** mahdollisimman tuotannon kaltainen.
      - ks [ohtuprojektin OpenShift](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/tree/master/openshift)
   - **Tuotantoon!** Tuotos täytyy saada tuotantoon jo projektin aikana, mielellään mahdollisimman nopeasti.
@@ -104,13 +105,18 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
   - Erittäin tärkeä konsepti on ns. testipyramidi http://martinfowler.com/bliki/TestPyramid.html. Parin minuutin lukeminen voi säästää kymmeniä tunteja aikaa.
   - Testikoodin laatu tulee mielellän olla yhtä hyvää kuin muunkin koodin.
 
-### Sekalaisia vaatimuksia
+### Työtunnit
 
 - **Tuntikirjapito** Kurssin aikana seurataan tuntimääriä. Työtunneiksi lasketaan myös tapaamiset, esim. tiimin kanssa yhdessä lounastamiset ja itseopiskelu.
-  - Kirjaukset oltava kunnossa su 23:59 sekä sprintin vaihtuessa - mielummin päivittäin.
-- **Commit esiin** Varmista että committisi näkyvät GitHubissa oikein. Ks. [ohje](https://github.com/mluukkai/ohjelmistotuotanto2018/wiki/miniprojektin-arvosteluperusteet#commitit-kadoksissa)
-- **Kurssi = 200h** Vaatimuksena noin 200 tuntia työtä koko kurssin aikana, mikä on noin 15-16 tuntia viikossa.
+  - Kirjaukset tehdään [timelogs](https://study.cs.helsinki.fi/projekti/timelogs) -palvelussa kuluvan sprintin aikana - mieluiten päivittäin.
+  - Lähtökohtaisesti *työtunteja ei voi merkitä edelliselle sprintille*, vaan ne jää silloin merkitsemättä.
+  - Huomaathan, että sprintti vaihtuu tasan kello 0:00.
 - **Tasaisuus** Ehdottomana vaatimuksena työmäärien tasaisuus viikkotasolla, eli tuntimäärän kuuluu olla viikosta toiseen suunnilleen sama. Sairastumiset yms. neuvoteltava poikkeus. Ilmoita reilusti etukäteen jos tiedät, että osallistumisesi viikon töihin estyy jollain tapaa.
+- **Kurssi = 200h** Vaatimuksena noin 200 tuntia työtä koko kurssin aikana, mikä on noin 15-16 tuntia viikossa.
+
+### Sekalaisia vaatimuksia
+
+- **Commit esiin** Varmista että committisi näkyvät GitHubissa oikein. Ks. [ohje](https://github.com/mluukkai/ohjelmistotuotanto2018/wiki/miniprojektin-arvosteluperusteet#commitit-kadoksissa)
 - **Kunnioita** kanssaopiskelijoitasi, kyseessä ei ole yksilökurssi. 
   - Käyttäydy samojen standardien mukaan kuin olisit töissä.
   - Sovittuihin yhteisiin tapaamisiin pitää tulla. Myöhästymisistä, esteistä yms. pitää ilmoittaa ajoissa.
