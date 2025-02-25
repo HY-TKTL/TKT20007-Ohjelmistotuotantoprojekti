@@ -107,7 +107,8 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 ### Sekalaisia vaatimuksia
 
 - **Tuntikirjapito** Kurssin aikana seurataan tuntimääriä. Työtunneiksi lasketaan myös tapaamiset, esim. tiimin kanssa yhdessä lounastamiset ja itseopiskelu.
-  - Kirjaukset oltava kunnossa su 23:59 sekä sprintin vaihtuessa - mielummin päivittäin.
+  - Kirjaukset tehdään [timelogs](https://study.cs.helsinki.fi/projekti/timelogs) palvelussa kuluvan sprintin aikana - mieluiten päivittäin.
+  - Lähtökohtaisesti *työtunteja ei voi merkitä edelliselle sprintille*, vaan ne jää silloin merkitsemättä.
 - **Commit esiin** Varmista että committisi näkyvät GitHubissa oikein. Ks. [ohje](https://github.com/mluukkai/ohjelmistotuotanto2018/wiki/miniprojektin-arvosteluperusteet#commitit-kadoksissa)
 - **Kurssi = 200h** Vaatimuksena noin 200 tuntia työtä koko kurssin aikana, mikä on noin 15-16 tuntia viikossa.
 - **Tasaisuus** Ehdottomana vaatimuksena työmäärien tasaisuus viikkotasolla, eli tuntimäärän kuuluu olla viikosta toiseen suunnilleen sama. Sairastumiset yms. neuvoteltava poikkeus. Ilmoita reilusti etukäteen jos tiedät, että osallistumisesi viikon töihin estyy jollain tapaa.
