@@ -32,6 +32,8 @@ Tietokantoihin voi yhdistää podin kautta myös komentorivityökalun `oc` avull
 oc exec -it $(oc get pods -l deployment=db-tools -o jsonpath='{.items[0].metadata.name}') -- psql postgres://kayttaja:salasana@possu-test.it.helsinki.fi:5432/tietokanta
 ```
 
+Tämä edellyttää, että olet Eduroamissa ja kirjautunut klusteriin, ks lisää Tiken [konttialustaohjeesta](https://wiki.helsinki.fi/xwiki/bin/view/SO/Sovelluskehitt%C3%A4j%C3%A4n%20ohjeet/Alustat/Tiken%20konttialusta/).
+
 ## Sovelluksen julkaisu
 
 OpenShiftiin voi julkaista sovelluksia monella tavalla. Suositeltu ratkaisu on julkaista sovellus konttina johonkin konttirekisteriin, kuten [quay.io](https://quay.io/) tai [Docker Hub](https://hub.docker.com/). Uuden version sovelluksesta voi puskea rekisteriin automaattisesti esimerkiksi GitHub Actions:in avulla.
