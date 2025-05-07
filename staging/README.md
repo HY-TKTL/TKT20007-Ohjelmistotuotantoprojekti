@@ -18,13 +18,12 @@ Käytämmekin klusteria komentoriviltä `oc`-komennon avulla. `oc` toimii samoin
 
 Oletetaan, että oc asennettu ja ollaan Eduroamissa tai HY:n vpn:ssä. Protip konfaa [tabcomplete](https://docs.redhat.com/en/documentation/openshift_container_platform/4.9/html/cli_tools/openshift-cli-oc#cli-enabling-tab-completion).
 
-Kirjaudu
+Kirjaudu klusterille. Kirjatuminen onnistuu esim...
 
-![Openshift Login](https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k1.png?raw=true)
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k1.png?raw=true" height="280">
+
 
 ### Pod ja deployment
-
-### Podit Openshiftissä
 
 Openshiftissa sovelluksen paketoinnin perusyksikkö on [podi](https://kubernetes.io/docs/concepts/workloads/pods/) (engl. pod). Podit ovat Kubernetes-ympäristön perusyksiköitä, ja ne sisältävät yleensä yhden Docker-imagen. Joissain tilanteissa podissa voi olla useita imageja, mutta tämä on yleensä mielekästä vain, jos imaget ovat tiiviisti yhteydessä toisiinsa, esimerkiksi jakamalla verkkoyhteyden tai tallennustilan.
 
@@ -262,7 +261,8 @@ Forwarding from 127.0.0.1:8080 -> 3000
 
 Nyt pääsemme sovellukseen käsiksi selaimella portista 8080:
 
-![Openshift Login](https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k2.png?raw=true)
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k2.png?raw=true" height="280">
+
 
 Portinohjaus voidaan tehdä myös suoraan yksittäiseen podiin:
 
@@ -302,7 +302,7 @@ Namespace on tässä tapauksessa _toska-playground_, se vastaa OpenShift-projekt
 
 Sovellus toimii nyt koko maailmalle osoitteessa https://demoapp-toska-playground.apps.ocp-test-0.k8s.it.helsinki.fi/
 
-![Openshift Login](https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k3.png?raw=true)
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k3.png?raw=true" height="280">
 
 ### Image stream
 
@@ -345,7 +345,9 @@ spec:
         type: Local
 ```
 
-Otetaan imagestreami käyttöön ja tarkistetaan vielä miltä se näyttää
+Tämä määrittelee imagestreamin nimeltään _demoapp_, ja sille tägin _staging_, mihin viitataan esim. deploymenteissa nimellä `demoapp:staging`.
+
+Luodaan imagestream ja tarkistetaan vielä miltä se näyttää
 
 ```
 $ oc apply -f manifests/imagestream.yaml
@@ -355,16 +357,48 @@ NAME      IMAGE REPOSITORY                                                      
 demoapp   registry.apps.ocp-test-0.k8s.it.helsinki.fi/toska-playground/demoapp   staging   4 seconds ag
 ```
 
-Suorittamalla komennon `oc describe imagestream demoapp` näemme imagestreamin viittaaman imagen tarkemman sha-tunnisteen, ja huomaamme että se on sama minkä GitHub Action pushasi Dockerhubiin:
-
-![Openshift Login](https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k4.png?raw=true)
-
 Voimme nyt ottaa image streamin määrittelemän imagen käyttöön muokkaamalla deploymentia seuraavasti
 
 ```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: "*"
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"demoapp:staging","namespace":"toska-playground"},"fieldPath":"spec.template.spec.containers[?(@.name==\"demoapp\")].image","pause":"false"}]
+  name: demoapp-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demoapp
+  template:
+    metadata:
+      labels:
+        app: demoapp
+    spec:
+      containers:
+        - name: demoapp
+          image: demoapp:staging
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DB_URL
+              value: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true       
 ```
 
+Uutta tässä on avaimen `meta/annotations` lisätyt määreet, jotka saavat deploymentin seuraamaan image streamissa tapahtuvia muutoksia. Toinen muutos on kontainerin `image`, joka arvo on nyt `demoapp:staging`
+
+
+Image steram päivttyy 15 min välein, eli jos pushaamme sovelluksesta uuden version Dockerhubiin, kestää korkeintaan 15 minuuttia, ennen kuin klusterilla oleva imagestream päivittyy, ja sovelluksen uusi versio käynnistyy.
+
+Jos tarve nopeampaan päivitykseen, voidaan antaa komento `oc import-image demoapp:staging` joka päivittää imagestreamin välittömästi.
+
 ### Konfiguraatiot
+
+siirretään env config mapiin
 
 ### Tietokannan hankkiminen
 
@@ -372,4 +406,8 @@ Voimme nyt ottaa image streamin määrittelemän imagen käyttöön muokkaamalla
 
 avaa possu
 
-kubectl run -it --rm postgres-client --image=postgres:latest sh
+`kubectl run -it --rm postgres-client --image=postgres:latest sh`
+
+Komento `oc get imagestream demoapp`
+
+### HY login
