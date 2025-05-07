@@ -20,7 +20,7 @@ Oletetaan, että oc asennettu ja ollaan Eduroamissa tai HY:n vpn:ssä. Protip ko
 
 Kirjaudu
 
-![Openshift Login](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/staging/images/k1.ong)
+![Openshift Login](https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k1.ong)
 
 ### Pod ja deployment
 
@@ -262,7 +262,7 @@ Forwarding from 127.0.0.1:8080 -> 3000
 
 Nyt pääsemme sovellukseen käsiksi selaimella portista 8080:
 
-![Openshift Login](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/staging/images/k2.ong)
+![Openshift Login](https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k2.ong)
 
 Portinohjaus voidaan tehdä myös suoraan yksittäiseen podiin:
 
@@ -302,7 +302,7 @@ Namespace on tässä tapauksessa _toska-playground_, se vastaa OpenShift-projekt
 
 Sovellus toimii nyt koko maailmalle osoitteessa https://demoapp-toska-playground.apps.ocp-test-0.k8s.it.helsinki.fi/
 
-![Openshift Login](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/staging/images/k3.ong)
+![Openshift Login](https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k3.ong)
 
 ### Image stream
 
@@ -357,7 +357,7 @@ demoapp   registry.apps.ocp-test-0.k8s.it.helsinki.fi/toska-playground/demoapp  
 
 Suorittamalla komennon `oc describe imagestream demoapp` näemme imagestreamin viittaaman imagen tarkemman sha-tunnisteen, ja huomaamme että se on sama minkä GitHub Action pushasi Dockerhubiin:
 
-![Openshift Login](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/staging/images/k4.ong)
+![Openshift Login](https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k4.ong)
 
 Voimme nyt ottaa image streamin määrittelemän imagen käyttöön muokkaamalla deploymentia seuraavasti
 
