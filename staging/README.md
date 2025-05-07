@@ -4,19 +4,21 @@ Tämä ohje olettaa, että käyttäjä hallitsee jossain määrin Dockeria, yhde
 
 ### Esimerkkisovellus
 
-Seuraavassa asennetaan yliopiston [OpenShift-klusteriin](https://devops.pages.helsinki.fi/guides/platforms/tike-container-platform.html) Reactilla ja NodeJS:llä toteutettu SPA-sovellus, jonka koodi löytyy [GitHubista](https://github.com/mluukkai/openshift-demo).
+Seuraavassa asennetaan yliopiston tietotekniikkakeskuksen OpenShift-klusteriin Reactilla ja NodeJS:llä toteutettu SPA-sovellus, jonka koodi löytyy [GitHubista](https://github.com/mluukkai/openshift-demo).
 
 Sovellus on hyvin yksinkertainen laskuri. Laskurin arvo on talletettu Postgres-tietokantaan, johon backend on yhteydessä [Sequelize](https://sequelize.org/)-kirjaston avulla. Frontend sisältää napit laskurin kasvattamiseen sekä nollaamiseen.
 
 Projektiin on määritelty GitHub Action -workflow, joka luo projektista Docker-imagen ja pushaa sen Dockerhubiin. Sama image sisältää sekä backendin, että frontendin.
 
-### Openshift
+### OpenShift
 
-Käytössämme on Tietotekniikkakeskuksen OpenShift-klusteri. OpenShift on Kubernetes-klusteri tietyin lisämaustein. On suositeltavaa pitäytyä määrittelyissä mahdollisimman "puhtaassa" Kuberneteksessa, ja näin tulemme seuraavassakin tekemään. OpenShift sisältää mm. graafisen käyttöliittymän jonka kautta konfiguraatioita on mahdollista tehdä, mutta se **ei ole suositeltua** sillä näin päädytään usein hallitsemattoman epämääräisiin konfiguraatioihin.
+Käytössämme on Tietotekniikkakeskuksen [OpenShift](https://devops.pages.helsinki.fi/guides/platforms/tike-container-platform.html)-klusteri. OpenShift on Kubernetes-klusteri tietyin lisämaustein. On suositeltavaa pitäytyä määrittelyissä mahdollisimman "puhtaassa" Kuberneteksessa, ja näin tulemme seuraavassakin tekemään. OpenShift sisältää mm. graafisen käyttöliittymän jonka kautta konfiguraatioita on mahdollista tehdä, mutta se **ei ole suositeltua** sillä näin päädytään usein hallitsemattoman epämääräisiin konfiguraatioihin.
 
-Käytämmekin klusteria komentoriviltä `oc`-komennon avulla. `oc` toimii samoin kun Kubernetesin `kubectl`, mutta se sisältää muutamia OpenShift-spesifejä komentoja. Komennon `kubectl` käyttö voi olla järkevämpää niissä tapauksissa kun se riittää (eli melkein aina) sillä ko
+Käytämmekin klusteria komentoriviltä `oc`-komennon avulla. `oc` toimii samoin kun Kubernetesin `kubectl`, mutta se sisältää muutamia OpenShift-spesifejä komentoja.
 
-Oletetaan, että oc asennettu ja ollaan Eduroamissa tai HY:n vpn:ssä. Protip konfaa [tabcomplete](https://docs.redhat.com/en/documentation/openshift_container_platform/4.9/html/cli_tools/openshift-cli-oc#cli-enabling-tab-completion).
+Asenna nyt koneellesi `oc` [tämän ohjeen](https://devops.pages.helsinki.fi/guides/platforms/tike-container-platform.html#openshift-client) mukaan. Kannattaa myös ehdottomasti konfiguroida [tabulaattoritäydennys](https://docs.redhat.com/en/documentation/openshift_container_platform/4.9/html/cli_tools/openshift-cli-oc#cli-enabling-tab-completion).
+
+Oletetaan nyt, että `oc` asennettu ja ollaan Eduroamissa tai HY:n vpn:ssä. 
 
 Kirjaudu klusterille suorittamalla komento `oc login -u <username> https://api.ocp-test-0.k8s.it.helsinki.fi:6443`.
 
