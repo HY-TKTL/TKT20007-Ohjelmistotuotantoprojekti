@@ -20,7 +20,7 @@ Oletetaan, että oc asennettu ja ollaan Eduroamissa tai HY:n vpn:ssä. Protip ko
 
 Kirjaudu klusterille. Kirjatuminen onnistuu esim...
 
-<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k1.png?raw=true" width="280">
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k1.png?raw=true" width="600">
 
 
 ### Pod ja deployment
@@ -261,7 +261,7 @@ Forwarding from 127.0.0.1:8080 -> 3000
 
 Nyt pääsemme sovellukseen käsiksi selaimella portista 8080:
 
-<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k2.png?raw=true" width="280">
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k2.png?raw=true" width="600">
 
 
 Portinohjaus voidaan tehdä myös suoraan yksittäiseen podiin:
@@ -302,7 +302,7 @@ Namespace on tässä tapauksessa _toska-playground_, se vastaa OpenShift-projekt
 
 Sovellus toimii nyt koko maailmalle osoitteessa https://demoapp-toska-playground.apps.ocp-test-0.k8s.it.helsinki.fi/
 
-<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k3.png?raw=true" width="280">
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k3.png?raw=true" width="600">
 
 ### Image stream
 
