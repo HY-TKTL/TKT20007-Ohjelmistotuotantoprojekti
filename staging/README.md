@@ -249,9 +249,128 @@ postgres-client               1/1     Running   0          16h
 
 Kun podiin otetaan yhteyttä servicen osoitteen kautta, yhdistää service pyynnön yhdelle podeista [round robin](https://en.wikipedia.org/wiki/Round-robin_scheduling) -periaateella.
 
-### Näkyvyys klusterin ulkopuolelle 
+### Näkyvyys klusterin ulkopuolelle
 
-### Imagestream
+Sovelluksemme on muuten oikein hyvä, mutta emme pääse käyttämään sitä klusterin ulkopuolelta. Kubernetes tarjoaa muutamia ratkaisuja liikenteen klusteriin ohjaamiseksi.
+
+Debuggaustarkoituksiin kätevä ratkaisu on komenot [port-forward](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_port-forward/), joka ohjaa jonkun paikallisen koneen portin klusterin sisälle.
+
+Voimme tehdä portinohjauksen palveluun seuraavasti
+
+```
+$ oc port-forward svc/demoapp-svc 8080:80
+Forwarding from 127.0.0.1:8080 -> 3000
+```
+
+Nyt pääsemme sovellukseen käsiksi selaimella portista 8080:
+
+```markdown
+![Openshift Login](images/k2.ong)
+```
+
+Portinohjaus voidaan tehdä myös suoraan yksittäiseen podiin:
+
+```
+$ oc port-forward demoapp-dep-5bb7578b6-2xljw  8080:3000
+```
+
+Portinohjaus sopii hyvin debuggaukseen, esim. sen tarkastamiseen että sovellus toimii kokonaisuudessaan.
+
+Tarvitsemme kuitenkin todelliseen käyttöön jotain muuta. Kubernetes tarjoaa tähän kaksi ratkaisua Ingressin ja uudemman Gateway API:n, molemia käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/). OpenShiftissä joudumme kuitenkin käyttämään OpenShit-spesifiä ratkaisua [Routea](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/networking/configuring-routes#route-configuration).
+
+Tehdään seuraava määrittely tiedostoon `manifests/route.yaml`
+
+```
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: demoapp-route
+  namespace: toska-playground
+  labels:
+    app: demoapp
+    type: external
+spec:
+  host: demoapp-toska-playground.apps.ocp-test-0.k8s.it.helsinki.fi 
+  port:
+    targetPort: 3000 
+  to:
+    kind: Service
+    name: demoapp-svc
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
+```
+
+Namespace on tässä tapauksessa _toska-playground_, se vastaa OpenShift-projektin nimeä, ohtuprojekteilla se on _ohtuprojekti-staging_. Host-nimen pitää olla yliopistotaolla uniikki, sopiva nimi on esim. sovelluksen nimi ja sen perässä namespacen nimi. spec/to määrittelee reitityksen kohteena olevan palvelun. Kohdeportiksi pitää määritellä servicen takana olevan podin portti, ei siis servicen portti (joka oli tapauksessamme 80), sericen sisäistä porttia käytetään tapauksessamme klusterin sisäisessä kommunikoinnissa.
+
+Sovellus toimii nyt koko maailmalle osoitteessa https://demoapp-toska-playground.apps.ocp-test-0.k8s.it.helsinki.fi/
+
+```markdown
+![Openshift Login](images/k3.ong)
+```
+
+### Image stream
+
+Sovelluksessamme on nyt eräs hieman ikävä puoli. Jos haluamme käynnistää uuden version, tulee luoda Docker-image jolla on uusi tagi, esim mluukkai/demoapp:2 ja deploymentia on muutettava siten, että se viittaa muuttuneeseen tagiin.
+
+OpenShift tarjoaa [image steream](https://docs.redhat.com/en/documentation/openshift_container_platform/4.8/html/images/managing-image-streams) -nimisen resurssin, jonka ansiosta deploymentin om mahdollista viitata koko ajan samaan tagiin, ja taustalla olevan imagen päivitys otetaan tästä huolimatta huomioon.
+
+Muutetaan Dockerhubiin pushattavan imagen tagiksi _mluukkai/demoapp:staging_:
+
+```
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/demoapp:staging
+```
+
+Luodaan nyt määrittely tiedostoon _imagesteram.yaml_:
+
+```
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+
+metadata:
+  name: demoapp
+  labels:
+    app: demoapp
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - name: staging
+      from:
+        kind: DockerImage
+        name: mluukkai/demoapp:staging
+      importPolicy:
+        scheduled: true
+      referencePolicy:
+        type: Local
+```
+
+Otetaan imagestreami käyttöön ja tarkistetaan vielä miltä se näyttää
+
+```
+$ oc apply -f manifests/imagestream.yaml
+imagestream.image.openshift.io/demoapp created
+$ oc get imagestream
+NAME      IMAGE REPOSITORY                                                       TAGS      UPDATED
+demoapp   registry.apps.ocp-test-0.k8s.it.helsinki.fi/toska-playground/demoapp   staging   4 seconds ag
+```
+
+Suorittamalla komennon `oc describe imagestream demoapp` näemme imagestreamin viittaaman imagen tarkemman sha-tunnisteen, ja huomaamme että se on sama minkä GitHub Action pushasi Dockerhubiin:
+
+```markdown
+![Openshift Login](images/k4.ong)
+```
+
+Voimme nyt ottaa image streamin määrittelemän imagen käyttöön muokkaamalla deploymentia seuraavasti
+
+```
+```
 
 ### Konfiguraatiot
 
