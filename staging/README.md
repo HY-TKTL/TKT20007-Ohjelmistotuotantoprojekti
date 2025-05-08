@@ -71,7 +71,7 @@ spec:
             - containerPort: 3000
           env:
            - name: DB_URL
-            value: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true
+             value: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true
 ```
 
 Avaimen `spec` arvona määritellään deploymentin hallitseman podin (tai podien jos `replicas` on suurempi kuin 1) kontit. Tapauksessamme on yksi kontti, jonka käyttämä image on `mluukkai/demoapp:1`. Kontille on annettu sen käyttämä tietokantaosoite määrittelemällä ympäristömuuttuja `DB_URL`.
@@ -195,11 +195,24 @@ Sovellus näyttää toimivan!
 
 ### yaml vs imperatiiviset komennot
 
-...
+Veimme sovelluksen tuotantoon määrittelemällä yaml-tiedoston ja antamalla komennon 
+`oc apply -f manifests/deployment.yaml`
+
+Curl-podi taas käynnistettiin seuraavasti
+
+```
+$ oc run curlimage --image=curlimages/curl --restart=Never --command -- sleep infinity
+```
+
+Mistä on kyse? Ensimmäinen tapa, missä käytettiin yamlia on ns. [deklaratiivinen](https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#declarative-object-configuration) konfigurointitapa, joka on jossain määrin ehkä haastavampi, mutta ehdottomasti suositeltava tapa. Etuna on mm. se, että konfiguraatiot on mahdollista tallettaa versionhallintaan.
+
+Jälkimäinen komento `oc run  ...` taas edustaa [imperatiivistä](https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#imperative-object-configuration) tyyliä Kubernetes-objektien luomiseen. Imperatiivisen tyylin ongelma on se, että klusterin tila ei pysy samalla tavalla hallittavasti näkyvillä kuin vaikkapa versionhallintaan tallennetuissa yaml-manifesteissä. Imperatiivista tyyliä kanattaa käyttää lähinnä yksinkertaisiin tilanteisiin, mm. esimerkkimme tapaan debugatessa.
+
+Käytettäköön siis deklaratiivista tyyliä, joka on myös tämän hetkisen teollisen parhaan käytänteen [GirOpsin](https://www.redhat.com/en/topics/devops/what-is-gitops) taustalla. Tätäkint teemaa käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/).
 
 ### Service
 
-Podin IP-osoite siis näyttää vaihtuvan. Tämä johtuu siitä, että podi luodaan aina uudelleen kun siihen tehdään minkäänlaisia muutoksia. Tarvitaan siis jotain pysyvämpää, jotta ohjelma tavoitetaan varmemmin klusterin sisältä. Tätä varten on Kubernetesissa tarjolla [Service](https://kubernetes.io/docs/concepts/services-networking/service/).
+Podin IP-osoite siis näyttää vaihtuvan. Tämä johtuu siitä, että podi itseasiassa luodaan aina uudelleen kun siihen tehdään minkäänlaisia muutoksia, podit eivät siis ole pysyviä. Tarvitaankin jotain pysyvämpää, jotta ohjelma tavoitetaan varmemmin klusterin sisältä. Tätä varten on Kubernetesissa tarjolla [Service](https://kubernetes.io/docs/concepts/services-networking/service/).
 
 Tehdään tiedostoon `service.yaml` seuraava määrittely:
 
@@ -219,6 +232,10 @@ spec:
 ```
 
 Spec-osassa määritellään, että service "kohdistuu" sovellukseen _demoapp_, joka on portissa 3000, service tajoaa ulospäin portin 80.
+
+Seuraava havainnollistaa delpoymentin ja servicen yhteyttä:
+
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k6.png?raw=true" width="600">
 
 Luodaan service, ja varmistetaan heti, että kaikki meni hyvin:
 
