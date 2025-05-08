@@ -493,12 +493,12 @@ Esimerkkimme tapauksessa Kustomize ei tuo juurikaan etuja, suuremmassa projektis
 
 ### Kooste tärkeimmistä komennoista
 
-|----------|----------|
-| oc get po        | listaa podit       |
-| oc get svc        | listaa servicet       |
-| oc describe po podintunniste        | katso podin tarkemmat tiedoot      |
-|  | komento toimi myös muille resursseille esim svc, deployments|
-|----------|----------|
+| Command                  | Description                                      |
+|--------------------------|--------------------------------------------------|
+| `oc get po`             | Listaa podit                                     |
+| `oc get svc`            | Listaa servicet                                  |
+| `oc describe po <pod>`  | Katso podin tarkemmat tiedot                     |
+|                          | Komento toimii myös muille resursseille, esim. svc, deployments |
 
 ### Kun joku menee vikaan
 
