@@ -406,7 +406,7 @@ NAME      IMAGE REPOSITORY                                                      
 demoapp   registry.apps.ocp-test-0.k8s.it.helsinki.fi/toska-playground/demoapp   staging   4 seconds ag
 ```
 
-Voimme nyt ottaa image streamin määrittelemän viittaaman imagen käyttöön muokkaamalla deploymentia seuraavasti
+Voimme nyt ottaa image streamin viittaaman imagen käyttöön muokkaamalla deploymentia seuraavasti
 
 ```
 apiVersion: apps/v1
