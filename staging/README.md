@@ -279,14 +279,19 @@ curlimage                     1/1     Running   0          16h
 demoapp-dep-5bb7578b6-2xljw   1/1     Running   0          13h
 demoapp-dep-5bb7578b6-4bk6c   1/1     Running   0          47s
 demoapp-dep-5bb7578b6-w2b9j   1/1     Running   0          47s
-postgres-client               1/1     Running   0          16h
 ```
 
 Kun podiin otetaan yhteyttä servicen osoitteen kautta, yhdistää service pyynnön yhdelle podeista [round robin](https://en.wikipedia.org/wiki/Round-robin_scheduling) -periaateella.
 
+Voimme tässä vaiheessa poistaa debuggausta varten käynnistämämme podin `curlimage`:
+
+```
+$ oc delete curlimage
+```
+
 ### Näkyvyys klusterin ulkopuolelle
 
-Sovelluksemme on muuten oikein hyvä, mutta emme pääse käyttämään sitä klusterin ulkopuolelta. Kubernetes tarjoaa muutamia ratkaisuja liikenteen klusteriin ohjaamiseksi.
+Sovelluksemme on muuten oikein hyvä, mutta emme pääse käyttämään sitä klusterin ulkopuolelta. Kubernetes tarjoaa muutamia ratkaisuja liikenteen ohjaamiseksi klusteriin .
 
 Debuggaustarkoituksiin kätevä ratkaisu on komenot [port-forward](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_port-forward/), joka ohjaa jonkun paikallisen koneen portin klusterin sisälle.
 
@@ -301,16 +306,15 @@ Nyt pääsemme sovellukseen käsiksi selaimella portista 8080:
 
 <img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k2.png?raw=true" width="600">
 
-
 Portinohjaus voidaan tehdä myös suoraan yksittäiseen podiin:
 
 ```
-$ oc port-forward demoapp-dep-5bb7578b6-2xljw  8080:3000
+$ oc port-forward demoapp-dep-5bb7578b6-2xljw 8080:3000
 ```
 
 Portinohjaus sopii hyvin debuggaukseen, esim. sen tarkastamiseen että sovellus toimii kokonaisuudessaan.
 
-Tarvitsemme kuitenkin todelliseen käyttöön jotain muuta. Kubernetes tarjoaa tähän kaksi ratkaisua Ingressin ja uudemman Gateway API:n, molemia käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/). OpenShiftissä joudumme kuitenkin käyttämään OpenShit-spesifiä ratkaisua [Routea](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/networking/configuring-routes#route-configuration).
+Tarvitsemme kuitenkin todelliseen käyttöön jotain muuta. Kubernetes tarjoaa tähän kaksi ratkaisua: Ingressin ja uudemman Gateway API:n joita molemia käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/). Tike:n OpenShiftissä joudumme kuitenkin käyttämään OpenShit-spesifiä ratkaisua [Routea](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/networking/configuring-routes#route-configuration).
 
 Tehdään seuraava määrittely tiedostoon `manifests/route.yaml`
 
@@ -336,11 +340,13 @@ spec:
   wildcardPolicy: None
 ```
 
-Namespace on tässä tapauksessa _toska-playground_, se vastaa OpenShift-projektin nimeä, ohtuprojekteilla se on _ohtuprojekti-staging_. Host-nimen pitää olla yliopistotaolla uniikki, sopiva nimi on esim. sovelluksen nimi ja sen perässä namespacen nimi. spec/to määrittelee reitityksen kohteena olevan palvelun. Kohdeportiksi pitää määritellä servicen takana olevan podin portti, ei siis servicen portti (joka oli tapauksessamme 80), sericen sisäistä porttia käytetään tapauksessamme klusterin sisäisessä kommunikoinnissa.
+Namespace on tässä tapauksessa _toska-playground_, se vastaa OpenShift-projektin nimeä, ohtuprojekteilla se on _ohtuprojekti-staging_. Host-nimen pitää olla Tiken klusteritasolla uniikki, sopiva nimi on esim. sovelluksen nimi ja sen perässä namespacen nimi. `spec/to` määrittelee reitityksen kohteena olevan palvelun. Kohdeportiksi pitää määritellä servicen takana olevan podin portti, ei siis servicen portti (joka oli tapauksessamme 80), sericen sisäistä porttia käytetään tapauksessamme klusterin sisäisessä kommunikoinnissa.
 
 Sovellus toimii nyt koko maailmalle osoitteessa https://demoapp-toska-playground.apps.ocp-test-0.k8s.it.helsinki.fi/
 
 <img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k3.png?raw=true" width="600">
+
+Host-nimi riippyy myös käytetystä klusteriympäristöstä, jos käytetään tuotantoklusteria, vaihtuu sana `test` sanaksi `prod`.
 
 ### Image stream
 
