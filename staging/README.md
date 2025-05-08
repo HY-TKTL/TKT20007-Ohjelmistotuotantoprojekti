@@ -1,6 +1,6 @@
 ## OpenShift-konttialustan käyttö staging-ympäristönä
 
-Tämä ohje olettaa, että hallitset jossain määrin Dockeria, esim. vähintään luvun _Docker basics_ verran kursilta [DevOps with Docker](https://courses.mooc.fi/org/uh-cs/courses/devops-with-docker).
+Tämä ohje olettaa, että hallitset jossain määrin Dockeria, esim. vähintään luvun _Docker basics_ verran kurssilta [DevOps with Docker](https://courses.mooc.fi/org/uh-cs/courses/devops-with-docker).
 
 ### Esimerkkisovellus
 
@@ -10,19 +10,19 @@ Sovellus on hyvin yksinkertainen laskuri. Laskurin arvo on talletettu Postgres-t
 
 Projektiin on määritelty GitHub Action -workflow, joka luo projektista Docker-imagen ja pushaa sen Dockerhubiin. Sama image sisältää sekä backendin, että frontendin.
 
-Sovellus on GitHub siinä tilanteessa mihin tämä tutoriaali päättyy. Alkutilanne on branchissa [start](https://github.com/mluukkai/openshift-demo/tree/start). Koodissa ei muutoksia ole, mutta konfiguraatiot tutoriaalin aikana tehdyt konfiguraatiot puuttuvat vielä haarasta start.
+Sovellus on GitHub:ssa siinä tilanteessa mihin tämä tutoriaali päättyy. Alkutilanne on branchissa [start](https://github.com/mluukkai/openshift-demo/tree/start). Koodissa ei muutoksia ole, mutta tutoriaalin aikana tehdyt konfiguraatiot puuttuvat vielä haarasta start.
 
 ### OpenShift
 
 Käytössämme on Tietotekniikkakeskuksen [OpenShift](https://devops.pages.helsinki.fi/guides/platforms/tike-container-platform.html)-klusteri. OpenShift on [Kubernetes](https://github.com/mluukkai/openshift-demo/blob/main/.github/workflows/main.yaml)-klusteri tietyin lisämaustein.
 
-Kubernetes on melko monimutkainen olio, kurssi [DevOps with Kubernetes](https://devopswithkubernetes.com/) käsittelee aihetta laajassti. Seuraavassa käydään läpi minimioppimäärä yksinkertaisen sovelluksen tarpeisiin.
+Kubernetes on melko monimutkainen olio, kurssi [DevOps with Kubernetes](https://devopswithkubernetes.com/) käsittelee aihetta laajasti. Seuraavassa käydään läpi minimioppimäärä yksinkertaisen sovelluksen tarpeisiin.
 
-Ytimessä olevan Kuberneteksen lisäksi OpenShift sisältää mm. graafisen käyttöliittymän jonka kautta konfiguraatioita on mahdollista tehdä, mutta se **ei ole suositeltua** sillä näin päädytään usein hallitsemattoman epämääräisiin konfiguraatioihin. On suositeltavaa pitäytyä määrittelyissä mahdollisimman "puhtaassa" Kuberneteksessa, ja näin tulemme seuraavassakin tekemään.
+Ytimessä olevan Kuberneteksen lisäksi OpenShift sisältää mm. graafisen käyttöliittymän, jonka kautta konfiguraatioita on mahdollista tehdä, mutta se **ei ole suositeltua** sillä näin päädytään usein hallitsemattoman epämääräisiin konfiguraatioihin. On suositeltavaa pitäytyä määrittelyissä mahdollisimman "puhtaassa" Kuberneteksessa, ja näin tulemme seuraavassakin tekemään.
 
-**Eli älä määrittele mitään OpenShiftin käyttöliittymän kautta, jos teet näin, teknistä tukea ei kurssin puolesta ole luvassa.**
+**Eli älä määrittele mitään OpenShiftin käyttöliittymän kautta. Jos teet näin, teknistä tukea ei kurssin puolesta ole luvassa.**
 
-Käytämme klusteria yksinomaan komentoriviltä, komennon [ok](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/cli_tools/openshift-cli-oc) avulla. `oc` toimii samoin kun Kubernetesin [kubectl](https://kubernetes.io/docs/reference/kubectl/), mutta se sisältää muutamia OpenShift-spesifejä komentoja.
+Käytämme klusteria yksinomaan komentoriviltä, komennon [oc](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/cli_tools/openshift-cli-oc) avulla. `oc` toimii samoin kun Kubernetesin [kubectl](https://kubernetes.io/docs/reference/kubectl/), mutta se sisältää muutamia OpenShift-spesifejä komentoja.
 
 Asenna nyt koneellesi `oc` [tämän ohjeen](https://devops.pages.helsinki.fi/guides/platforms/tike-container-platform.html#openshift-client) mukaan. Kannattaa myös ehdottomasti konfiguroida [tabulaattoritäydennys](https://docs.redhat.com/en/documentation/openshift_container_platform/4.9/html/cli_tools/openshift-cli-oc#cli-enabling-tab-completion).
 
@@ -30,14 +30,14 @@ Oletetaan nyt, että `oc` asennettu. Jotta yhteys klusteriin toimisi, on oltava 
 
 Kirjaudu klusterille suorittamalla komento `oc login -u <username> https://api.ocp-test-0.k8s.it.helsinki.fi:6443`.
 
-Kirjaantumisen jälkeen voidaan vaikkapa suorittaa komento `oc status`, joka kertoo että olemme onnisstuneessti kirjautuneet, omassa tapauksessani projektiin _toska-playground_:
+Kirjaantumisen jälkeen voidaan vaikkapa suorittaa komento `oc status`, joka kertoo että olemme onnistuneesti kirjautuneet, omassa tapauksessani projektiin _toska-playground_:
 
 ```
 $ oc status
 In project toska-playground on server https://api.ocp-test-0.k8s.it.helsinki.fi:6443
 ```
 
-Esimerkissä on käytössä projekti `toska-playground`. Ohtuprojekteissa käytetän projektia `ohtuprojekti-staging`. Projektista on olemassa sekä tuotanto, että testipuoli. Kysy ohjaajaltasi kumpaa ryhmäsi käyttää. 
+Esimerkissä on käytössä projekti `toska-playground`. Ohtuprojekteissa käytetän projektia `ohtuprojekti-staging`. Projektista on olemassa sekä tuotanto- että testipuoli. Kysy ohjaajaltasi kumpaa ryhmäsi käyttää. 
 
 Testipuolen osoite on https://api.ocp-test-0.k8s.it.helsinki.fi:6443 ja tuotantopuolen https://api.ocp-prod-0.k8s.it.helsinki.fi:6443, eli kirjautuessa käytä oikeaa osoitetta!
 
