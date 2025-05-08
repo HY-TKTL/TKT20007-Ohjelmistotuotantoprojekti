@@ -164,7 +164,7 @@ Unable to connect to the database: ConnectionError [SequelizeConnectionError]: n
 
 Tietokantayhteyden suhteen näyttää olevan jotain häikkää. Ja kun virheilmoitusta lukee tarkemmin, huomaa, että sovelluksen käyttämä tietokantaurl on väärä, tietokannan nimi on _ohtuprojektitesti_, ei _ohtuprojekti_ kuten konfiguraatio vahingossa määritteli.
 
-Korjataan konfiguraatio ja päivitetään korjattu tilanne komennolla `apply -f manifests/deployment.yaml`. Katsotaan lokia uudelleen:
+Korjataan konfiguraatio ja päivitetään klusteri komennolla `apply -f manifests/deployment.yaml`. Katsotaan lokia uudelleen:
 
 ```
 $ oc logs demoapp-dep-6746c5d5dc-jjp88
