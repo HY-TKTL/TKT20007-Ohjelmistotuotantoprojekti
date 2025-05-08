@@ -1,24 +1,32 @@
-## HOWTO staging Openshiftissä
+## OpenShift-konttialustan käyttö staging-ympäristönä
 
-Tämä ohje olettaa, että käyttäjä hallitsee jossain määrin Dockeria, yhden osan verran kurssilta [DevOps with Docker](https://courses.mooc.fi/org/uh-cs/courses/devops-with-docker).
+Tämä ohje olettaa, että hallitset jossain määrin Dockeria, esim. vähintään luvun _Docker basics_ verran kursilta [DevOps with Docker](https://courses.mooc.fi/org/uh-cs/courses/devops-with-docker).
 
 ### Esimerkkisovellus
 
-Seuraavassa asennetaan yliopiston tietotekniikkakeskuksen OpenShift-klusteriin Reactilla ja NodeJS:llä toteutettu SPA-sovellus, jonka koodi löytyy [GitHubista](https://github.com/mluukkai/openshift-demo).
+Seuraavassa asennetaan yliopiston tietotekniikkakeskuksen OpenShift-klusterille Reactilla ja NodeJS:llä toteutettu SPA-sovellus, jonka koodi löytyy [GitHubista](https://github.com/mluukkai/openshift-demo).
 
-Sovellus on hyvin yksinkertainen laskuri. Laskurin arvo on talletettu Postgres-tietokantaan, johon backend on yhteydessä [Sequelize](https://sequelize.org/)-kirjaston avulla. Frontend sisältää napit laskurin kasvattamiseen sekä nollaamiseen.
+Sovellus on hyvin yksinkertainen laskuri. Laskurin arvo on talletettu Postgres-tietokantaan, johon backend on yhteydessä [Sequelize](https://sequelize.org/)-kirjaston avulla. Frontend sisältää napit laskurin kasvattamiseen sekä nollaamiseen. Käytössä ovat siis kurssilta [Full stack -open](https://fullstackopen.com/) tutut teknologiat.
 
 Projektiin on määritelty GitHub Action -workflow, joka luo projektista Docker-imagen ja pushaa sen Dockerhubiin. Sama image sisältää sekä backendin, että frontendin.
 
+Sovellus on GitHub siinä tilanteessa mihin tämä tutoriaali päättyy. Alkutilanne on branchissa [start](https://github.com/mluukkai/openshift-demo/tree/start). Koodissa ei muutoksia ole, mutta konfiguraatiot tutoriaalin aikana tehdyt konfiguraatiot puuttuvat vielä haarasta start.
+
 ### OpenShift
 
-Käytössämme on Tietotekniikkakeskuksen [OpenShift](https://devops.pages.helsinki.fi/guides/platforms/tike-container-platform.html)-klusteri. OpenShift on Kubernetes-klusteri tietyin lisämaustein. On suositeltavaa pitäytyä määrittelyissä mahdollisimman "puhtaassa" Kuberneteksessa, ja näin tulemme seuraavassakin tekemään. OpenShift sisältää mm. graafisen käyttöliittymän jonka kautta konfiguraatioita on mahdollista tehdä, mutta se **ei ole suositeltua** sillä näin päädytään usein hallitsemattoman epämääräisiin konfiguraatioihin.
+Käytössämme on Tietotekniikkakeskuksen [OpenShift](https://devops.pages.helsinki.fi/guides/platforms/tike-container-platform.html)-klusteri. OpenShift on [Kubernetes](https://github.com/mluukkai/openshift-demo/blob/main/.github/workflows/main.yaml)-klusteri tietyin lisämaustein.
 
-Käytämmekin klusteria komentoriviltä `oc`-komennon avulla. `oc` toimii samoin kun Kubernetesin `kubectl`, mutta se sisältää muutamia OpenShift-spesifejä komentoja.
+Kubernetes on melko monimutkainen olio, kurssi [DevOps with Kubernetes](https://devopswithkubernetes.com/) käsittelee aihetta laajassti. Seuraavassa käydään läpi minimioppimäärä yksinkertaisen sovelluksen tarpeisiin.
+
+Ytimessä olevan Kuberneteksen lisäksi OpenShift sisältää mm. graafisen käyttöliittymän jonka kautta konfiguraatioita on mahdollista tehdä, mutta se **ei ole suositeltua** sillä näin päädytään usein hallitsemattoman epämääräisiin konfiguraatioihin. On suositeltavaa pitäytyä määrittelyissä mahdollisimman "puhtaassa" Kuberneteksessa, ja näin tulemme seuraavassakin tekemään.
+
+**Eli älä määrittele mitään OpenShiftin käyttöliittymän kautta, jos teet näin, teknistä tukea ei kurssin puolesta ole luvassa.**
+
+Käytämme klusteria yksinomaan komentoriviltä, komennon [ok](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/cli_tools/openshift-cli-oc) avulla. `oc` toimii samoin kun Kubernetesin [kubectl](https://kubernetes.io/docs/reference/kubectl/), mutta se sisältää muutamia OpenShift-spesifejä komentoja.
 
 Asenna nyt koneellesi `oc` [tämän ohjeen](https://devops.pages.helsinki.fi/guides/platforms/tike-container-platform.html#openshift-client) mukaan. Kannattaa myös ehdottomasti konfiguroida [tabulaattoritäydennys](https://docs.redhat.com/en/documentation/openshift_container_platform/4.9/html/cli_tools/openshift-cli-oc#cli-enabling-tab-completion).
 
-Oletetaan nyt, että `oc` asennettu ja ollaan Eduroamissa tai HY:n vpn:ssä. 
+Oletetaan nyt, että `oc` asennettu. Jotta yhteys klusteriin toimisi, on oltava Eduroamissa tai HY:n vpn:ssä. 
 
 Kirjaudu klusterille suorittamalla komento `oc login -u <username> https://api.ocp-test-0.k8s.it.helsinki.fi:6443`.
 
@@ -28,6 +36,10 @@ Kirjaantumisen jälkeen voidaan vaikkapa suorittaa komento `oc status`, joka ker
 $ oc status
 In project toska-playground on server https://api.ocp-test-0.k8s.it.helsinki.fi:6443
 ```
+
+Esimerkissä on käytössä projekti `toska-playground`. Ohtuprojekteissa käytetän projektia `ohtuprojekti-staging`. Projektista on olemassa sekä tuotanto, että testipuoli. Kysy ohjaajaltasi kumpaa ryhmäsi käyttää. 
+
+Testipuolen osoite on https://api.ocp-test-0.k8s.it.helsinki.fi:6443 ja tuotantopuolen https://api.ocp-prod-0.k8s.it.helsinki.fi:6443, eli kirjautuessa käytä oikeaa osoitetta!
 
 ### Pod ja deployment
 
@@ -63,7 +75,7 @@ spec:
             value: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true
 ```
 
-Avaimen `spec` arvona määritellään deploymentin hallitseman podin (tai podien jos `replicas` on suurempi kuin 1) kontit. Eli tapauksessamme on yksi kontti, jonka image on `mluukkai/demoapp:1`. Kontille on annettu sen käyttämä tietokantaosoite määrittelemällä ympäristömuuttuja `DB_URL`.
+Avaimen `spec` arvona määritellään deploymentin hallitseman podin (tai podien jos `replicas` on suurempi kuin 1) kontit. Tapauksessamme on yksi kontti, jonka käyttämä image on `mluukkai/demoapp:1`. Kontille on annettu sen käyttämä tietokantaosoite määrittelemällä ympäristömuuttuja `DB_URL`.
 
 Deployment luodaan klusterille seuraavalla komennolla ($ on komentokehote):
 
@@ -117,7 +129,7 @@ Olemme nyt podin sisällä, ja voimme kokeilla ottaa yhteyttä sovelluksen tekem
 
 ```
 $ curl 10.12.2.177:3000/api/ping
-{"message":"pong"}/home/curl_user 
+{"message":"pong"} 
 ```
 
 Jostain syystä GET-pyyntö laskurin arvon palauttavaan rajapintaan _api/counter_: ei toimi:
@@ -152,9 +164,8 @@ Tietokantayhteyden suhteen näyttää olevan jotain häikkää. Ja kun virheilmo
 
 Korjataan konfiguraatio ja päivitetään korjattu tilanne komennolla `apply -f manifests/deployment.yaml`. Katsotaan lokia uudelleen:
 
-
-$ demoapp git:(main) ✗ k logs demoapp-dep-6746c5d5dc-jjp88
 ```
+$ oc logs demoapp-dep-6746c5d5dc-jjp88
 > demoapp@0.0.0 prod
 > NODE_ENV=production node server/index.js
 
@@ -181,6 +192,9 @@ curl 10.15.3.15:3000/api/counter
 
 Toimii!
 
+### yaml vs imperatiiviset komennot
+
+...
 
 ### Service
 
@@ -392,11 +406,10 @@ spec:
             - containerPort: 3000
           env:
             - name: DB_URL
-              value: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true       
+              value: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true     
 ```
 
 Uutta tässä on avaimen `meta/annotations` lisätyt määreet, jotka saavat deploymentin seuraamaan image streamissa tapahtuvia muutoksia. Toinen muutos on kontainerin `image`, joka arvo on nyt `demoapp:staging`
-
 
 Image steram päivttyy 15 min välein, eli jos pushaamme sovelluksesta uuden version Dockerhubiin, kestää korkeintaan 15 minuuttia, ennen kuin klusterilla oleva imagestream päivittyy, ja sovelluksen uusi versio käynnistyy.
 
@@ -404,9 +417,88 @@ Jos tarve nopeampaan päivitykseen, voidaan antaa komento `oc import-image demoa
 
 ### Konfiguraatiot
 
-siirretään env config mapiin
+Sovellus saa nyt tietokannan osoitteen ympäristömuuttujan DB_URL avulla. Ympäristömuuttujan arvo määritellään deploymentissa:
+
+```
+    spec:
+      containers:
+        - name: demoapp
+          image: demoapp:staging
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DB_URL
+              value: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true
+```           
+
+Tämä tapa on ok mutta ei optimaali, emme esim. voi laittaa nyt deployment.yaml:ia GitHubiin. Kubernetes tarjoaa pari eri mekanismia minkä avulla konfiguraatiot voidaan eriyttää deploymenteista, käytetään nyt näistä [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/):ia. Tehdään tätä varten tiedosto `configmap.yaml`        
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: demoapp-config
+data:
+  DB_URL: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true
+```
+
+Lisätään tiedoto välittömästi ´.gitignore´:n!
+
+Deployment muuttuu seuraavasti
+
+```yaml
+    spec:
+      containers:
+        - name: demoapp
+          image: demoapp:staging
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DB_URL
+              valueFrom:
+              configMapKeyRef:
+                name: demoapp-config
+                key: DB_URL 
+```
+
+Kubernetes tarjoaa myös resurssin [Secret](https://kubernetes.io/docs/concepts/configuration/secret/), joka periaatteessa sopisi paremmin salasanan sisältävän tietokantaurlin tarpeisiin. Nimestään huolimatta secretit eivät oikeastan tuo juurikaan turvaa, joten sivuutamme asian nyt.
+
+### Kustomize
+
+Sovelluksen Kubernetes-konfiguraatiot, eli manifestit on nyt talletettu hakemistoon manifests, konfiguraatioista muut paitsi salaista tietoa sisältävä configmap.yaml kannattaa talletaa versionhallintaan.
+
+Koko sovelluksen tapauksessamme viedä klusterille komennolla `oc apply -f manifests`. Monimutkaisemmassa sovelluksessa manifestitiedostot voivat olla hajaantuneet useampaan hakemistoon ja klusterille vieminen voi olla hankalampaa. [Kustomize](https://kustomize.io/)-työkalu (joka on nykyään sisäänrakennettu Kubernetesin komentoriville) tuo helpotusta tähän (ja tarjoaa paljon muutakin).
+
+Määritellään tiedosto `kustomize.yaml` joka listaa käytettävät resurssit:
+
+```
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - manifests/configmap.yaml
+  - manifests/route.yaml
+  - manifests/service.yaml
+  - manifests/imagestream.yaml
+  - manifests/deployment.yaml
+```
+
+Manifestit saadaan synkronoitua klusterille komennolla `oc apply -k .`
+
+Esimerkkimme tapauksessa Kustomize ei tuo juurikaan etuja, suuremmassa projektissa tilanne on toinen. Kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/) asiaa käsitellään enemmän.
 
 ### Tietokannan hankkiminen
+
+### Kooste tärkeimmistä komennoista
+
+|----------|----------|
+| oc get po        | listaa podit       |
+| oc get svc        | listaa servicet       |
+| oc describe po podintunniste        | katso podin tarkemmat tiedoot      |
+|  | komento toimi myös muille resursseille esim svc, deployments|
+|----------|----------|
 
 ### Kun joku menee vikaan
 
@@ -415,5 +507,8 @@ avaa possu
 `kubectl run -it --rm postgres-client --image=postgres:latest sh`
 
 Komento `oc get imagestream demoapp`
+
+### Mongo ja tiedostojen tallentaminen
+
 
 ### HY login
