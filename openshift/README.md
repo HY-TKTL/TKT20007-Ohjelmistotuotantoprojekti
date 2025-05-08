@@ -816,27 +816,35 @@ Olemme tällä kertaa laiskoja ja määrittelemme tietokantaurlin suoraan GitHub
 
 Kokeillaan! Sovellus toimii:
 
-<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k6.png?raw=true" width="600">
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k8.png?raw=true" width="600">
 
-### ongelmatilanteita
+### Ongelmatilanteita
+
+Kubernetes/OpenShift on loistava työkalu, mutta moni asia voi mennä pieleen. Kielimalleista on erittäin suuri apu yaml-manifestien kanssa, esim ChatGPT osaa bongata virheet manifesteista ja luoda niitä ainakin pääpiirteissään jos promptaus on kohtuullisella tasolla.
+
+Debugatessa ei auta oikein muu kun systemaattisuus. Komentoja `oc get`, `oc describe` ja `oc logs` ei voi koskaan käyttää liikaa...
 
 #### Lokaalisti toimiva kontti ei toimi...
 
-#### Kun joku menee vikaan
+TBD
 
-avaa possu
+Käyttöoikeusongelmien kirjo voi olla moninainen riippuen kontissa ajettavasta teknologiasta. Tähän liittyy yleensä jonkinlainen tiedostojen käyttöön liittyvä virheilmoitus: 'not writable', 'permission denied'. Kun kontti käynnistetään OpenShiftissa, arvotaan kontin käyttäjäksi satunnainen UID ja käyttäjälle tulee asettaa oikeudet suorittaa/ kirjoittaa kontin sisällä. Jos käsket Dockeria luomaan työhakemiston ja kopioimaan sinne projektikansiosi sisällön (muista .dockerignore),
 
-`kubectl run -it --rm postgres-client --image=postgres:latest sh`
+```bash
+WORKDIR /app
 
-Komento `oc get imagestream demoapp`
-
-Näemme nyt, että määrittelemämme pvc on otettu käyttöön, eli sen tila on _Bound_:
-
+COPY . .
 ```
-$ oc get pvc
-NAME            STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
-demoapp-claim   Bound    pvc-cca06f31-9dee-44ba-8ba0-4b82dfea60f7   1Gi        RWO            data-2         <unset>                 21m
+voit asettaa käyttöoikeudet Dockerfilessa yksinkertaisella (joskaan ei kovin mallikelpoisella) tavalla,
+
+```bash
+RUN chmod -R 777 *
 ```
+jonka jälkeen käyttäjän oikeudet ulottuvat kansion /app alikansioihin ja tiedostoihin.
 
+Esimerkkitapauksena mainittakoon Pythonin virtuaaliympäristö, jota saatetaan yrittää suorittaa jossain muussa hakemistossa kuin /app, jolloin venv-moduuli ei välttämättä käynnisty laisinkaan. Sopivaa ympäristömuuttujaa käyttämällä virtuaaliympäristö voidaan asettaa suoritettavaksi /app kansion sisällä. Ympäristömuuttujia voi esitellä kontille Dockerfilen käskyllä ENV.
 
-### HY login
+Seuraava esimerkki toi ratkaisun ainakin erääseen Poetry-projektiin:
+```bash
+ENV POETRY_VIRTUALENVS_IN_PROJECT=true
+``` 
