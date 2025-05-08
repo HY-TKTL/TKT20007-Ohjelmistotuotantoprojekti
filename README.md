@@ -8,7 +8,7 @@ Ohtuprojekti osallistujan silmin: syksyn 2024 NOW-tietokanta-tiimin [kertomus](h
 
 ## Ajankohtaista
 
-- Kurssilla on telegram-kanava, linkki [fuksiwikissä](https://fuksiwiki.tko-aly.fi/Keskustelukanavat#Kurssikanavat)
+- Kurssilla on Discord-kanava _ohtuproj_, liity nyt https://study.cs.helsinki.fi/discord/join/ohtuproj
 
 Demot:
 
