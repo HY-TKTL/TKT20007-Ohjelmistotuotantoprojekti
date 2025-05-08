@@ -119,14 +119,14 @@ Status:           Running
 IP:               10.12.2.177
 ```
 
-Käynnistetään klusterin sisälle [curl](https://curl.se/)-komennon sisätävä Docker [image](https://hub.docker.com/r/curlimages/curl):
+Käynnistetään klusterin sisälle [curl](https://curl.se/)-komennon sisältävä Docker [image](https://hub.docker.com/r/curlimages/curl):
 
 ```
 $ oc run curlimage --image=curlimages/curl --restart=Never --command -- sleep infinity
 $ oc exec -it curlimage sh
 ```
 
-Olemme nyt podin sisällä, ja voimme kokeilla ottaa yhteyttä sovelluksen tekemällä GET-pyynnön testirajapintaan _api/ping_:
+Olemme nyt podin sisällä, ja voimme kokeilla ottaa yhteyttä sovellukseen tekemällä GET-pyynnön testirajapintaan _api/ping_:
 
 ```
 $ curl 10.12.2.177:3000/api/ping
@@ -178,14 +178,14 @@ Executing (default): SELECT table_name FROM information_schema.tables WHERE tabl
 Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'counters' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
 ```
 
-Hyvltä näyttää! Yritetään uudelleen
+Hyvältä näyttää! Yritetään uudelleen
 
 ```
 $ curl 10.13.2.114:3000/api/counter
 curl: (7) Failed to connect to 10.13.2.114 port 3000 after 18688 ms: Could not connect to server
 ```
 
-Yhteys ei enää yllättäen toimi. Syynä on se, että podin IP-osoite ei ole pysyvä. Tarkastetaan komennolla `oc describe pod <po>` uusi, ja curlataan tähän osoitteeseen:
+Yhteys ei enää yllättäen toimi. Syynä on se, että podin IP-osoite ei ole pysyvä. Tarkastetaan komennolla `oc describe pod <po>` uusi osoite, ja curlataan tähän osoitteeseen:
 
 ```
 curl 10.15.3.15:3000/api/counter
@@ -207,13 +207,13 @@ $ oc run curlimage --image=curlimages/curl --restart=Never --command -- sleep in
 
 Mistä on kyse? Ensimmäinen tapa, missä käytettiin yamlia on ns. [deklaratiivinen](https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#declarative-object-configuration) konfigurointitapa, joka on jossain määrin ehkä haastavampi, mutta ehdottomasti suositeltava tapa. Etuna on mm. se, että konfiguraatiot on mahdollista tallettaa versionhallintaan.
 
-Jälkimäinen komento `oc run  ...` taas edustaa [imperatiivistä](https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#imperative-object-configuration) tyyliä Kubernetes-objektien luomiseen. Imperatiivisen tyylin ongelma on se, että klusterin tila ei pysy samalla tavalla hallittavasti näkyvillä kuin vaikkapa versionhallintaan tallennetuissa yaml-manifesteissä. Imperatiivista tyyliä kanattaa käyttää lähinnä yksinkertaisiin tilanteisiin, mm. esimerkkimme tapaan debugatessa.
+Jälkimäinen komento `oc run  ...` taas edustaa [imperatiivistä](https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#imperative-object-configuration) tyyliä Kubernetes-objektien luomiseen. Imperatiivisen tyylin ongelma on se, että klusterin tila ei pysy samalla tavalla hallittavasti näkyvillä kuin vaikkapa versionhallintaan tallennetuissa yaml-manifesteissä. Imperatiivista tyyliä kannattaa käyttää lähinnä yksinkertaisiin tilanteisiin, mm. esimerkkimme tapaan debugatessa.
 
-Käytettäköön siis deklaratiivista tyyliä, joka on myös tämän hetkisen teollisen parhaan käytänteen [GirOpsin](https://www.redhat.com/en/topics/devops/what-is-gitops) taustalla. tätäkin teemaa käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/).
+Käytettäköön siis deklaratiivista tyyliä, joka on myös tämän hetkisen teollisen parhaan käytänteen [GirOpsin](https://www.redhat.com/en/topics/devops/what-is-gitops) taustalla. Tätäkin teemaa käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/).
 
 Laajennetaan ohtuprojektimanifestia:
 
-**Älä määrittele mitään OpenShiftin käyttöliittymän kautta tai imperatiivisin käskyin, jos teet näin, teknistä tukea ei kurssin puolesta ole luvassa.**
+**Älä määrittele mitään OpenShiftin käyttöliittymän kautta tai imperatiivisin käskyin. Jos teet näin, teknistä tukea ei kurssin puolesta ole luvassa.**
 
 ### Service
 
@@ -236,7 +236,7 @@ spec:
   type: ClusterIP
 ```
 
-Spec-osassa määritellään, että service "kohdistuu" sovellukseen _demoapp_, joka on portissa 3000, service tajoaa ulospäin portin 80.
+Spec-osassa määritellään, että service "kohdistuu" sovellukseen _demoapp_, joka on portissa 3000, service tarjoaa ulospäin portin 80.
 
 Seuraava havainnollistaa delpoymentin ja servicen yhteyttä:
 
@@ -296,9 +296,9 @@ $ oc delete curlimage
 
 ### Näkyvyys klusterin ulkopuolelle
 
-Sovelluksemme on muuten oikein hyvä, mutta emme pääse käyttämään sitä klusterin ulkopuolelta. Kubernetes tarjoaa muutamia ratkaisuja liikenteen ohjaamiseksi klusteriin .
+Sovelluksemme on muuten oikein hyvä, mutta emme pääse käyttämään sitä klusterin ulkopuolelta. Kubernetes tarjoaa muutamia ratkaisuja liikenteen ohjaamiseksi klusteriin.
 
-Debuggaustarkoituksiin kätevä ratkaisu on komenot [port-forward](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_port-forward/), joka ohjaa jonkun paikallisen koneen portin klusterin sisälle.
+Debuggaustarkoituksiin kätevä ratkaisu on komento [port-forward](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_port-forward/), joka ohjaa jonkun paikallisen koneen portin klusterin sisälle.
 
 Voimme tehdä portinohjauksen palveluun seuraavasti
 
@@ -345,19 +345,19 @@ spec:
   wildcardPolicy: None
 ```
 
-Namespace on tässä tapauksessa _toska-playground_, se vastaa OpenShift-projektin nimeä, ohtuprojekteilla se on _ohtuprojekti-staging_. Host-nimen pitää olla Tiken klusteritasolla uniikki, sopiva nimi on esim. sovelluksen nimi ja sen perässä namespacen nimi. `spec/to` määrittelee reitityksen kohteena olevan palvelun. Kohdeportiksi pitää määritellä servicen takana olevan podin portti, ei siis servicen portti (joka oli tapauksessamme 80), sericen sisäistä porttia käytetään tapauksessamme klusterin sisäisessä kommunikoinnissa.
+Namespace on tässä tapauksessa _toska-playground_, se vastaa OpenShift-projektin nimeä, ohtuprojekteilla se on _ohtuprojekti-staging_. Host-nimen pitää olla Tiken klusteritasolla uniikki, sopiva nimi on esim. sovelluksen nimi ja sen perässä namespacen nimi. `spec/to` määrittelee reitityksen kohteena olevan palvelun. Kohdeportiksi pitää määritellä servicen takana olevan podin portti, ei siis servicen portti (joka oli tapauksessamme 80), servicen sisäistä porttia käytetään tapauksessamme klusterin sisäisessä kommunikoinnissa.
 
 Sovellus toimii nyt koko maailmalle osoitteessa https://demoapp-toska-playground.apps.ocp-test-0.k8s.it.helsinki.fi/
 
 <img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k3.png?raw=true" width="600">
 
-Host-nimi riippyy myös käytetystä klusteriympäristöstä, jos käytetään tuotantoklusteria, vaihtuu sana `test` sanaksi `prod`.
+Host-nimi riippuu myös käytetystä klusteriympäristöstä, jos käytetään tuotantoklusteria, vaihtuu sana `test` sanaksi `prod`.
 
 ### Image stream
 
 Sovelluksessamme on nyt eräs hieman ikävä puoli. Jos haluamme käynnistää uuden version, tulee luoda Docker-image jolla on uusi tagi, esim mluukkai/demoapp:2 ja deploymentia on muutettava siten, että se viittaa muuttuneeseen tagiin.
 
-OpenShift tarjoaa [image steream](https://docs.redhat.com/en/documentation/openshift_container_platform/4.8/html/images/managing-image-streams) -nimisen objektion, jonka ansiosta deploymentin om mahdollista viitata koko ajan samaan tagiin, ja taustalla olevan imagen päivittyminen Dockerhubiin otetaan tästä huolimatta huomioon.
+OpenShift tarjoaa [image steream](https://docs.redhat.com/en/documentation/openshift_container_platform/4.8/html/images/managing-image-streams) -nimisen objektin, jonka ansiosta deploymentin om mahdollista viitata koko ajan samaan tagiin, ja taustalla olevan imagen päivittyminen Dockerhubiin otetaan tästä huolimatta huomioon.
 
 Muutetaan Dockerhubiin pushattavan imagen tagiksi _mluukkai/demoapp:staging_:
 
@@ -440,7 +440,7 @@ spec:
 
 Uutta tässä on avaimeen `meta/annotations` lisätyt määreet, jotka saavat deploymentin seuraamaan image streamissa tapahtuvia muutoksia. Toinen muutos on kontainerin `image`, joka arvo on nyt `demoapp:staging`, eli viite image streamiin.
 
-Image steram päivttyy 15 min välein, eli jos pushaamme sovelluksesta uuden version Dockerhubiin, kestää korkeintaan 15 minuuttia, ennen kuin klusterilla oleva imagestream päivittyy, ja sovelluksen uusi versio käynnistyy.
+Image steram päivittyy 15 min välein, eli jos pushaamme sovelluksesta uuden version Dockerhubiin, kestää korkeintaan 15 minuuttia, ennen kuin klusterilla oleva imagestream päivittyy, ja sovelluksen uusi versio käynnistyy.
 
 Jos on tarve nopeampaan päivitykseen, voidaan suorittaa komento `oc import-image demoapp:staging` joka päivittää imagestreamin välittömästi, sekä käynnistää podin uudelleen jos image streamin osoittama image on muuttunut.
 
@@ -461,7 +461,7 @@ Sovellus saa tietokannan osoitteen ympäristömuuttujan `DB_URL` avulla. Ympäri
               value: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true
 ```           
 
-Tämä tapa on ok mutta ei optimaali, emme esim. voi laittaa deployment.yaml:ia GitHubiin koska URL sisältää salasanan. Kubernetes tarjoaa pari mekanismia minkä avulla konfiguraatiot voidaan eriyttää deploymenteista, käytetään nyt näistä [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/):ia.
+Tämä tapa on ok mutta ei optimaali, emme esim. voi laittaa deployment.yaml:ia GitHubiin koska URL sisältää salasanan. Kubernetes tarjoaa pari mekanismia, joiden avulla konfiguraatiot voidaan eriyttää deploymenteista, käytetään nyt näistä [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/):ia.
 
 Tehdään tätä varten tiedosto `configmap.yaml`        
 
@@ -474,7 +474,7 @@ data:
   DB_URL: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true
 ```
 
-Lisätään tiedoto välittömästi ´.gitignore´:n, jotta tietokannan salasana ei livahda internettiin.
+Lisätään tiedosto välittömästi ´.gitignore´:n, jotta tietokannan salasana ei livahda internettiin.
 
 Deploymentissa oleva ympäristömuuttujan määrittely muuttuu seuraavasti
 
