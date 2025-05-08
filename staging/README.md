@@ -240,7 +240,7 @@ Spec-osassa määritellään, että service "kohdistuu" sovellukseen _demoapp_, 
 
 Seuraava havainnollistaa delpoymentin ja servicen yhteyttä:
 
-<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k6.png?raw=true" width="600">
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k6.png?raw=true" width="600">
 
 Luodaan service, ja varmistetaan heti, että kaikki meni hyvin:
 
@@ -309,7 +309,7 @@ Forwarding from 127.0.0.1:8080 -> 3000
 
 Nyt pääsemme sovellukseen käsiksi selaimella portista 8080:
 
-<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k2.png?raw=true" width="600">
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k2.png?raw=true" width="600">
 
 Portinohjaus voidaan tehdä myös suoraan yksittäiseen podiin:
 
@@ -349,7 +349,7 @@ Namespace on tässä tapauksessa _toska-playground_, se vastaa OpenShift-projekt
 
 Sovellus toimii nyt koko maailmalle osoitteessa https://demoapp-toska-playground.apps.ocp-test-0.k8s.it.helsinki.fi/
 
-<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/staging/images/k3.png?raw=true" width="600">
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k3.png?raw=true" width="600">
 
 Host-nimi riippuu myös käytetystä klusteriympäristöstä, jos käytetään tuotantoklusteria, vaihtuu sana `test` sanaksi `prod`.
 
@@ -474,7 +474,7 @@ data:
   DB_URL: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true
 ```
 
-Lisätään tiedosto välittömästi ´.gitignore´:n, jotta tietokannan salasana ei livahda internettiin.
+Lisätään tiedoto välittömästi `.gitignore`:n, jotta tietokannan salasana ei livahda internettiin.
 
 Deploymentissa oleva ympäristömuuttujan määrittely muuttuu seuraavasti
 
@@ -520,6 +520,12 @@ Manifestit saadaan synkronoitua klusterille komennolla `oc apply -k .`
 
 Esimerkkimme tapauksessa Kustomize ei tuo juurikaan etuja, suuremmassa projektissa tilanne on toinen. Kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/) asiaa käsitellään enemmän.
 
+### Resurssirajat
+
+TBD
+
+Klusteri priorisoi sovelluksia, joille on asetettu resurssirajat. Jos resursseista on pulaa, niin ilman rajojen asettamista sovellus ei välttämättä edes käynnisty.
+
 ### Kooste tärkeimmistä komennoista
 
 | Command                  | Description                                      |
@@ -539,14 +545,298 @@ Esimerkkimme tapauksessa Kustomize ei tuo juurikaan etuja, suuremmassa projektis
 
 ### Tietokannan hankkiminen
 
+Esimerkkisovellus käyttää Tiken ylläpitämää yhteiskäyttöistä tietokantaa. Tietokannan hankkiminen on helppoa, yksi email riittää, ks https://devops.pages.helsinki.fi/guides/platforms/shared-dbs.html
+
+Kannattaa huomata, että tietokanta edellyttää SSL:n käyttöä, eli tuetokantaurl on muotoa `postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true` asia kyllä mainitaan yo dokumentaatiossa mutta esim. allekirjoittanut ei lukenut dokumenttia aluksi tarpeeksi tarkasti...
+
+Jos haluat ottaa tietokantaan yhdeyden suoraan, on projektiin `ohtuprojekti-staging` on konfiguroitu podi `db-tools`, joka sisältää tietokantayhteyksien kannalta tarvittavat komentorivityökalut, kuten `psql` ja `mongosh`. Tietokantayhteys avataan tämän podin avulla seuraavasti
+
+```
+oc exec -it $(oc get pods -l deployment=db-tools -o jsonpath='{.items[0].metadata.name}') -- psql postgres://kayttaja:salasana@possu-test.it.helsinki.fi:5432/tietokanta
+```
+
+Komentorivilt yhdistäessäsi riittää tietokantaurlin lyhempi muoto.
+
 ### Mongo ja tiedostojen tallentaminen
 
-### Kun joku menee vikaan
+Jos päätät käyttää MongoDB:tä, ei yliopistolla ole valitettavasti tarjolla hostattua palvelua. On käytettävä ulkoista palvelua tai konfiguroitava Mongo itse OpenShiftin. Tämäkään ei ole vaikeaa. Pienen mutkan matkaan aiheuttaa se, että Mongoa varten on varattava pysyvään talletukseen sopivaa levytilaa.
+
+Levytilan varaaminen tapahtuu luomalla [PersistentVolumeClaim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims). Tehdään tiedosto `volumeclaim.yaml` ja sinne sisältö:
+
+```yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+
+metadata:
+  name: demoapp-claim
+  namespace: toska-playground
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: data-2
+  volumeMode: Filesystem
+```
+
+Määritelty levypyyntö varaa yhden gigan levyä. Tilauksessa on määritelty `storageClassName: data-2`, tämä ohjaa pyynnön Tiken meille varaamalle levylle eli PersistentVolumelle.
+
+Kokeillaan ensin liittää levy normaaliin podiin. 
+
+Tehdään tiedostoon `ubuntu-deployment.yaml` deployment joka käynnistää Ubuntun:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-ubuntu-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-ubuntu
+  template:
+    metadata:
+      labels:
+        app: my-ubuntu
+    spec:
+      containers:
+        - name: ubuntu
+          image: ubuntu
+          imagePullPolicy: Always
+          command:
+            - sleep
+            - "3600"  
+```
+
+Ennen kun liitämme pysyväislevyn deploymentin luovaan podiin, kokeillaan mitä tapahtuu jos kirjoitamme tiedostoja podin sisälle ilman pysyväislevyn käyttöä.
+
+Luodaan deployment, mennään podiin ja tehdään podin hakemistoon /tmp kaksi tiedostoa:
+
+```
+$ oc apply -f ubuntu-deployment.yaml
+$ oc exec -it my-ubuntu-deployment-d7b6d85d4-drsbr bash
+$ cd tmp
+$ touch tiedosto1
+$ touch tiedosto2
+$ ls 
+tiedosto1
+tiedosto2
+```
+
+Tehdään nyt muutos deploymentiin, esim. muutetaan komennon sleep sekuntimäärää. Kun suoriteaan `apply`, luodaan uusi podi edellisen tilalle. 
+
+Kun mennään nyt uuden podin hakemistoon `/tmp` huomataan että se on tyhjä:
+
+```
+$ oc apply -f ubuntu-deployment.yaml
+$ oc exec -it my-ubuntu-deployment-6b947f9bbc-ztls bash
+$ cd tmp
+$ ls -l
+total 0
+```
+
+Podin levylle kirjoittaminen siis on turhaa, jos on tarkoitus tallettaa asioita pysyvästi.
+
+Otetaan nyt käyttöön klusterilta pyytämämme levyvoluumi, ja mäpätään se podin hakemistoon `/tmp`:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-ubuntu-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-ubuntu
+  template:
+    metadata:
+      labels:
+        app: my-ubuntu
+    spec:
+      containers:
+        - name: ubuntu
+          image: ubuntu
+          imagePullPolicy: Always
+          command:
+            - sleep
+            - "3601"
+          volumeMounts:
+            - mountPath: /tmp
+              name: demoapp-volume
+      volumes:
+        - name: demoapp-volume
+          persistentVolumeClaim:
+            claimName: demoapp-claim
+```
+
+Deploymentissa on kaksi lisäystä, ensinnäkin `template/spec`:in alla on osa `volumes`, joka ketoo mitä volumeja deployment käyttää. Käyttöön on otettu levypyyntöä `demoapp-claim` vastaava voluumi ja on annettu sille nimi `demoapp-volume`. Osan `container`s alle on määritelty, että käyttöön otettu voluumi mäpätään podiin polulle `/tmp`.
+
+Kokeillaan sitten samaa uusiksi, eli lisätään volumille mäpättyyn hakemistoon `/tmp` tiedostoja, pakotetaan podin uudelleenluonti, ja tarkastetaan että tiedostot säilyvät:
+
+```
+$ oc exec -it my-ubuntu-deployment-755d7b8889-t2ctk bash
+$ cd tmp
+$ ls
+lost+found
+$ touch tiedosto1
+$ touch tiedosto2
+$ ls
+lost+found  tiedosto1  tiedosto2
+$ exit
+exit
+$ of apply -f ubuntu-deployment.yaml
+deployment.apps/my-ubuntu-deployment configured
+$ oc exec -it my-ubuntu-deployment-76bfb959bb-jpdng bash
+$ cd tmp
+$ ls
+lost+found  tiedosto1  tiedosto2
+```
+
+Kuten olettaa saattaa, tiedostot säilyvät. Volumella olevat tiedot säilyvät vaikka deployment tuhottaisiin ja luotaisiin uudelleen:
+
+```
+$ oc delete -f ubuntu-deployment.yaml
+$ oc apply -f ubuntu-deployment.yaml
+$ oc  exec -it my-ubuntu-deployment-76bfb959bb-qxckz ls /tmp
+lost+found  tiedosto1  tiedosto2
+```
+
+Uskomme nyt että persitent volumet ovat sitä mitä tarvitsemme, tuhotaan kokeiluun käytetty Ubuntu ja luodaan Mongoa varten deployment ja service. Luodaan tällä kertaa molemmat samaan tiedostoon `mongo-deployment.yaml`:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoapp-mongo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demoapp-mongo
+  template:
+    metadata:
+      labels:
+        app: demoapp-ubuntu
+    spec:
+      containers:
+        - name: my-mongo
+          image: mongo
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 27017
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: demo_user
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: demo_password
+          volumeMounts:
+            - mountPath: /data/db
+              name: demoapp-volume
+      volumes:
+        - name: demoapp-volume
+          persistentVolumeClaim:
+            claimName: demoapp-claim
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: demoapp-mongo-svc
+spec:
+  selector:
+    app: demoapp-mongo
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
+  type: ClusterIP
+```
+
+Levyvoluumi on mäpätty Mongo-podin polulle `/data/db`, kysessä on [dokumentaation](https://hub.docker.com/_/mongo) mukaan hakemisto minne Mongo tallettaa tietokannan.
+
+Suoritetaan tuttu komento `oc apply -f mongo-deployment.yaml`. Komentoja `oc get po` ja `oc logs` tarkastelemalla olemme vakuuttuneita, että Mongo on käynnissä.
+
+Klusterin sisältä kantaan päästään nyt käsiksi osoitteella `mongodb://demo_user:demo_password@demoapp-mongo-svc:27017`.
+
+Laskurisovelluksesta on tehty Mongoa käyttävä versio repositorion branchiin [mongo](https://github.com/mluukkai/openshift-demo/tree/mongo). Mongoa käyttävän versiosta luodaan Docker-image on `demoapp-mongo`.
+
+Laajennetaan image streamia ottamaan huomioon myös tämä tägi:
+
+```yaml
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+
+metadata:
+  name: demoapp
+  labels:
+    app: demoapp
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - name: staging
+      from:
+        kind: DockerImage
+        name: mluukkai/demoapp:staging
+      importPolicy:
+        scheduled: true
+      referencePolicy:
+        type: Local
+    - name: mongo
+      from:
+        kind: DockerImage
+        name: mluukkai/demoapp:mongo
+      importPolicy:
+        scheduled: true
+      referencePolicy:
+        type: Local
+```
+
+Muutetaan deploymentia seuraavasti:
+
+```yaml
+    spec:
+      containers:
+        - name: demoapp
+          image: demoapp:mongo
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MONGO_DB_URL
+              value: mongodb://demo_user:demo_password@demoapp-mongo-svc:27017
+```
+
+
+Olemme tällä kertaa laiskoja ja määrittelemme tietokantaurlin suoraan GitHubiin menevässä tiedostossa `deployment.yaml`. **Älä yritä tätä kotona äläkä missään muuallakaan!**
+
+Kokeillaan! Sovellus toimii:
+
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k6.png?raw=true" width="600">
+
+### ongelmatilanteita
+
+#### Lokaalisti toimiva kontti ei toimi...
+
+#### Kun joku menee vikaan
 
 avaa possu
 
 `kubectl run -it --rm postgres-client --image=postgres:latest sh`
 
 Komento `oc get imagestream demoapp`
+
+Näemme nyt, että määrittelemämme pvc on otettu käyttöön, eli sen tila on _Bound_:
+
+```
+$ oc get pvc
+NAME            STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+demoapp-claim   Bound    pvc-cca06f31-9dee-44ba-8ba0-4b82dfea60f7   1Gi        RWO            data-2         <unset>                 21m
+```
+
 
 ### HY login
