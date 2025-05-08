@@ -1,4 +1,4 @@
-# OpenShift
+# OpenShift, vanha ohje
 
 > ÄLÄ LUE TÄTÄ OHJETTA
 
