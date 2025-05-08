@@ -158,7 +158,8 @@ $ oc logs demoapp-dep-68c95df467-w4glg
 > NODE_ENV=production node server/index.js
 
 Server running on http://localhost:3000
-Unable to connect to the database: ConnectionError [SequelizeConnectionError]: no pg_hba.conf entry for host "128.214.137.139", user "ohtuprojektitesti", database "ohtuprojekti", SSL encryption
+Unable to connect to the database: ConnectionError [SequelizeConnectionError]: no pg_hba.conf entry for host
+"128.214.137.139", user "ohtuprojektitesti", database "ohtuprojekti", SSL encryption
 ```
 
 Tietokantayhteyden suhteen näyttää olevan jotain häikkää. Ja kun virheilmoitusta lukee tarkemmin, huomaa, että sovelluksen käyttämä tietokantaurl on väärä, tietokannan nimi on _ohtuprojektitesti_, ei _ohtuprojekti_ kuten konfiguraatio vahingossa määritteli.
