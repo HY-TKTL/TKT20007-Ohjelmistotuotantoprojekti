@@ -49,7 +49,6 @@ Podeja ei yleensä laiteta klusteriin suoraan. Näiden sijaan käytetään [depl
 
 Määritellään deployment sovellustamme varten hakemistoon `manifests` sijoitettavaan tiedostoon `deployment.yaml`:
 
-
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -77,6 +76,8 @@ spec:
 
 Avaimen `spec` arvona määritellään deploymentin hallitseman podin (tai podien jos `replicas` on suurempi kuin 1) kontit. Tapauksessamme on yksi kontti, jonka käyttämä image on `mluukkai/demoapp:1`. Kontille on annettu sen käyttämä tietokantaosoite määrittelemällä ympäristömuuttuja `DB_URL`.
 
+Deploymentin määrittelevä yaml-tiedosto näyttää monimutkaiselta. Osa määrittelyn sisällöstä on sovelluksesta riippumatta suunilleen sama, tärkein osuus on juurikin avaimen `spec` arvona. Metadatassa oleva `name: demoapp-dep` määrittelee deploymentin nimen.
+
 Deployment luodaan klusterille seuraavalla komennolla ($ on komentokehote):
 
 ```
@@ -101,7 +102,7 @@ demoapp-dep-5dbb664966-p6kfh   1/1     Running   0          25s
 
 Podi on käynnissä.
 
-Testataan nyt sovellusta. Sovellus ei näy vielä klusterin ulkopuolelle, mutta pääsemme siihen käsiksi klusterin sisältä podin IP-osoitteen avulla. Saamme IP-osoitteen selville komennolla `oc describe pod`:
+Testataan nyt sovellusta. Sovellus ei näy vielä klusterin ulkopuolelle, mutta pääsemme siihen käsiksi klusterin sisältä podin IP-osoitteen avulla. Saamme IP-osoitteen selville komennolla `oc describe pod <pod>`:
 
 ```
 $ oc describe po demoapp-dep-7499f5c5bd-8lm9p
@@ -148,7 +149,7 @@ $ curl 10.13.2.114:3000/api/counter
 </html>
 ```
 
-Tutkitaan sovelluksen lokia komennolla `oc logs`:
+Tutkitaan sovelluksen lokia komennolla `oc logs <pod>`:
 
 ```
 $ oc logs demoapp-dep-68c95df467-w4glg
@@ -176,21 +177,21 @@ Executing (default): SELECT table_name FROM information_schema.tables WHERE tabl
 Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'counters' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
 ```
 
-Yritetään jälleen
+Hyvltä näyttää! Yritetään uudelleen
 
 ```
 $ curl 10.13.2.114:3000/api/counter
 curl: (7) Failed to connect to 10.13.2.114 port 3000 after 18688 ms: Could not connect to server
 ```
 
-Ei toimi. Mikä vikana? IP-osoite ei pysy, tarkastetaan uusi:
+Yhteys ei enää yllättäen toimi. Syynä on se, että podin IP-osoite ei ole pysyvä. Tarkastetaan komennolla `oc describe pod <po>` uusi, ja curlataan tähän osoitteeseen:
 
 ```
 curl 10.15.3.15:3000/api/counter
 {"id":1,"value":0}
 ```
 
-Toimii!
+Sovellus näyttää toimivan!
 
 ### yaml vs imperatiiviset komennot
 
@@ -499,6 +500,12 @@ Esimerkkimme tapauksessa Kustomize ei tuo juurikaan etuja, suuremmassa projektis
 | `oc get svc`            | Listaa servicet                                  |
 | `oc describe po <pod>`  | Katso podin tarkemmat tiedot                     |
 |                          | Komento toimii myös muille resursseille, esim. svc, deployments |
+| `oc exec -it <pod> bash` | suorita podilla komento bash eli komentotulkki |
+| `oc import-image image:tagi` | päivitä imagesream heti |
+| `oc logs <pod>` |  näytä sovelluksen lokit |
+| `oc logs -f <pod>` |  seuraa sovelluksen lokeja |
+| `oc port-forward <pod>` | ohjaa lokaalin koneen portin liikenne podiinß |
+| `oc port-forward svc/<service>` | ohjaa lokaalin koneen portin liikenne palveluun |
 
 ### Kun joku menee vikaan
 
