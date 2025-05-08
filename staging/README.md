@@ -193,7 +193,7 @@ curl 10.15.3.15:3000/api/counter
 
 Sovellus näyttää toimivan!
 
-### yaml vs imperatiiviset komennot
+### Deklaratiivinen vs imperatiivinen määrittely
 
 Veimme sovelluksen tuotantoon määrittelemällä yaml-tiedoston ja antamalla komennon 
 `oc apply -f manifests/deployment.yaml`
@@ -208,7 +208,11 @@ Mistä on kyse? Ensimmäinen tapa, missä käytettiin yamlia on ns. [deklaratiiv
 
 Jälkimäinen komento `oc run  ...` taas edustaa [imperatiivistä](https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#imperative-object-configuration) tyyliä Kubernetes-objektien luomiseen. Imperatiivisen tyylin ongelma on se, että klusterin tila ei pysy samalla tavalla hallittavasti näkyvillä kuin vaikkapa versionhallintaan tallennetuissa yaml-manifesteissä. Imperatiivista tyyliä kanattaa käyttää lähinnä yksinkertaisiin tilanteisiin, mm. esimerkkimme tapaan debugatessa.
 
-Käytettäköön siis deklaratiivista tyyliä, joka on myös tämän hetkisen teollisen parhaan käytänteen [GirOpsin](https://www.redhat.com/en/topics/devops/what-is-gitops) taustalla. Tätäkint teemaa käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/).
+Käytettäköön siis deklaratiivista tyyliä, joka on myös tämän hetkisen teollisen parhaan käytänteen [GirOpsin](https://www.redhat.com/en/topics/devops/what-is-gitops) taustalla. tätäkin teemaa käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/).
+
+Laajennetaan ohtuprojektimanifestia:
+
+**Älä määrittele mitään OpenShiftin käyttöliittymän kautta tai imperatiivisin käskyin, jos teet näin, teknistä tukea ei kurssin puolesta ole luvassa.**
 
 ### Service
 
