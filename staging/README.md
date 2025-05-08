@@ -352,7 +352,7 @@ Host-nimi riippyy myös käytetystä klusteriympäristöstä, jos käytetään t
 
 Sovelluksessamme on nyt eräs hieman ikävä puoli. Jos haluamme käynnistää uuden version, tulee luoda Docker-image jolla on uusi tagi, esim mluukkai/demoapp:2 ja deploymentia on muutettava siten, että se viittaa muuttuneeseen tagiin.
 
-OpenShift tarjoaa [image steream](https://docs.redhat.com/en/documentation/openshift_container_platform/4.8/html/images/managing-image-streams) -nimisen resurssin, jonka ansiosta deploymentin om mahdollista viitata koko ajan samaan tagiin, ja taustalla olevan imagen päivitys otetaan tästä huolimatta huomioon.
+OpenShift tarjoaa [image steream](https://docs.redhat.com/en/documentation/openshift_container_platform/4.8/html/images/managing-image-streams) -nimisen objektion, jonka ansiosta deploymentin om mahdollista viitata koko ajan samaan tagiin, ja taustalla olevan imagen päivittyminen Dockerhubiin otetaan tästä huolimatta huomioon.
 
 Muutetaan Dockerhubiin pushattavan imagen tagiksi _mluukkai/demoapp:staging_:
 
@@ -365,7 +365,7 @@ Muutetaan Dockerhubiin pushattavan imagen tagiksi _mluukkai/demoapp:staging_:
           tags: ${{ secrets.DOCKER_USERNAME }}/demoapp:staging
 ```
 
-Luodaan nyt määrittely tiedostoon _imagesteram.yaml_:
+Luodaan nyt seuraava määrittely tiedostoon _imagesteram.yaml_:
 
 ```
 kind: ImageStream
@@ -401,7 +401,7 @@ NAME      IMAGE REPOSITORY                                                      
 demoapp   registry.apps.ocp-test-0.k8s.it.helsinki.fi/toska-playground/demoapp   staging   4 seconds ag
 ```
 
-Voimme nyt ottaa image streamin määrittelemän imagen käyttöön muokkaamalla deploymentia seuraavasti
+Voimme nyt ottaa image streamin määrittelemän viittaaman imagen käyttöön muokkaamalla deploymentia seuraavasti
 
 ```
 apiVersion: apps/v1
@@ -433,15 +433,15 @@ spec:
               value: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true     
 ```
 
-Uutta tässä on avaimen `meta/annotations` lisätyt määreet, jotka saavat deploymentin seuraamaan image streamissa tapahtuvia muutoksia. Toinen muutos on kontainerin `image`, joka arvo on nyt `demoapp:staging`
+Uutta tässä on avaimeen `meta/annotations` lisätyt määreet, jotka saavat deploymentin seuraamaan image streamissa tapahtuvia muutoksia. Toinen muutos on kontainerin `image`, joka arvo on nyt `demoapp:staging`, eli viite image streamiin.
 
 Image steram päivttyy 15 min välein, eli jos pushaamme sovelluksesta uuden version Dockerhubiin, kestää korkeintaan 15 minuuttia, ennen kuin klusterilla oleva imagestream päivittyy, ja sovelluksen uusi versio käynnistyy.
 
-Jos tarve nopeampaan päivitykseen, voidaan antaa komento `oc import-image demoapp:staging` joka päivittää imagestreamin välittömästi.
+Jos on tarve nopeampaan päivitykseen, voidaan suorittaa komento `oc import-image demoapp:staging` joka päivittää imagestreamin välittömästi, sekä käynnistää podin uudelleen jos image streamin osoittama image on muuttunut.
 
 ### Konfiguraatiot
 
-Sovellus saa nyt tietokannan osoitteen ympäristömuuttujan DB_URL avulla. Ympäristömuuttujan arvo määritellään deploymentissa:
+Sovellus saa tietokannan osoitteen ympäristömuuttujan `DB_URL` avulla. Ympäristömuuttujan arvo määritellään deploymentissa:
 
 ```
     spec:
@@ -456,7 +456,9 @@ Sovellus saa nyt tietokannan osoitteen ympäristömuuttujan DB_URL avulla. Ympä
               value: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true
 ```           
 
-Tämä tapa on ok mutta ei optimaali, emme esim. voi laittaa nyt deployment.yaml:ia GitHubiin. Kubernetes tarjoaa pari eri mekanismia minkä avulla konfiguraatiot voidaan eriyttää deploymenteista, käytetään nyt näistä [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/):ia. Tehdään tätä varten tiedosto `configmap.yaml`        
+Tämä tapa on ok mutta ei optimaali, emme esim. voi laittaa deployment.yaml:ia GitHubiin koska URL sisältää salasanan. Kubernetes tarjoaa pari mekanismia minkä avulla konfiguraatiot voidaan eriyttää deploymenteista, käytetään nyt näistä [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/):ia.
+
+Tehdään tätä varten tiedosto `configmap.yaml`        
 
 ```yaml
 apiVersion: v1
@@ -467,9 +469,9 @@ data:
   DB_URL: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true
 ```
 
-Lisätään tiedoto välittömästi ´.gitignore´:n!
+Lisätään tiedoto välittömästi ´.gitignore´:n, jotta tietokannan salasana ei livahda internettiin.
 
-Deployment muuttuu seuraavasti
+Deploymentissa oleva ympäristömuuttujan määrittely muuttuu seuraavasti
 
 ```yaml
     spec:
@@ -487,15 +489,15 @@ Deployment muuttuu seuraavasti
                 key: DB_URL 
 ```
 
-Kubernetes tarjoaa myös resurssin [Secret](https://kubernetes.io/docs/concepts/configuration/secret/), joka periaatteessa sopisi paremmin salasanan sisältävän tietokantaurlin tarpeisiin. Nimestään huolimatta secretit eivät oikeastan tuo juurikaan turvaa, joten sivuutamme asian nyt.
+Kubernetes tarjoaa myös resurssin [Secret](https://kubernetes.io/docs/concepts/configuration/secret/), joka periaatteessa sopisi paremmin salasanan sisältävän tietokantaurlin tarpeisiin. Nimestään huolimatta secretit eivät oikeastan tuo juurikaan turvaa, joten sivuutamme asian nyt. Myös secretejä käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/).
 
 ### Kustomize
 
-Sovelluksen Kubernetes-konfiguraatiot, eli manifestit on nyt talletettu hakemistoon manifests, konfiguraatioista muut paitsi salaista tietoa sisältävä configmap.yaml kannattaa talletaa versionhallintaan.
+Sovelluksen Kubernetes-konfiguraatiot, eli manifestit on nyt talletettu hakemistoon `manifests`, ja konfiguraatioista muut paitsi salaista tietoa sisältävä `configmap.yaml` on tallennettu versionhallintaan.
 
-Koko sovelluksen tapauksessamme viedä klusterille komennolla `oc apply -f manifests`. Monimutkaisemmassa sovelluksessa manifestitiedostot voivat olla hajaantuneet useampaan hakemistoon ja klusterille vieminen voi olla hankalampaa. [Kustomize](https://kustomize.io/)-työkalu (joka on nykyään sisäänrakennettu Kubernetesin komentoriville) tuo helpotusta tähän (ja tarjoaa paljon muutakin).
+Koko sovelluksen konfiguraatiot voi päivittää klusterille komennolla `oc apply -f manifests`, eli antamalla parametriksi manifestit sisältämän hakemiston. Monimutkaisemmassa sovelluksessa manifestitiedostot voivat olla hajaantuneet useampaan hakemistoon ja klusterin synkronointi voi olla hankalampaa.
 
-Määritellään tiedosto `kustomize.yaml` joka listaa käytettävät resurssit:
+[Kustomize](https://kustomize.io/)-työkalu (joka on nykyään sisäänrakennettu Kubernetesin komentoriville) tuo helpotusta tähän (ja tarjoaa paljon muutakin). Määritellään tiedosto `kustomize.yaml`, joka listaa yksittäiset manifestit:
 
 ```
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -513,8 +515,6 @@ Manifestit saadaan synkronoitua klusterille komennolla `oc apply -k .`
 
 Esimerkkimme tapauksessa Kustomize ei tuo juurikaan etuja, suuremmassa projektissa tilanne on toinen. Kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/) asiaa käsitellään enemmän.
 
-### Tietokannan hankkiminen
-
 ### Kooste tärkeimmistä komennoista
 
 | Command                  | Description                                      |
@@ -524,11 +524,17 @@ Esimerkkimme tapauksessa Kustomize ei tuo juurikaan etuja, suuremmassa projektis
 | `oc describe po <pod>`  | Katso podin tarkemmat tiedot                     |
 |                          | Komento toimii myös muille resursseille, esim. svc, deployments |
 | `oc exec -it <pod> bash` | suorita podilla komento bash eli komentotulkki |
+| `oc apply -f mainifest.yaml ` | luo/päivitä manifestin määrittelemät objektit |
+| `oc delete -f mainifest.yaml ` | tuhoa manifestin määrittelemät objektit |
 | `oc import-image image:tagi` | päivitä imagesream heti |
 | `oc logs <pod>` |  näytä sovelluksen lokit |
 | `oc logs -f <pod>` |  seuraa sovelluksen lokeja |
-| `oc port-forward <pod>` | ohjaa lokaalin koneen portin liikenne podiinß |
+| `oc port-forward <pod>` | ohjaa lokaalin koneen portin liikenne podiin |
 | `oc port-forward svc/<service>` | ohjaa lokaalin koneen portin liikenne palveluun |
+
+### Tietokannan hankkiminen
+
+### Mongo ja tiedostojen tallentaminen
 
 ### Kun joku menee vikaan
 
@@ -537,8 +543,5 @@ avaa possu
 `kubectl run -it --rm postgres-client --image=postgres:latest sh`
 
 Komento `oc get imagestream demoapp`
-
-### Mongo ja tiedostojen tallentaminen
-
 
 ### HY login
