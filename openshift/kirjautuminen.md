@@ -187,7 +187,7 @@ Mallia voi ottaa tiedostoista [conf1.png](https://github.com/HY-TKTL/TKT20007-Oh
 
 Sovelluksen käyttämät attribuutit, eli kirjaantumispalvelulta pyydettävät käyttäkohtaiset arvot määritellään välilehdeltä _Attributes_:
 
-<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k10.png?raw=true" width="600">
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k12.png?raw=true" width="600">
 
 Selitys attribuuttien merkityksestä on [täällä](https://wiki.helsinki.fi/xwiki/bin/view/SO/User%20management/User%20attributes/). Lisää jonkinlaista ohjeistusta SP-registryn käyttöön on [täällä](https://wiki.helsinki.fi/xwiki/bin/view/SO/User%20management/SP%20Registry/).
 
