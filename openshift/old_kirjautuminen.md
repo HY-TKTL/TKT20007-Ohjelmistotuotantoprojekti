@@ -1,11 +1,6 @@
 # Yliopiston kirjautuminen
 
 Jos projekti vaatii yliopiston kirjautumista vaihtoehdot ovat käytännössä SAML-pohjainen Shibboleth kirjautuminen tai modernimpaan OAuth:iin ja OpenID Connect:iin (OIDC) perustuva ratkaisu.
-
-## SP-rekisteri
-
-Ohtuprojektien käyttöön on luotu yliopiston kirjautumisen testipuolella toimivat SAML- ja OIDC-providerit. Esim. uusia testikäyttäjiä voi luoda ja käyttäjän atribuutteja lisätä osoitteessa [sp-registry.it.helsinki.fi](https://sp-registry.it.helsinki.fi/).
-
 ## Shibboleth
 
 - [Yliopiston Shibboleth ohjeet](https://wiki.helsinki.fi/xwiki/bin/view/IAMasioita/Identiteetin-%20ja%20p%C3%A4%C3%A4synhallinnan%20dokumentaatio/Keskitetyn%20k%C3%A4ytt%C3%A4j%C3%A4tunnistuksen%20vaihtoehdot/1.%20Shibboleth%20%28SAML2%20%20OIDC%29/Ohjeet%20Shibbolointiin)
@@ -17,10 +12,4 @@ Esimerkkitoteutus ks. [shibboleth-postgres-example](https://github.com/Universit
 
 ## OpenID Connect
 
-- [Yliopiston OIDC ohjeet](https://wiki.helsinki.fi/xwiki/bin/view/IAMasioita/Identiteetin-%20ja%20p%C3%A4%C3%A4synhallinnan%20dokumentaatio/Keskitetyn%20k%C3%A4ytt%C3%A4j%C3%A4tunnistuksen%20vaihtoehdot/1.%20Shibboleth%20%28SAML2%20%20OIDC%29/OpenID%20Connect/)
-
-OIDC on modernimpi tapa toteuttaa kirjautuminen. Erillistä Shibbolethin kaltaista palvelua ei tarvita vaan sovellus keskustelee suoraan yliopiston OIDC-providerin kanssa. Sovellustason toteutus riippuu omista teknologiavalinnoista. Todennäköisesti on tarvetta jonkin OpenID-kirjaston käytölle ja jollekin sessionhallintaratkaisulle.
-
-Sovellukselle pitää määritellä paluuosoite sp-rekisterin kautta. Muut tarvittavat tiedot kuten palvelun salaisuus löytyvät myös sieltä sekä OpenShiftissa olevasta esimerkkitoteutuksesta.
-
-Esimerkkitoteutus ks. [openid-mongo-example](https://github.com/UniversityOfHelsinkiCS/openid-mongo-example/blob/main/src/server/util/oidc.ts).
+ks <kirjautuminen.md>
