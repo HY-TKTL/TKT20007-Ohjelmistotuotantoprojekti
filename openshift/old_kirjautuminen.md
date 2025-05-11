@@ -12,4 +12,4 @@ Esimerkkitoteutus ks. [shibboleth-postgres-example](https://github.com/Universit
 
 ## OpenID Connect
 
-ks [kirjautuminen.md](irjautuminen.md)
+ks [kirjautuminen.md](kirjautuminen.md)
