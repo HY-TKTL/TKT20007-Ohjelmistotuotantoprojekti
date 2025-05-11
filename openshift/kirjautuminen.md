@@ -193,6 +193,38 @@ Selitys attribuuttien merkityksestä on [täällä](https://wiki.helsinki.fi/xwi
 
 Client secretin arvo löytyy välilehden _Technical attributes_ alaosasta.
 
+Salaisuuksien arvot on määritelty sovellukselle tiedostossa `configmap.yaml`.
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: demoapp-config
+data:
+  DB_URL: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true
+  OIDC_CLIENT_ID: id_valuesehe_see_the_spregistry
+  OIDC_CLIENT_SECRET: secret_secretvaluehere_see_the_spregistry
+  OIDC_REDIRECT_URI: https://demoapp-toska-playground.apps.ocp-test-0.k8s.it.helsinki.fi/api/login/callback
+  OIDC_ISSUER: https://login-test.it.helsinki.fi/.well-known/openid-configuration
+  REDIS_HOST: redis-svc
+  SESSION_SECRET: randomsecretstringhere
+```
+
+Muutetaan tiedostoa `deployment.yaml` siten, että se antaa samantien kaikki config mapin määrittelemät ympäristömuuttujat podille:
+
+```yaml
+    spec:
+      containers:
+        - name: demoapp
+          image: demoapp:login
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: demoapp-config
+```
+
 ## Sovelluskehitys paikallisella koneella ja kertakirjautuminen
 
 TBD

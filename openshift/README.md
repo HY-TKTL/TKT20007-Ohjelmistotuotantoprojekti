@@ -522,9 +522,56 @@ Esimerkkimme tapauksessa Kustomize ei tuo juurikaan etuja, suuremmassa projektis
 
 ### Resurssirajat
 
-TBD
 
 Klusteri priorisoi sovelluksia, joille on asetettu resurssirajat. Jos resursseista on pulaa, niin ilman rajojen asettamista sovellus ei välttämättä edes käynnisty.
+
+Deploymenteille onkin syytä asettaa [resurssirajat](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/):
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: "*"
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"demoapp:staging","namespace":"toska-playground"},"fieldPath":"spec.template.spec.containers[?(@.name==\"demoapp\")].image","pause":"false"}]
+  name: demoapp-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demoapp
+  template:
+    metadata:
+      labels:
+        app: demoapp
+    spec:
+      containers:
+        - name: demoapp
+          image: demoapp:staging
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: demoapp-config
+                  key: DB_URL
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+```
+
+Limits määrittää enimmäismäärän laskentaresursseja, joita kontti voi käyttää. Requests määrittää resurssimäärän, joka taataan olevan saatavilla kontille.
+
+Voit säätää memory ja cpu arvoja sovelluksesi vaatimusten mukaan. Muisti määritetään MiB-yksiköissä ja CPU milliCPU-yksiköissä.
+
+Älä pyydä turhaan liikaa resursseja!
 
 ### Kooste tärkeimmistä komennoista
 
