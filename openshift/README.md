@@ -826,9 +826,9 @@ Debugatessa ei auta oikein muu kun systemaattisuus. Komentoja `oc get`, `oc desc
 
 #### Lokaalisti toimiva kontti ei toimi...
 
-TBD
+Käyttöoikeusongelmien kirjo voi olla moninainen riippuen kontissa ajettavasta teknologiasta. Tähän liittyy yleensä jonkinlainen tiedostojen käyttöön liittyvä virheilmoitus: 'not writable', 'permission denied'. 
 
-Käyttöoikeusongelmien kirjo voi olla moninainen riippuen kontissa ajettavasta teknologiasta. Tähän liittyy yleensä jonkinlainen tiedostojen käyttöön liittyvä virheilmoitus: 'not writable', 'permission denied'. Kun kontti käynnistetään OpenShiftissa, arvotaan kontin käyttäjäksi satunnainen UID ja käyttäjälle tulee asettaa oikeudet suorittaa/ kirjoittaa kontin sisällä. Jos käsket Dockeria luomaan työhakemiston ja kopioimaan sinne projektikansiosi sisällön (muista .dockerignore),
+Kun kontti käynnistetään OpenShiftissa, arvotaan kontin käyttäjäksi satunnainen UID ja käyttäjälle tulee asettaa sopivat oikeudet kontin sisälle. Esimerkkimme tilanteessa ei mitään toimenpiteitä tarvittu. Aina ei ole näin. Joissain tilanteissa selviää seuraavasti:
 
 ```bash
 WORKDIR /app
@@ -847,7 +847,9 @@ Esimerkkitapauksena mainittakoon Pythonin virtuaaliympäristö, jota saatetaan y
 Seuraava esimerkki toi ratkaisun ainakin erääseen Poetry-projektiin:
 ```bash
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
-``` 
+```
+
+Jossain tilanteessa ongelman voi aiheuttaa kolmannen osapuolen image. Esim. avain-arvo-tietokanta [Redisin](https://redis.io/) virallinen [Docker image](https://hub.docker.com/_/redis) olettaa suorittavansa koodia rootin oikeuksilla. OpenShift kuitenkin vaihtaa tilalle satunnaisen ei-rootkäyttäjän ja oletusarvoisesti konfiguroitu kontti törmää ongelmiin kirjoittaessaan dataa tiedostoihin. Ongelma ratkeaa ottamalla käyttöön [Red Hatin](https://catalog.redhat.com/software/containers/rhel9/redis-7/64881353e0e10aaf1cbac8b7?gs&q=redis) versio Redisistä, esim. `registry.redhat.io/rhel9/redis-7`, joka ei edellytä root-käyttäjää. Red Hatilta löytyy OpenShiftille sopiva versio monesta yleisestä palvelusta.
 
 ### HY-kirjautuminen
 
