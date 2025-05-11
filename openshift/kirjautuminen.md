@@ -1,26 +1,198 @@
 # Yliopiston kirjautuminen
 
-Jos projekti vaatii yliopiston kirjautumista vaihtoehdot ovat käytännössä SAML-pohjainen Shibboleth kirjautuminen tai modernimpaan OAuth:iin ja OpenID Connect:iin (OIDC) perustuva ratkaisu.
+Jos projekti vaatii yliopiston kirjautumista vaihtoehdot ovat käytännössä SAML-pohjainen Shibboleth kirjautuminen tai modernimpaan OAuth:iin ja OpenID Connect:iin (OIDC) perustuva ratkaisu. Tutustutaan seuraavassa modernimpaan ratkaisuun.
 
-## SP-rekisteri
+Muutetaan sovellusta siten, että jos käyttäjä ei ole kirjautunut, ei nollausnappia näytetyä:
 
-Ohtuprojektien käyttöön on luotu yliopiston kirjautumisen testipuolella toimivat SAML- ja OIDC-providerit. Esim. uusia testikäyttäjiä voi luoda ja käyttäjän atribuutteja lisätä osoitteessa [sp-registry.it.helsinki.fi](https://sp-registry.it.helsinki.fi/).
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k9.png?raw=true" width="600">
 
-## Shibboleth
+Kun käyttäjä kirjautuu, on nollaaminen mahdollista.
 
-- [Yliopiston Shibboleth ohjeet](https://wiki.helsinki.fi/xwiki/bin/view/IAMasioita/Identiteetin-%20ja%20p%C3%A4%C3%A4synhallinnan%20dokumentaatio/Keskitetyn%20k%C3%A4ytt%C3%A4j%C3%A4tunnistuksen%20vaihtoehdot/1.%20Shibboleth%20%28SAML2%20%20OIDC%29/Ohjeet%20Shibbolointiin)
-- [Konttialustan Shibboleth ohjeet](https://wiki.helsinki.fi/xwiki/bin/view/SO/Sovelluskehitt%C3%A4j%C3%A4n%20ohjeet/Alustat/Tiken%20konttialusta/3%20-%20Ohjeet/Shibboleth-kirjautuminen%20sovelluksellesi)
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k10.png?raw=true" width="600">
 
-Shibboleth-kirjautumiseen on mahdollista käyttää valmiiksi OpenShift:iin konfiguroitua instanssia. Riittää, että sovelluksen lisää tähän [Apache-konfiguraatiotiedostoon](https://console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi/k8s/ns/ohtuprojekti-staging/configmaps/httpd-config) ja uudelleenkäynnistää Shibbolethin. Tämän jälkeen sovellukseen voi tunnistautua osoitteessa [shibboleth.ext.ocp-test-0.k8s.it.helsinki.fi/osoite](https://shibboleth.ext.ocp-test-0.k8s.it.helsinki.fi/sovellus/). Sovellus sää käyttäjän atribuutit pyyntöjen headereissa.
+Koodi on kokonaisuudessaan GithHubissa haarassa [login](https://github.com/mluukkai/openshift-demo/tree/login?tab=readme-ov-file).
 
-Esimerkkitoteutus ks. [shibboleth-postgres-example](https://github.com/UniversityOfHelsinkiCS/shibboleth-postgres-example/blob/main/src/server/middleware/user.ts).
+Katsotaan ensin kirjautumista frontendin kannalta.
 
-## OpenID Connect
+Sovellus kysyy aina etusivulle tultaessa kirjaantuneen käyttäjän tietoja tekemällä HTTP GET -pyynnön osoitteeseen `/api/user`. 
 
-- [Yliopiston OIDC ohjeet](https://wiki.helsinki.fi/xwiki/bin/view/IAMasioita/Identiteetin-%20ja%20p%C3%A4%C3%A4synhallinnan%20dokumentaatio/Keskitetyn%20k%C3%A4ytt%C3%A4j%C3%A4tunnistuksen%20vaihtoehdot/1.%20Shibboleth%20%28SAML2%20%20OIDC%29/OpenID%20Connect/)
+Pyyntä on toteutettu Reactille tyypillisellä tavalla, eli `useEffect`-hookissa:
 
-OIDC on modernimpi tapa toteuttaa kirjautuminen. Erillistä Shibbolethin kaltaista palvelua ei tarvita vaan sovellus keskustelee suoraan yliopiston OIDC-providerin kanssa. Sovellustason toteutus riippuu omista teknologiavalinnoista. Todennäköisesti on tarvetta jonkin OpenID-kirjaston käytölle ja jollekin sessionhallintaratkaisulle.
+```js
+  useEffect(() => {
+    axios.get('/api/user')
+      .then(response => {
+        setUser(response.data)
+      })
+      .catch(error => {
+        console.log('not logged in')
+      })
+  }, [])
+```
 
-Sovellukselle pitää määritellä paluuosoite sp-rekisterin kautta. Muut tarvittavat tiedot kuten palvelun salaisuus löytyvät myös sieltä sekä OpenShiftissa olevasta esimerkkitoteutuksesta.
+Jos käyttäjä on kirjautunut, palauttaa `/api/user` käyttäjän, jotka talletetaan tilaan `user` kutsumalla `setUser`.
 
-Esimerkkitoteutus ks. [openid-mongo-example](https://github.com/UniversityOfHelsinkiCS/openid-mongo-example/blob/main/src/server/util/oidc.ts).
+Jos käyttäjä ei ole kirjautunut, on tilan `user` arvona `null`. Eri napit näytetään tämän perusteella.
+
+Sisään- ja ulkoskirjautumisen napinkäsittelijät ovat seuraavassa:
+
+```js
+  const onLogin = () => {
+    window.location.href = '/api/login'
+  }
+
+  const onLogut = async () => {
+    await axios.post('/api/logout')
+    setUser(null)
+  }
+```
+
+Sisäänkirjautuessa vaihdetaan selaimen osoiteriville `/api/login`, tämä saa aikaan sen, että selain tekee HTTP GET -pyynnön tähän osoitteeseen. Kirjautuminen on pakko tehdä näin sensijaan että pyyntö tehtäisiin JavaScript-koodista (lisätietoa esim. [täällä](https://community.auth0.com/t/cors-error-when-initiating-silent-auth-requests/103208)).
+
+Kirjautumisen yhteydessä backend tekee selaimelle uudelleeohjauksen sovelluksen juuriosoitteeseen `/`, tämän ansiosta sovellus tekee heti pyynnön `/api/user` ja saa kirjautuneen käyttäjän tiedot.
+
+Uloskirjautuminen tapahtuu tekemällä HTTP POST -pyyntö backendiin ja asettamalla tilan`user` arvoon `null`.
+
+Tarkastellaan seuraavaksi backendin koodia. Backend käyttää kirjautumisen apuna [passport](https://www.passportjs.org/)-kirjastoa. Jos käytät jotain muuta kuin Node/Expressiä backendin toteutukseen, joudut turvautumaan googleen ja kielimalleihin.
+
+Toteutus edellyttää seuraavien kirjastojen asentamista:
+
+```
+passport
+express-session
+passport-openid
+openid-client@5.4.3
+ioredis
+connect-redis
+```
+
+Backend käyttää [Redis](https://redis.io/)-avain-arvo-tietokantaa kirjautuneiden käyttäjien sessioiden tietojen tallettamiseen. Redisistä huolehtiva deployment ja service löytyvät [täältä](https://github.com/mluukkai/openshift-demo/blob/login/manifests/redisdeployment.yaml). Määrittely on suoraviivainen, ainoa huomionarvoinen seikka on käytössä oleva image
+`registry.redhat.io/rhel9/redis-7` jota joudumme käyttämään OpenShiftin rajoitusten takia sillä Dockerhubissa oleva image suorittaa koodia root-tilassa ja se aiheuttaa ongelman OpenShiftin oikeuksien suhteen.
+
+Aluksi määritellään Redis, sekä [sessioista](https://www.passportjs.org/concepts/authentication/sessions/) vastaava middleware passportin käyttöön:
+
+```js
+const passport = require('passport')
+const session = require('express-session')
+
+const SESSION_SECRET = process.env.SESSION_SECRET
+const REDIS_HOST = process.env.REDIS_HOST
+
+const redis = new Redis({
+  host: REDIS_HOST,
+  port: 6379,
+})
+
+app.use(session({
+  secret: SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  store: new RedisStore({ client: redis }),
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+```
+
+Kirjautumista ja käyttäjänhallintaa varten tarvitaan neljä routea:
+
+```js
+app.get('/api/login', passport.authenticate('oidc'))
+
+app.get('/api/login/callback', passport.authenticate('oidc', { failureRedirect: '/' }),  (req, res) => {
+  res.redirect('/')
+})
+
+app.post('/api/logout', (req, res, next) => {
+  req.logout((err) => {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+});
+
+app.get('/api/user', async (req, res) => {
+  console.log('User:', req.user)
+  if (req.user) {
+    res.json(req.user);
+  } else {
+    res.status(401).json({ message: 'Unauthorized' });
+  }
+});
+```
+
+Ensimmäinen route ohjaa HTTP GET `/api/login` -pyynnön yliopiston kertakirjaantumispalveluun. Routeista toinen on _takaisunkutsuroute_, jota kertakirjaantuminen kutsuu, kirjaantumisen onnistuessa. Kirjaantumisen yhteydessä passport suorittaa kirjaantumistoimenpiteet (joiden koodiin palaamme kohta), sekä tallettaa tiedon kirjaantuneesta käyttäjästä sessioon, eli käytännössä selaimelle asetettavaan cookieen. Sovellus uudelleenohjataan juurisoitteeseen `/`, joka saa siis aikaan sen, että selain tekee uuden pyynnön osoitteeseen `/api/user` joka kirjaantimisen ansiosta voi palauttaa `req.user`:iin passporton asettaman kirjaantuneen käyttäjän. 
+
+Ulkoskirjutumisen route on yksinkertainen, se kutsuu funktiota [req.logout](https://www.passportjs.org/concepts/authentication/logout/), ja ohjaa selaimen juuriosoiteeseen (joka ei tapauksessamme ole aivan välttämätöntä).
+
+Käynnistyessään sovellus vielä alustaa autentikoinnin kutsumalla erillisessä tiedostossa määriteltyä funktiota:
+
+```js
+app.listen(PORT, async () => {
+  const { setupAuthentication }  = await import('./oicd.mjs');
+
+  await setupAuthentication()
+  // ...
+}
+```
+
+Oleelliset osat tiedostosta `oicd.mjs` (joka käyttää JavaScriptin ES moduuleita) näyttävät seuraavalta:
+
+```js
+const verifyLogin = async (_tokenSet, userinfo, done) => {
+  console.log('userinfo', userinfo)
+
+  const user = {
+    id: userinfo.sub,
+    username: userinfo.uid,
+    name: userinfo.name,
+  }
+
+  // save user to db if that is required in your app
+
+  done(null, user)
+}
+
+export const setupAuthentication = async () => {
+  const client = await getClient()
+
+  const object = {
+    cn: { essential: true },
+    name: { essential: true },
+    given_name: { essential: true },
+    hyGroupCn: { essential: true },
+    email: { essential: true },
+    family_name: { essential: true },
+    uid: { essential: true },
+  }
+
+  const params = {
+    scope: 'openid profile email',
+    claims: {
+      id_token: object,
+      userinfo: object,
+    },
+  }
+  
+  passport.use('oidc', new openidClient.Strategy({ client, params }, verifyLogin))
+}
+```
+
+Määrittelyn ytimessä on funktio [verifyLogin](https://www.passportjs.org/concepts/authentication/openid/), joka suoritetaan onnistuneen kirjautumisen yhteydessä. Funktion toinen parametri on kirjautumispalvelun palauttama kirjaantuneen käyttäjän tiedot. Jos käyttäjien tiedot on esim. tarve tallettaa tietokantaan, tallennus tulee tehdä tässä kohtaa jos kirjaantunutta käyttäjää ei vielä tietokannasta löydy. Funktion lopussa kutsutaan kolmatta parametria antamalla kutsissa parametrina ne tiedot joita passportin halutaan palauttavan kutsun `req.user` yhteydessä (jota käytettiin reitin GET `/api/user` käsittelijässä).
+
+Tiedoston [oidc.mjs](https://github.com/mluukkai/openshift-demo/blob/login/server/oicd.mjs) metodissa `getClient` konfiguroidaan kirjaantumispalvelimelle yhteydessä oleva openidClient, joka konfiguroidaan sovelluksen kertakirjautumisjärjestelmään määritellyillä arvoilla.
+
+Kertakirjaantuminen konfiguroidaan osoitteessa <https://sp-registry.it.helsinki.fi/>, painamalla nappia _Add a new OICD relying party_.
+
+Mallia voi ottaa tiedostoista [conf1.png](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/images/conf1.png) ja [conf2.png](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/images/conf2.png)
+
+Sovelluksen käyttämät attribuutit, eli kirjaantumispalvelulta pyydettävät käyttäkohtaiset arvot määritellään välilehdeltä _Attributes_:
+
+<img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k10.png?raw=true" width="600">
+
+Selitys attribuuttien merkityksestä on [täällä](https://wiki.helsinki.fi/xwiki/bin/view/SO/User%20management/User%20attributes/). Lisää jonkinlaista ohjeistusta SP-registryn käyttöön on [täällä](https://wiki.helsinki.fi/xwiki/bin/view/SO/User%20management/SP%20Registry/).
+
+Client secretin arvo löytyy välilehden _Technical attributes_ alaosasta.
+
+## Sovelluskehitys paikallisella koneella ja kertakirjautuminen
+
+TBD

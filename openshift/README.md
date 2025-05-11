@@ -848,3 +848,7 @@ Seuraava esimerkki toi ratkaisun ainakin erääseen Poetry-projektiin:
 ```bash
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 ``` 
+
+### HY-kirjautuminen
+
+Katso erillinen [ohje](kirjautuminen.md)
