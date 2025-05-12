@@ -182,6 +182,7 @@ Määrittelyn ytimessä on funktio [verifyLogin](https://www.passportjs.org/conc
 Tiedoston [oidc.mjs](https://github.com/mluukkai/openshift-demo/blob/login/server/oicd.mjs) metodissa `getClient` konfiguroidaan kirjaantumispalvelimelle yhteydessä oleva openidClient, joka konfiguroidaan sovelluksen kertakirjautumisjärjestelmään määritellyillä arvoilla.
 
 Kertakirjaantuminen konfiguroidaan osoitteessa <https://sp-registry.it.helsinki.fi/>, painamalla nappia _Add a new OICD relying party_.
+- Käyttöoikeuksista [käyttöohje](https://wiki.helsinki.fi/xwiki/bin/view/SO/User%20management/SP%20Registry) sanoo seuraavasti: _If you are not verified as a university employee during login, please contact atk-autentikointi@helsinki.fi after login, so that an administrator can add the necessary user rights for you. If necessary, an administrator can also create local usernames for SP-Registry._
 
 Mallia voi ottaa tiedostoista [conf1.png](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/images/conf1.png) ja [conf2.png](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/images/conf2.png)
 
