@@ -1,4 +1,4 @@
-# Yliopiston kirjautuminen
+# Yliopisto-kirjautuminen
 
 Jos projekti vaatii yliopiston kirjautumista vaihtoehdot ovat käytännössä SAML-pohjainen Shibboleth kirjautuminen tai modernimpaan OAuth:iin ja OpenID Connect:iin (OIDC) perustuva ratkaisu. Tutustutaan seuraavassa modernimpaan ratkaisuun.
 
