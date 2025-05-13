@@ -1,8 +1,8 @@
 # Yliopisto-kirjautuminen
 
-Jos projekti vaatii yliopiston kirjautumista vaihtoehdot ovat käytännössä SAML-pohjainen Shibboleth kirjautuminen tai modernimpaan OAuth:iin ja OpenID Connect:iin (OIDC) perustuva ratkaisu. Tutustutaan seuraavassa modernimpaan ratkaisuun.
+Jos projekti vaatii yliopiston kirjautumista, vaihtoehdot ovat käytännössä SAML-pohjainen Shibboleth kirjautuminen tai modernimpaan OAuth:iin ja OpenID Connect:iin (OIDC) perustuva ratkaisu. Tutustutaan seuraavassa modernimpaan ratkaisuun.
 
-Muutetaan sovellusta siten, että jos käyttäjä ei ole kirjautunut, ei nollausnappia näytetyä:
+Muutetaan sovellusta siten, että jos käyttäjä ei ole kirjautunut, ei nollausnappia näytetä:
 
 <img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k9.png?raw=true" width="600">
 
@@ -16,7 +16,7 @@ Katsotaan ensin kirjautumista frontendin kannalta.
 
 Sovellus kysyy aina etusivulle tultaessa kirjaantuneen käyttäjän tietoja tekemällä HTTP GET -pyynnön osoitteeseen `/api/user`. 
 
-Pyyntä on toteutettu Reactille tyypillisellä tavalla, eli `useEffect`-hookissa:
+Pyyntö on toteutettu Reactille tyypillisellä tavalla, eli `useEffect`-hookissa:
 
 ```js
   useEffect(() => {
@@ -34,7 +34,7 @@ Jos käyttäjä on kirjautunut, palauttaa `/api/user` käyttäjän, jotka tallet
 
 Jos käyttäjä ei ole kirjautunut, on tilan `user` arvona `null`. Eri napit näytetään tämän perusteella.
 
-Sisään- ja ulkoskirjautumisen napinkäsittelijät ovat seuraavassa:
+Sisään- ja uloskirjautumisen napinkäsittelijät ovat seuraavassa:
 
 ```js
   const onLogin = () => {
@@ -120,9 +120,9 @@ app.get('/api/user', async (req, res) => {
 });
 ```
 
-Ensimmäinen route ohjaa HTTP GET `/api/login` -pyynnön yliopiston kertakirjaantumispalveluun. Routeista toinen on _takaisunkutsuroute_, jota kertakirjaantuminen kutsuu, kirjaantumisen onnistuessa. Kirjaantumisen yhteydessä passport suorittaa kirjaantumistoimenpiteet (joiden koodiin palaamme kohta), sekä tallettaa tiedon kirjaantuneesta käyttäjästä sessioon, eli käytännössä selaimelle asetettavaan cookieen. Sovellus uudelleenohjataan juurisoitteeseen `/`, joka saa siis aikaan sen, että selain tekee uuden pyynnön osoitteeseen `/api/user` joka kirjaantimisen ansiosta voi palauttaa `req.user`:iin passporton asettaman kirjaantuneen käyttäjän. 
+Ensimmäinen route ohjaa HTTP GET `/api/login` -pyynnön yliopiston kertakirjaantumispalveluun. Routeista toinen on _takaisinkutsuroute_, jota kertakirjaantuminen kutsuu, kirjaantumisen onnistuessa. Kirjaantumisen yhteydessä passport suorittaa kirjaantumistoimenpiteet (joiden koodiin palaamme kohta), sekä tallettaa tiedon kirjaantuneesta käyttäjästä sessioon, eli käytännössä selaimelle asetettavaan cookieen. Sovellus uudelleenohjataan juurisoitteeseen `/`, joka saa siis aikaan sen, että selain tekee uuden pyynnön osoitteeseen `/api/user` joka kirjaantumisen ansiosta voi palauttaa `req.user`:iin passportin asettaman kirjaantuneen käyttäjän. 
 
-Ulkoskirjutumisen route on yksinkertainen, se kutsuu funktiota [req.logout](https://www.passportjs.org/concepts/authentication/logout/), ja ohjaa selaimen juuriosoiteeseen (joka ei tapauksessamme ole aivan välttämätöntä).
+Ulkoskirjautumisen route on yksinkertainen, se kutsuu funktiota [req.logout](https://www.passportjs.org/concepts/authentication/logout/), ja ohjaa selaimen juuriosoiteeseen (joka ei tapauksessamme ole aivan välttämätöntä).
 
 Käynnistyessään sovellus vielä alustaa autentikoinnin kutsumalla erillisessä tiedostossa määriteltyä funktiota:
 
@@ -177,7 +177,7 @@ export const setupAuthentication = async () => {
 }
 ```
 
-Määrittelyn ytimessä on funktio [verifyLogin](https://www.passportjs.org/concepts/authentication/openid/), joka suoritetaan onnistuneen kirjautumisen yhteydessä. Funktion toinen parametri on kirjautumispalvelun palauttama kirjaantuneen käyttäjän tiedot. Jos käyttäjien tiedot on esim. tarve tallettaa tietokantaan, tallennus tulee tehdä tässä kohtaa jos kirjaantunutta käyttäjää ei vielä tietokannasta löydy. Funktion lopussa kutsutaan kolmatta parametria antamalla kutsissa parametrina ne tiedot joita passportin halutaan palauttavan kutsun `req.user` yhteydessä (jota käytettiin reitin GET `/api/user` käsittelijässä).
+Määrittelyn ytimessä on funktio [verifyLogin](https://www.passportjs.org/concepts/authentication/openid/), joka suoritetaan onnistuneen kirjautumisen yhteydessä. Funktion toinen parametri on kirjautumispalvelun palauttama kirjaantuneen käyttäjän tiedot. Jos käyttäjien tiedot on esim. tarve tallettaa tietokantaan, tallennus tulee tehdä tässä kohtaa jos kirjaantunutta käyttäjää ei vielä tietokannasta löydy. Funktion lopussa kutsutaan kolmatta parametria antamalla kutsussa parametrina ne tiedot joita passportin halutaan palauttavan kutsun `req.user` yhteydessä (jota käytettiin reitin GET `/api/user` käsittelijässä).
 
 Tiedoston [oidc.mjs](https://github.com/mluukkai/openshift-demo/blob/login/server/oicd.mjs) metodissa `getClient` konfiguroidaan kirjaantumispalvelimelle yhteydessä oleva openidClient, joka konfiguroidaan sovelluksen kertakirjautumisjärjestelmään määritellyillä arvoilla.
 
@@ -265,4 +265,4 @@ if (process.env.NODE_ENV !== 'production') {
 
 Jos sovellus ei ole tuotannossa, eli `process.env.NODE_ENV !== 'production'` määritelläänkin käyttäjän feikkaava middleware sekä endpointit `/api/login` ja `/api/logout`. Kun kirjaantuminen tehdään, asetetaan `loggedIn = true`, ja middleware lisää `req.user `:n arvoksi kovakoodatun käyttäjän.
 
-Esimerkissä on nyt kirjoitettu lähes kaikki koodi yhteen tiedostoon. Tämä ei tietenkään ole ohtuprojektissa järkevää, ja eri asiat, mm. tietokantayhteyksien avaaminen ja erityisesti feikkikirjautuminen on hyvä eriyttää omiin moduuleihin.
+Esimerkissä on nyt kirjoitettu lähes kaikki koodi yhteen tiedostoon. Tämä ei tietenkään ole ohtuprojektissa järkevää, ja eri asiat, mm. tietokantayhteyksien avaaminen ja erityisesti feikkikirjautuminen on hyvä eriyttää omiin moduuleihinsa.
