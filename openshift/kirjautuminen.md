@@ -228,4 +228,41 @@ Muutetaan tiedostoa `deployment.yaml` siten, että se antaa samantien kaikki con
 
 ## Sovelluskehitys paikallisella koneella ja kertakirjautuminen
 
-TBD
+Kertakirjautuminen aiheuttaa pienen haasteen sovelluksen kehittämiselle omalla koneella. Eräs ratkaisu tähän on ohittaa OpenID ja kovakoodata kirjautumsen tiedot backendiin. Tämä on tehty nyt tiedostoon [index.js](https://github.com/mluukkai/openshift-demo/blob/login/server/index.js#L67) seuraavasti:
+
+```js
+let loggedIn = false
+
+if (process.env.NODE_ENV !== 'production') {
+  const setMocUser = (req, res, next) => {
+    if (!loggedIn) {
+      return next()
+    }
+
+    req.user = {
+      "id": "2Q6XGZP4DNWAEYVIDZV2KLXKO3Z4QEBM",
+      "username": "mluukkai-test",
+      "name": "Matti Luukkainen"
+    }
+    next()
+  }
+  
+  app.use(setMocUser)
+
+  app.get('/api/login', (req, res) => {
+    loggedIn = true
+    res.redirect('/');
+  })
+
+  app.post('/api/logout', (req, res, next) => {
+    loggedIn = false
+    res.redirect('/');
+  });
+}
+
+// normaalisti käytettävät routet
+```
+
+Jos sovellus ei ole tuotannossa, eli `process.env.NODE_ENV !== 'production'` määritelläänkin käyttäjän feikkaava middleware sekä endpointit `/api/login` ja `/api/logout`. Kun kirjaantuminen tehdään, asetetaan `loggedIn = true`, ja middleware lisää `req.user `:n arvoksi kovakoodatun käyttäjän.
+
+Esimerkissä on nyt kirjoitettu lähes kaikki koodi yhteen tiedostoon. Tämä ei tietenkään ole ohtuprojektissa järkevää, ja eri asiat, mm. tietokantayhteyksien avaaminen ja erityisesti feikkikirjautuminen on hyvä eriyttää omiin moduuleihin.
