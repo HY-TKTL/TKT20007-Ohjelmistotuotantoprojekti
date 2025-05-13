@@ -205,7 +205,7 @@ data:
   DB_URL: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true
   OIDC_CLIENT_ID: id_valuesehe_see_the_spregistry
   OIDC_CLIENT_SECRET: secret_secretvaluehere_see_the_spregistry
-  OIDC_REDIRECT_URI: https://demoapp-toska-playground.apps.ocp-test-0.k8s.it.helsinki.fi/api/login/callback
+  OIDC_REDIRECT_URI: https://demoapp-toska-playground.ext.ocp-test-0.k8s.it.helsinki.fi/api/login/callback
   OIDC_ISSUER: https://login-test.it.helsinki.fi/.well-known/openid-configuration
   REDIS_HOST: redis-svc
   SESSION_SECRET: randomsecretstringhere
