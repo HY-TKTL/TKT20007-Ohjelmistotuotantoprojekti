@@ -184,7 +184,7 @@ Tiedoston [oidc.mjs](https://github.com/mluukkai/openshift-demo/blob/login/serve
 Kertakirjaantuminen konfiguroidaan osoitteessa <https://sp-registry.it.helsinki.fi/>, painamalla nappia _Add a new OICD relying party_.
 - Käyttöoikeuksista [käyttöohje](https://wiki.helsinki.fi/xwiki/bin/view/SO/User%20management/SP%20Registry) sanoo seuraavasti: _If you are not verified as a university employee during login, please contact atk-autentikointi@helsinki.fi after login, so that an administrator can add the necessary user rights for you. If necessary, an administrator can also create local usernames for SP-Registry._
 
-Mallia voi ottaa tiedostoista [conf1.png](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/images/conf1.png) ja [conf2.png](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/images/conf2.png)
+Mallia voi ottaa tiedostoista [conf1.png](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/images/conf1.png) ja [conf2.png](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/images/conf2.png) Huomaa, että urlit ovat kuvissa hieman väärässä muodossa. Oikea alkuosa urleille on https://demoapp-toska-playground.ext.ocp-test-0.k8s.it.helsinki.fi
 
 Sovelluksen käyttämät attribuutit, eli kirjaantumispalvelulta pyydettävät käyttäkohtaiset arvot määritellään välilehdeltä _Attributes_:
 
@@ -211,7 +211,7 @@ data:
   SESSION_SECRET: randomsecretstringhere
 ```
 
-Muutetaan tiedostoa `deployment.yaml` siten, että se antaa samantien kaikki config mapin määrittelemät ympäristömuuttujat podille:
+Muutetaan tiedostoa `deployment.yaml` siten, että se antaa samantien kaikki configmapin määrittelemät ympäristömuuttujat podille:
 
 ```yaml
     spec:
