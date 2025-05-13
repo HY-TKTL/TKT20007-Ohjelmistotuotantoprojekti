@@ -333,7 +333,7 @@ metadata:
     app: demoapp
     type: external
 spec:
-  host: demoapp-toska-playground.apps.ocp-test-0.k8s.it.helsinki.fi 
+  host: demoapp-toska-playground.ext.ocp-test-0.k8s.it.helsinki.fi 
   port:
     targetPort: 3000 
   to:
