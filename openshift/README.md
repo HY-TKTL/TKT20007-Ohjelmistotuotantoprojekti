@@ -887,6 +887,7 @@ voit asettaa käyttöoikeudet Dockerfilessa yksinkertaisella (joskaan ei kovin m
 ```bash
 RUN chmod -R 777 *
 ```
+
 jonka jälkeen käyttäjän oikeudet ulottuvat kansion /app alikansioihin ja tiedostoihin.
 
 Esimerkkitapauksena mainittakoon Pythonin virtuaaliympäristö, jota saatetaan yrittää suorittaa jossain muussa hakemistossa kuin /app, jolloin venv-moduuli ei välttämättä käynnisty laisinkaan. Sopivaa ympäristömuuttujaa käyttämällä virtuaaliympäristö voidaan asettaa suoritettavaksi /app kansion sisällä. Ympäristömuuttujia voi esitellä kontille Dockerfilen käskyllä ENV.
@@ -897,6 +898,24 @@ ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 ```
 
 Jossain tilanteessa ongelman voi aiheuttaa kolmannen osapuolen image. Esim. avain-arvo-tietokanta [Redisin](https://redis.io/) virallinen [Docker image](https://hub.docker.com/_/redis) olettaa suorittavansa koodia rootin oikeuksilla. OpenShift kuitenkin vaihtaa tilalle satunnaisen ei-rootkäyttäjän ja oletusarvoisesti konfiguroitu kontti törmää ongelmiin kirjoittaessaan dataa tiedostoihin. Ongelma ratkeaa ottamalla käyttöön [Red Hatin](https://catalog.redhat.com/software/containers/rhel9/redis-7/64881353e0e10aaf1cbac8b7?gs&q=redis) versio Redisistä, esim. `registry.redhat.io/rhel9/redis-7`, joka ei edellytä root-käyttäjää. Red Hatilta löytyy OpenShiftille sopiva versio monesta yleisestä palvelusta.
+
+### Objektien nimennästä
+
+On oleellisen tärkeää, että jokainen ryhmä nimeää Kubernetes-objektit järkevästi ja yhdenmukaisesti, siten että on mahdollista helposti päätellä minkä ryhmän tuotoksista on kyse. Jos projektin nimi olisi esim. labtool, objektien nimet noudattaisivat seuraavaa kaavaa
+
+```
+labtool-backend-dep
+labtool-backend-svc
+labtool-route
+labtool-mongo-dep
+labtool-mongo-svc
+```
+
+Nimi siis lakaa ryhmän nimeä edustavalla kuvaavalla merkkijonolla.
+
+Klusterille ei saa jättää mitään roskaa eikä ylimääräisiä Kubernetes-objekteja. Eli jos jokin rersurssi todetaan turhaksi, se poistetaan.
+
+Jos klusterilta löytyy holtittomasti nimettyjä objekteja, ne saateaan poistaa ilman varoitusta.
 
 ### HY-kirjautuminen
 
