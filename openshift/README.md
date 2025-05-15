@@ -30,7 +30,7 @@ Oletetaan nyt, että `oc` asennettu. Jotta yhteys klusteriin toimisi, on oltava 
 
 Kirjaudu klusterille suorittamalla komento `oc login -u <username> https://api.ocp-test-0.k8s.it.helsinki.fi:6443`.
 
-Jostain syystä kirjaantuminen ei kaikilla toimi. Jos käy näin, kirjaudu OpenShift-webkonsoliin console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi ja valitse _Copy login command_:
+Jostain syystä kirjaantuminen ei kaikilla toimi. Jos käy näin, kirjaudu OpenShift-webkonsoliin <https://console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi> ja valitse _Copy login command_:
 
 <img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k1.png?raw=true" width="600">
 
@@ -47,7 +47,7 @@ In project toska-playground on server https://api.ocp-test-0.k8s.it.helsinki.fi:
 
 Esimerkissä on käytössä projekti `toska-playground`. Ohtuprojekteissa käytetän projektia `ohtuprojekti-staging`. Projektista on olemassa sekä tuotanto- että testipuoli. Kysy ohjaajaltasi kumpaa ryhmäsi käyttää. 
 
-Testipuolen osoite on https://api.ocp-test-0.k8s.it.helsinki.fi:6443 ja tuotantopuolen https://api.ocp-prod-0.k8s.it.helsinki.fi:6443, eli kirjautuessa käytä oikeaa osoitetta! Tuotantopuolen web-konsolin osoite on console-openshift-console.apps.ocp-prod-0.k8s.it.helsinki.fi
+Testipuolen osoite on https://api.ocp-test-0.k8s.it.helsinki.fi:6443 ja tuotantopuolen https://api.ocp-prod-0.k8s.it.helsinki.fi:6443, eli kirjautuessa käytä oikeaa osoitetta! Tuotantopuolen web-konsolin osoite on <https://console-openshift-console.apps.ocp-prod-0.k8s.it.helsinki.fi>
 
 ### Pod ja deployment
 
