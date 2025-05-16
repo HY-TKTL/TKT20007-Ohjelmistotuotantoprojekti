@@ -12,8 +12,8 @@ Ohtuprojekti osallistujan silmin: syksyn 2024 NOW-tietokanta-tiimin [kertomus](h
 
 Demot:
 
-* Välidemo pe 27.6. klo 9.00-11 Chemicumin A129
-* Loppudemo nn
+* Kesäkuun lopun demo pe 27.6. klo 9.00-11 Chemicumin A129
+* Pitkien projektien loppudemo elokuun viimeisellä viikolla, TBA
 
 Aloitetaan tasalta ilman akateemista varttia
 
