@@ -23,6 +23,10 @@ Vertaisarviot:
 
 [https://study.cs.helsinki.fi/projekti/peerreview](https://study.cs.helsinki.fi/projekti/peerreview) 
 
+## Tekninen tuki
+
+Ryhmille on tarjolla teknistä tukea! Kysy [discordissa](https://study.cs.helsinki.fi/discord/join/ohtuproj), kanavalla *ohtuproj_tekninen_tuki*
+
 ## Arvosteluperusteet
 
 Arvostelu perustuu seuraaviin asioihin
