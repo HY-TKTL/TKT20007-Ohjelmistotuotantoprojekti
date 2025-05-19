@@ -1,4 +1,4 @@
-# Yliopisto-kirjautuminen
+# Yliopistokirjautuminen
 
 Jos projekti vaatii yliopiston kirjautumista, vaihtoehdot ovat käytännössä SAML-pohjainen Shibboleth kirjautuminen tai modernimpaan OAuth:iin ja OpenID Connect:iin (OIDC) perustuva ratkaisu. Tutustutaan seuraavassa modernimpaan ratkaisuun.
 
@@ -52,6 +52,8 @@ Sisäänkirjautuessa vaihdetaan selaimen osoiteriville `/api/login`, tämä saa 
 Kirjautumisen yhteydessä backend tekee selaimelle uudelleeohjauksen sovelluksen juuriosoitteeseen `/`, tämän ansiosta sovellus tekee heti pyynnön `/api/user` ja saa kirjautuneen käyttäjän tiedot.
 
 Uloskirjautuminen tapahtuu tekemällä HTTP POST -pyyntö backendiin ja asettamalla tilan`user` arvoon `null`.
+
+## Backend passport-kirjastoa käyttäen
 
 Tarkastellaan seuraavaksi backendin koodia. Backend käyttää kirjautumisen apuna [passport](https://www.passportjs.org/)-kirjastoa. Jos käytät jotain muuta kuin Node/Expressiä backendin toteutukseen, joudut turvautumaan googleen ja kielimalleihin.
 
@@ -225,6 +227,10 @@ Muutetaan tiedostoa `deployment.yaml` siten, että se antaa samantien kaikki con
             - configMapRef:
                 name: demoapp-config
 ```
+
+## Backend ilman kirjastoja käyttäen
+
+TBD
 
 ## Sovelluskehitys paikallisella koneella ja kertakirjautuminen
 
