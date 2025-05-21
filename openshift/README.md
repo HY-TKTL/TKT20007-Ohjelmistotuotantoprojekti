@@ -82,7 +82,7 @@ spec:
              value: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true
 ```
 
-Avaimen `spec` arvona määritellään deploymentin hallitseman podin (tai podien jos `replicas` on suurempi kuin 1) kontit. Tapauksessamme on yksi kontti, jonka käyttämä image on `mluukkai/demoapp:1`. Kontille on annettu sen käyttämä tietokantaosoite määrittelemällä ympäristömuuttuja `DB_URL`.
+Avaimen `spec` arvona määritellään deploymentin hallitseman podin (tai podien jos `replicas` on suurempi kuin 1) kontit. Tapauksessamme on yksi kontti, jonka käyttämä image on `mluukkai/demoapp:1`. Kontille on annettu sen käyttämä tietokantaosoite määrittelemällä ympäristömuuttuja `DB_URL`. Lue [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/tree/master/openshift#tietokannan-hankkiminen) miten saat Postgres-tietokannan jos projektisi sellaista tarvitsee!
 
 Deploymentin määrittelevä yaml-tiedosto näyttää monimutkaiselta. Osa määrittelyn sisällöstä on sovelluksesta riippumatta suunilleen sama, tärkein osuus on juurikin avaimen `spec` arvona. Metadatassa oleva `name: demoapp-dep` määrittelee deploymentin nimen.
 
