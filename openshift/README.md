@@ -2,6 +2,8 @@
 
 Tämä ohje olettaa, että hallitset jossain määrin Dockeria, esim. vähintään luvun _Docker basics_ verran kurssilta [DevOps with Docker](https://courses.mooc.fi/org/uh-cs/courses/devops-with-docker).
 
+Jos käytät fuksiläppäriä ja koneellasi ei ole jo Dockeria asennettuna, seuraa [tätä](https://version.helsinki.fi/cubbli/cubbli-help/-/wikis/Docker) ohjetta!
+
 ### Esimerkkisovellus
 
 Seuraavassa asennetaan yliopiston tietotekniikkakeskuksen OpenShift-klusterille Reactilla ja NodeJS:llä toteutettu SPA-sovellus, jonka koodi löytyy [GitHubista](https://github.com/mluukkai/openshift-demo).
