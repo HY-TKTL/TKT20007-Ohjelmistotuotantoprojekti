@@ -1,6 +1,6 @@
 ## OpenShift-konttialustan käyttö staging-ympäristönä
 
-Tämä ohje olettaa, että hallitset jossain määrin Dockeria, esim. vähintään luvun _Docker basics_ verran kurssilta [DevOps with Docker](https://courses.mooc.fi/org/uh-cs/courses/devops-with-docker).
+Tämä ohje olettaa, että hallitset jossain määrin Dockeria, esim. vähintään luvun _Docker basics_ verran kurssilta [DevOps with Docker](https://courses.mooc.fi/org/uh-cs/courses/devops-with-docker). Docker-kurssi jatkuu vielä 16.6. asti, seuraava versio kurssista alkaa toisen periodin alussa. Jokaisen käpistelijän kannattaa ehdottomasti suorittaa kurssi!
 
 Jos käytät fuksiläppäriä ja koneellasi ei ole jo Dockeria asennettuna, seuraa [tätä](https://version.helsinki.fi/cubbli/cubbli-help/-/wikis/Docker) ohjetta!
 
