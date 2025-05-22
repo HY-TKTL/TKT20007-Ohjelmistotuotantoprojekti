@@ -230,7 +230,8 @@ Muutetaan tiedostoa `deployment.yaml` siten, että se antaa samantien kaikki con
 
 ## Backend ilman kirjastoja käyttäen
 
-TBD
+Esimerkissä käytetty passport-kirjasto piilottaa monia kirjautumiseen liittyviä detaljeja. Jos käytät jotain muuta kuin JavaScript-pohjaista teknologiaa yliopistokirjautumiseen, ei passport-esimerkistä välttämättä ole kovin paljoa hyötyä. Sovelluksesta on olemassa versio, joka tekee kertakirjautumisen ilman mitään kirjastoa, käyttäen ainoastaan HTTP GET- ja POST-pyyntöjä. Versio löytyy branchissta
+[oidc](https://github.com/mluukkai/openshift-demo/tree/oidc). Sen tutkiminen voi olla hyödyksi jos toteutat kertakirjaantumista esim. Python Flaskilla.
 
 ## Sovelluskehitys paikallisella koneella ja kertakirjautuminen
 
