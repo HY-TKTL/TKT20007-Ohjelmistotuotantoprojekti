@@ -13,7 +13,7 @@ Ohtuprojekti osallistujan silmin: syksyn 2024 NOW-tietokanta-tiimin [kertomus](h
 Demot:
 
 * Kesäkuun lopun demo pe 27.6. klo 9.00-11 Chemicumin A129
-* Pitkien projektien loppudemo elokuun viimeisellä viikolla, TBA
+* Pitkien projektien pe 29.8. klo 10-11 BK113
 
 Aloitetaan tasalta ilman akateemista varttia
 
@@ -26,6 +26,8 @@ Vertaisarviot:
 ## Tekninen tuki
 
 Ryhmille on tarjolla teknistä tukea! Kysy [discordissa](https://study.cs.helsinki.fi/discord/join/ohtuproj), kanavalla *ohtuproj_tekninen_tuki*
+
+Katso myös [OpenShift](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/tree/master/openshift)-ohje
 
 ## Arvosteluperusteet
 
