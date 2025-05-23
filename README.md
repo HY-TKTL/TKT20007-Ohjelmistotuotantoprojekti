@@ -19,9 +19,7 @@ Aloitetaan tasalta ilman akateemista varttia
 
 Vertaisarviot:
 
-* puolessa välissä ja lopussa vertaisarvio
-
-[https://study.cs.helsinki.fi/projekti/peerreview](https://study.cs.helsinki.fi/projekti/peerreview) 
+* puolessa välissä ja lopussa vertaisarvio osoitteessa [https://study.cs.helsinki.fi/projekti/peerreview](https://study.cs.helsinki.fi/projekti/peerreview) 
 
 ## Tekninen tuki
 
