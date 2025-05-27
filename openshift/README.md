@@ -606,11 +606,13 @@ Esimerkkisovellus käyttää Tiken ylläpitämää yhteiskäyttöistä tietokant
 
 Pyyntöön voi käyttää seuraavaa email-pohjaa
 
-> Saisinko uuden tietokannan yhteiskäyttöiseen Postgresin testikantaan esim. possu-test-1-21.it?
->
-> kantatunnus: omansovelluksennimi
-> sovelluksen osoite: openshift
-> kannan ylläpitäjä: oili.opiskelija@helsinki.fi
+```
+Saisimmeko uuden tietokannan yhteiskäyttöiseen Postgresin testikantaan esim. possu-test-1-21.it?
+
+kantatunnus: omansovelluksennimi
+sovelluksen osoite: openshift
+kannan ylläpitäjä: oili.opiskelija@helsinki.fi
+```
 
 Osoitteena siis _openshift_. Jos kyse on tuotantosovelluksesta, tulee pyytää _possu-test-1-21.it_ sijaan tuotantokantaan.
 
