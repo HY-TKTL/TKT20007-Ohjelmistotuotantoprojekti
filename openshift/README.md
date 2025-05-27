@@ -604,6 +604,16 @@ Voit säätää memory ja cpu arvoja sovelluksesi vaatimusten mukaan. Muisti mä
 
 Esimerkkisovellus käyttää Tiken ylläpitämää yhteiskäyttöistä tietokantaa. Tietokannan hankkiminen on helppoa, yksi email riittää, ks https://devops.pages.helsinki.fi/guides/platforms/shared-dbs.html
 
+Pyyntöön voi käyttää seuraavaa email-pohjaa
+
+> Saisinko uuden tietokannan yhteiskäyttöiseen Postgresin testikantaan esim. possu-test-1-21.it?
+>
+> kantatunnus: omansovelluksennimi
+> sovelluksen osoite: openshift
+> kannan ylläpitäjä: oili.opiskelija@helsinki.fi
+
+Osoitteena siis _openshift_. Jos kyse on tuotantosovelluksesta, tulee pyytää _possu-test-1-21.it_ sijaan tuotantokantaan.
+
 Kannattaa huomata, että tietokanta edellyttää SSL:n käyttöä, eli tuetokantaurl on muotoa `postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true` asia kyllä mainitaan yo dokumentaatiossa mutta esim. allekirjoittanut ei lukenut dokumenttia aluksi tarpeeksi tarkasti...
 
 Jos haluat ottaa tietokantaan yhdeyden suoraan, on projektiin `ohtuprojekti-staging` on konfiguroitu podi `db-tools`, joka sisältää tietokantayhteyksien kannalta tarvittavat komentorivityökalut, kuten `psql` ja `mongosh`. Tietokantayhteys avataan tämän podin avulla seuraavasti
