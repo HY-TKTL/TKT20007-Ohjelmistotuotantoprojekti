@@ -445,7 +445,7 @@ spec:
             - containerPort: 3000
           env:
             - name: DB_URL
-              value: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true     
+              value: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojektitesti?targetServerType=primary&ssl=true     
 ```
 
 Uutta tässä on avaimeen `meta/annotations` lisätyt määreet, jotka saavat deploymentin seuraamaan image streamissa tapahtuvia muutoksia. Toinen muutos on kontainerin `image`, joka arvo on nyt `demoapp:staging`, eli viite image streamiin.
