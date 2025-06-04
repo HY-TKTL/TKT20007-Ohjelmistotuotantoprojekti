@@ -612,6 +612,7 @@ Saisimmeko uuden tietokannan yhteiskäyttöiseen Postgresin testikantaan esim. p
 kantatunnus: omansovelluksennimi
 sovelluksen osoite: openshift
 kannan ylläpitäjä: oili.opiskelija@helsinki.fi
+Klusteri, jossa sovellus pyörii: prod tai testi (ocp-prod/ocp-test klusterin urlissa)
 ```
 
 Osoitteena siis _openshift_. Jos kyse on tuotantosovelluksesta, tulee pyytää _possu-test-1-21.it_ sijaan tuotantokantaan.
