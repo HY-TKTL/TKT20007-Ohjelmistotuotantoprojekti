@@ -88,7 +88,7 @@ spec:
 
 Avaimen `spec` arvona määritellään deploymentin hallitseman podin (tai podien jos `replicas` on suurempi kuin 1) kontit. Tapauksessamme on yksi kontti, jonka käyttämä image on `mluukkai/demoapp:1`. Kontille on annettu sen käyttämä tietokantaosoite määrittelemällä ympäristömuuttuja `DB_URL`. Lue [täältä](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/tree/master/openshift#tietokannan-hankkiminen) miten saat Postgres-tietokannan jos projektisi sellaista tarvitsee!
 
-Deploymentin määrittelevä yaml-tiedosto näyttää monimutkaiselta. Osa määrittelyn sisällöstä on sovelluksesta riippumatta suunilleen sama, tärkein osuus on juurikin avaimen `spec` arvona. Metadatassa oleva `name: demoapp-dep` määrittelee deploymentin nimen.
+Deploymentin määrittelevä yaml-tiedosto näyttää monimutkaiselta. Osa määrittelyn sisällöstä on sovelluksesta riippumatta suunnilleen sama, tärkein osuus on juurikin avaimen `spec` arvona. Metadatassa oleva `name: demoapp-dep` määrittelee deploymentin nimen.
 
 Deployment luodaan klusterille seuraavalla komennolla ($ on komentokehote):
 
@@ -371,7 +371,7 @@ Host-nimi riippuu myös käytetystä klusteriympäristöstä. Jos käytetään t
 
 Sovelluksessamme on nyt eräs hieman ikävä puoli. Jos haluamme käynnistää uuden version, tulee luoda Docker-image jolla on uusi tagi, esim mluukkai/demoapp:2 ja deploymentia on muutettava siten, että se viittaa muuttuneeseen tagiin.
 
-OpenShift tarjoaa [image steream](https://docs.redhat.com/en/documentation/openshift_container_platform/4.8/html/images/managing-image-streams) -nimisen objektin, jonka ansiosta deploymentin on mahdollista viitata koko ajan samaan tagiin, ja taustalla olevan imagen päivittyminen Dockerhubiin otetaan tästä huolimatta huomioon.
+OpenShift tarjoaa [image stream](https://docs.redhat.com/en/documentation/openshift_container_platform/4.8/html/images/managing-image-streams) -nimisen objektin, jonka ansiosta deploymentin on mahdollista viitata koko ajan samaan tagiin, ja taustalla olevan imagen päivittyminen Dockerhubiin otetaan tästä huolimatta huomioon.
 
 Muutetaan Dockerhubiin pushattavan imagen tagiksi _mluukkai/demoapp:staging_:
 
@@ -594,8 +594,8 @@ Voit säätää memory ja cpu arvoja sovelluksesi vaatimusten mukaan. Muisti mä
 | `oc get svc`                    | listaa servicet                                                                       |
 | `oc describe po <pod>`          | katso podin tarkemmat tiedot, toimii myös muille resursseille, esim. svc, deployments |
 | `oc exec -it <pod> bash`        | suorita podilla komento bash eli komentotulkki                                        |
-| `oc apply -f mainifest.yaml`    | luo/päivitä manifestin määrittelemät objektit                                         |
-| `oc delete -f mainifest.yaml`   | tuhoa manifestin määrittelemät objektit                                               |
+| `oc apply -f manifest.yaml`     | luo/päivitä manifestin määrittelemät objektit                                         |
+| `oc delete -f manifest.yaml`    | tuhoa manifestin määrittelemät objektit                                               |
 | `oc import-image image:tagi`    | päivitä imagestream heti                                                              |
 | `oc logs <pod>`                 | näytä sovelluksen lokit                                                               |
 | `oc logs -f <pod>`              | seuraa sovelluksen lokeja                                                             |
