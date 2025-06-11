@@ -221,7 +221,7 @@ Mistä on kyse? Ensimmäinen tapa, missä käytettiin yamlia on ns. [deklaratiiv
 
 Jälkimmäinen komento `oc run  ...` taas edustaa [imperatiivistä](https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#imperative-object-configuration) tyyliä Kubernetes-objektien luomiseen. Imperatiivisen tyylin ongelma on se, että klusterin tila ei pysy samalla tavalla hallittavasti näkyvillä kuin vaikkapa versionhallintaan tallennetuissa yaml-manifesteissä. Imperatiivista tyyliä kannattaa käyttää lähinnä yksinkertaisiin tilanteisiin, mm. esimerkkimme tapaan debugatessa.
 
-Käytettäköön siis deklaratiivista tyyliä, joka on myös tämän hetkisen teollisen parhaan käytänteen [GirOpsin](https://www.redhat.com/en/topics/devops/what-is-gitops) taustalla. Tätäkin teemaa käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/).
+Käytettäköön siis deklaratiivista tyyliä, joka on myös tämän hetkisen teollisen parhaan käytänteen [GitOpsin](https://www.redhat.com/en/topics/devops/what-is-gitops) taustalla. Tätäkin teemaa käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/).
 
 Laajennetaan ohtuprojektimanifestia:
 
@@ -252,7 +252,7 @@ spec:
 
 Spec-osassa määritellään, että service "kohdistuu" sovellukseen _demoapp_, joka on portissa 3000, service tarjoaa ulospäin portin 80.
 
-Seuraava havainnollistaa delpoymentin ja servicen yhteyttä:
+Seuraava havainnollistaa deploymentin ja servicen yhteyttä:
 
 <img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k6.png?raw=true" width="600">
 
@@ -365,7 +365,7 @@ Sovellus toimii nyt koko maailmalle osoitteessa https://demoapp-toska-playground
 
 <img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k3.png?raw=true" width="600">
 
-Host-nimi riippuu myös käytetystä klusteriympäristöstä, jos käytetään tuotantoklusteria, vaihtuu sana `test` sanaksi `prod`.
+Host-nimi riippuu myös käytetystä klusteriympäristöstä. Jos käytetään tuotantoklusteria, vaihtuu sana `test` sanaksi `prod`.
 
 ### Image stream
 
@@ -588,20 +588,19 @@ Voit säätää memory ja cpu arvoja sovelluksesi vaatimusten mukaan. Muisti mä
 
 ### Kooste tärkeimmistä komennoista
 
-| Command                  | Description                                      |
-|--------------------------|--------------------------------------------------|
-| `oc get po`             | Listaa podit                                     |
-| `oc get svc`            | Listaa servicet                                  |
-| `oc describe po <pod>`  | Katso podin tarkemmat tiedot                     |
-|                          | Komento toimii myös muille resursseille, esim. svc, deployments |
-| `oc exec -it <pod> bash` | suorita podilla komento bash eli komentotulkki |
-| `oc apply -f mainifest.yaml ` | luo/päivitä manifestin määrittelemät objektit |
-| `oc delete -f mainifest.yaml ` | tuhoa manifestin määrittelemät objektit |
-| `oc import-image image:tagi` | päivitä imagesream heti |
-| `oc logs <pod>` |  näytä sovelluksen lokit |
-| `oc logs -f <pod>` |  seuraa sovelluksen lokeja |
-| `oc port-forward <pod>` | ohjaa lokaalin koneen portin liikenne podiin |
-| `oc port-forward svc/<service>` | ohjaa lokaalin koneen portin liikenne palveluun |
+| Komento                         | Kuvaus                                                                                |
+| :------------------------------ | :------------------------------------------------------------------------------------ |
+| `oc get po`                     | listaa podit                                                                          |
+| `oc get svc`                    | listaa servicet                                                                       |
+| `oc describe po <pod>`          | katso podin tarkemmat tiedot, toimii myös muille resursseille, esim. svc, deployments |
+| `oc exec -it <pod> bash`        | suorita podilla komento bash eli komentotulkki                                        |
+| `oc apply -f mainifest.yaml`    | luo/päivitä manifestin määrittelemät objektit                                         |
+| `oc delete -f mainifest.yaml`   | tuhoa manifestin määrittelemät objektit                                               |
+| `oc import-image image:tagi`    | päivitä imagestream heti                                                              |
+| `oc logs <pod>`                 | näytä sovelluksen lokit                                                               |
+| `oc logs -f <pod>`              | seuraa sovelluksen lokeja                                                             |
+| `oc port-forward <pod>`         | ohjaa lokaalin koneen portin liikenne podiin                                          |
+| `oc port-forward svc/<service>` | ohjaa lokaalin koneen portin liikenne palveluun                                       |
 
 ### Tietokannan hankkiminen
 
@@ -615,7 +614,7 @@ Saisimmeko uuden tietokannan yhteiskäyttöiseen Postgresin testikantaan esim. p
 kantatunnus: omansovelluksennimi
 sovelluksen osoite: openshift
 kannan ylläpitäjä: oili.opiskelija@helsinki.fi
-Klusteri, jossa sovellus pyörii: prod tai testi (ocp-prod/ocp-test klusterin urlissa)
+klusteri, jossa sovellus pyörii: prod tai testi (ocp-prod/ocp-test klusterin urlissa)
 ```
 
 Osoitteena siis _openshift_. Jos kyse on tuotantosovelluksesta, tulee pyytää _possu-test-1-21.it_ sijaan tuotantokantaan.
@@ -628,11 +627,11 @@ Jos haluat ottaa tietokantaan yhdeyden suoraan, on projektiin `ohtuprojekti-stag
 $ oc exec -it $(oc get pods -l deployment=db-tools -o jsonpath='{.items[0].metadata.name}') -- psql postgres://kayttaja:salasana@possu-test.it.helsinki.fi:5432/tietokanta
 ```
 
-Komentorivilt yhdistäessäsi riittää tietokantaurlin lyhempi muoto.
+Komentoriviltä yhdistäessäsi riittää tietokantaurlin lyhyempi muoto.
 
 ### Mongo ja tiedostojen tallentaminen
 
-Jos päätät käyttää MongoDB:tä, ei yliopistolla ole valitettavasti tarjolla hostattua palvelua. On käytettävä ulkoista palvelua tai konfiguroitava Mongo itse OpenShiftin. Tämäkään ei ole vaikeaa. Pienen mutkan matkaan aiheuttaa se, että Mongoa varten on varattava pysyvään talletukseen sopivaa levytilaa.
+Jos päätät käyttää MongoDB:tä, ei yliopistolla ole valitettavasti tarjolla hostattua palvelua. On käytettävä ulkoista palvelua tai konfiguroitava Mongo itse OpenShiftiin. Tämäkään ei ole vaikeaa. Pienen mutkan matkaan aiheuttaa se, että Mongoa varten on varattava pysyvään talletukseen sopivaa levytilaa.
 
 Levytilan varaaminen tapahtuu luomalla [PersistentVolumeClaim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims). Tehdään tiedosto `volumeclaim.yaml` ja sinne sisältö:
 
@@ -685,7 +684,7 @@ spec:
 
 Ennen kun liitämme pysyväislevyn deploymentin luovaan podiin, kokeillaan mitä tapahtuu jos kirjoitamme tiedostoja podin sisälle ilman pysyväislevyn käyttöä.
 
-Luodaan deployment, mennään podiin ja tehdään podin hakemistoon /tmp kaksi tiedostoa:
+Luodaan deployment, mennään podiin ja tehdään podin hakemistoon `/tmp` kaksi tiedostoa:
 
 ```bash
 $ oc apply -f ubuntu-deployment.yaml
@@ -745,7 +744,7 @@ spec:
             claimName: demoapp-claim
 ```
 
-Deploymentissa on kaksi lisäystä, ensinnäkin `template/spec`:in alla on osa `volumes`, joka ketoo mitä volumeja deployment käyttää. Käyttöön on otettu levypyyntöä `demoapp-claim` vastaava voluumi ja on annettu sille nimi `demoapp-volume`. Osan `container`s alle on määritelty, että käyttöön otettu voluumi mäpätään podiin polulle `/tmp`.
+Deploymentissa on kaksi lisäystä, ensinnäkin `template/spec`:in alla on osa `volumes`, joka kertoo mitä volumeja deployment käyttää. Käyttöön on otettu levypyyntöä `demoapp-claim` vastaava voluumi ja on annettu sille nimi `demoapp-volume`. Osan `containers` alle on määritelty, että käyttöön otettu voluumi mäpätään podiin polulle `/tmp`.
 
 Kokeillaan sitten samaa uusiksi, eli lisätään volumille mäpättyyn hakemistoon `/tmp` tiedostoja, pakotetaan podin uudelleenluonti, ja tarkastetaan että tiedostot säilyvät:
 
@@ -885,7 +884,10 @@ Muutetaan deploymentia seuraavasti:
 ```
 
 
-Olemme tällä kertaa laiskoja ja määrittelemme tietokantaurlin suoraan GitHubiin menevässä tiedostossa `deployment.yaml`. **Älä yritä tätä kotona äläkä missään muuallakaan!**
+Olemme tällä kertaa laiskoja ja määrittelemme tietokantaurlin suoraan GitHubiin menevässä tiedostossa `deployment.yaml`
+
+> [!CAUTION]
+> Älä yritä tätä kotona äläkä missään muuallakaan!
 
 Kokeillaan! Sovellus toimii:
 
