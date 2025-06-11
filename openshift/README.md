@@ -22,7 +22,9 @@ Kubernetes on melko monimutkainen olio, kurssi [DevOps with Kubernetes](https://
 
 Ytimessä olevan Kuberneteksen lisäksi OpenShift sisältää mm. graafisen käyttöliittymän, jonka kautta konfiguraatioita on mahdollista tehdä, mutta se **ei ole suositeltua** sillä näin päädytään usein hallitsemattoman epämääräisiin konfiguraatioihin. On suositeltavaa pitäytyä määrittelyissä mahdollisimman "puhtaassa" Kuberneteksessa, ja näin tulemme seuraavassakin tekemään.
 
-**Eli älä määrittele mitään OpenShiftin käyttöliittymän kautta. Jos teet näin, teknistä tukea ei kurssin puolesta ole luvassa.**
+> [!CAUTION]
+> Älä määrittele mitään OpenShiftin käyttöliittymän kautta tai imperatiivisin käskyin.  
+> Jos teet näin, teknistä tukea ei kurssin puolesta ole luvassa.
 
 Käytämme klusteria yksinomaan komentoriviltä, komennon [oc](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/cli_tools/openshift-cli-oc) avulla. `oc` toimii samoin kun Kubernetesin [kubectl](https://kubernetes.io/docs/reference/kubectl/), mutta se sisältää muutamia OpenShift-spesifejä komentoja.
 
@@ -143,7 +145,7 @@ $ curl 10.12.2.177:3000/api/ping
 {"message":"pong"} 
 ```
 
-Jostain syystä GET-pyyntö laskurin arvon palauttavaan rajapintaan _api/counter_: ei toimi:
+Jostain syystä GET-pyyntö laskurin arvon palauttavaan rajapintaan _api/counter_ ei toimi:
 
 ```bash
 $ curl 10.13.2.114:3000/api/counter
@@ -223,7 +225,9 @@ Käytettäköön siis deklaratiivista tyyliä, joka on myös tämän hetkisen te
 
 Laajennetaan ohtuprojektimanifestia:
 
-**Älä määrittele mitään OpenShiftin käyttöliittymän kautta tai imperatiivisin käskyin. Jos teet näin, teknistä tukea ei kurssin puolesta ole luvassa.**
+> [!CAUTION]
+> Älä määrittele mitään OpenShiftin käyttöliittymän kautta tai imperatiivisin käskyin.  
+> Jos teet näin, teknistä tukea ei kurssin puolesta ole luvassa.
 
 ### Service
 
