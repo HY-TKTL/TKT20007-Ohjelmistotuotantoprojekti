@@ -8,11 +8,11 @@ Jos käytät fuksiläppäriä ja koneellasi ei ole jo Dockeria asennettuna, seur
 
 Seuraavassa asennetaan yliopiston tietotekniikkakeskuksen OpenShift-klusterille Reactilla ja NodeJS:llä toteutettu SPA-sovellus, jonka koodi löytyy [GitHubista](https://github.com/mluukkai/openshift-demo).
 
-Sovellus on hyvin yksinkertainen laskuri. Laskurin arvo on talletettu Postgres-tietokantaan, johon backend on yhteydessä [Sequelize](https://sequelize.org/)-kirjaston avulla. Frontend sisältää napit laskurin kasvattamiseen sekä nollaamiseen. Käytössä ovat siis kurssilta [Full stack -open](https://fullstackopen.com/) tutut teknologiat.
+Sovellus on hyvin yksinkertainen laskuri. Laskurin arvo on talletettu Postgres-tietokantaan, johon backend on yhteydessä [Sequelize](https://sequelize.org/)-kirjaston avulla. Frontend sisältää napit laskurin kasvattamiseen sekä nollaamiseen. Käytössä ovat siis kurssilta [Full stack open](https://fullstackopen.com/) tutut teknologiat.
 
 Projektiin on määritelty GitHub Action -workflow, joka luo projektista Docker-imagen ja pushaa sen Dockerhubiin. Sama image sisältää sekä backendin, että frontendin.
 
-Sovellus on GitHub:ssa siinä tilanteessa mihin tämä tutoriaali päättyy. Alkutilanne on branchissa [start](https://github.com/mluukkai/openshift-demo/tree/start). Koodissa ei muutoksia ole, mutta tutoriaalin aikana tehdyt konfiguraatiot puuttuvat vielä haarasta start.
+Sovellus on GitHubissa siinä tilanteessa mihin tämä tutoriaali päättyy. Alkutilanne on branchissa [start](https://github.com/mluukkai/openshift-demo/tree/start). Koodissa ei muutoksia ole, mutta tutoriaalin aikana tehdyt konfiguraatiot puuttuvat vielä haarasta start.
 
 ### OpenShift
 
@@ -32,7 +32,7 @@ Oletetaan nyt, että `oc` asennettu. Jotta yhteys klusteriin toimisi, on oltava 
 
 Kirjaudu klusterille suorittamalla komento `oc login -u <username> https://api.ocp-test-0.k8s.it.helsinki.fi:6443`.
 
-Jostain syystä kirjaantuminen ei kaikilla toimi. Jos käy näin, kirjaudu OpenShift-webkonsoliin <https://console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi> ja valitse _Copy login command_:
+Jostain syystä kirjautuminen ei kaikilla toimi. Jos käy näin, kirjaudu OpenShift-webkonsoliin <https://console-openshift-console.apps.ocp-test-0.k8s.it.helsinki.fi> ja valitse _Copy login command_:
 
 <img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k1.png?raw=true" width="600">
 
@@ -40,20 +40,20 @@ Kirjaudu uudelleen, ja saat toimivan kirjautumiskomennon:
 
 <img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k5.png?raw=true" width="600">
 
-Kirjaantumisen jälkeen voidaan vaikkapa suorittaa komento `oc status`, joka kertoo että olemme onnistuneesti kirjautuneet, omassa tapauksessani projektiin _toska-playground_:
+Kirjautumisen jälkeen voidaan vaikkapa suorittaa komento `oc status`, joka kertoo että olemme onnistuneesti kirjautuneet, omassa tapauksessani projektiin _toska-playground_:
 
 ```
 $ oc status
 In project toska-playground on server https://api.ocp-test-0.k8s.it.helsinki.fi:6443
 ```
 
-Esimerkissä on käytössä projekti `toska-playground`. Ohtuprojekteissa käytetän projektia `ohtuprojekti-staging`. Projektista on olemassa sekä tuotanto- että testipuoli. Kysy ohjaajaltasi kumpaa ryhmäsi käyttää. 
+Esimerkissä on käytössä projekti `toska-playground`. Ohtuprojekteissa käytetään projektia `ohtuprojekti-staging`. Projektista on olemassa sekä tuotanto- että testipuoli. Kysy ohjaajaltasi kumpaa ryhmäsi käyttää. 
 
 Testipuolen osoite on https://api.ocp-test-0.k8s.it.helsinki.fi:6443 ja tuotantopuolen https://api.ocp-prod-0.k8s.it.helsinki.fi:6443, eli kirjautuessa käytä oikeaa osoitetta! Tuotantopuolen web-konsolin osoite on <https://console-openshift-console.apps.ocp-prod-0.k8s.it.helsinki.fi>
 
 ### Pod ja deployment
 
-Openshiftissa sovelluksen paketoinnin perusyksikkö on [podi](https://kubernetes.io/docs/concepts/workloads/pods/) (engl. pod). Podit ovat Kubernetes-ympäristön perusyksiköitä, ja ne sisältävät yleensä yhden Docker-imagen. Joissain tilanteissa podissa voi olla useita imageja, mutta tämä on yleensä mielekästä vain, jos imaget ovat tiiviisti yhteydessä toisiinsa, esimerkiksi jakamalla verkkoyhteyden tai tallennustilan.
+OpenShiftissa sovelluksen paketoinnin perusyksikkö on [podi](https://kubernetes.io/docs/concepts/workloads/pods/) (engl. pod). Podit ovat Kubernetes-ympäristön perusyksiköitä, ja ne sisältävät yleensä yhden Docker-imagen. Joissain tilanteissa podissa voi olla useita imageja, mutta tämä on yleensä mielekästä vain, jos imaget ovat tiiviisti yhteydessä toisiinsa, esimerkiksi jakamalla verkkoyhteyden tai tallennustilan.
 
 Podeja ei yleensä laiteta klusteriin suoraan. Näiden sijaan käytetään [deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)-objekteja.
 
@@ -217,7 +217,7 @@ $ oc run curlimage --image=curlimages/curl --restart=Never --command -- sleep in
 
 Mistä on kyse? Ensimmäinen tapa, missä käytettiin yamlia on ns. [deklaratiivinen](https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#declarative-object-configuration) konfigurointitapa, joka on jossain määrin ehkä haastavampi, mutta ehdottomasti suositeltava tapa. Etuna on mm. se, että konfiguraatiot on mahdollista tallettaa versionhallintaan.
 
-Jälkimäinen komento `oc run  ...` taas edustaa [imperatiivistä](https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#imperative-object-configuration) tyyliä Kubernetes-objektien luomiseen. Imperatiivisen tyylin ongelma on se, että klusterin tila ei pysy samalla tavalla hallittavasti näkyvillä kuin vaikkapa versionhallintaan tallennetuissa yaml-manifesteissä. Imperatiivista tyyliä kannattaa käyttää lähinnä yksinkertaisiin tilanteisiin, mm. esimerkkimme tapaan debugatessa.
+Jälkimmäinen komento `oc run  ...` taas edustaa [imperatiivistä](https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/#imperative-object-configuration) tyyliä Kubernetes-objektien luomiseen. Imperatiivisen tyylin ongelma on se, että klusterin tila ei pysy samalla tavalla hallittavasti näkyvillä kuin vaikkapa versionhallintaan tallennetuissa yaml-manifesteissä. Imperatiivista tyyliä kannattaa käyttää lähinnä yksinkertaisiin tilanteisiin, mm. esimerkkimme tapaan debugatessa.
 
 Käytettäköön siis deklaratiivista tyyliä, joka on myös tämän hetkisen teollisen parhaan käytänteen [GirOpsin](https://www.redhat.com/en/topics/devops/what-is-gitops) taustalla. Tätäkin teemaa käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/).
 
@@ -329,7 +329,7 @@ $ oc port-forward demoapp-dep-5bb7578b6-2xljw 8080:3000
 
 Portinohjaus sopii hyvin debuggaukseen, esim. sen tarkastamiseen että sovellus toimii kokonaisuudessaan.
 
-Tarvitsemme kuitenkin todelliseen käyttöön jotain muuta. Kubernetes tarjoaa tähän kaksi ratkaisua: Ingressin ja uudemman Gateway API:n joita molemia käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/). Tike:n OpenShiftissä joudumme kuitenkin käyttämään OpenShit-spesifiä ratkaisua [Routea](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/networking/configuring-routes#route-configuration).
+Tarvitsemme kuitenkin todelliseen käyttöön jotain muuta. Kubernetes tarjoaa tähän kaksi ratkaisua: Ingressin ja uudemman Gateway API:n joita molemia käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/). Tiken OpenShiftissä joudumme kuitenkin käyttämään OpenShit-spesifiä ratkaisua [Routea](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/networking/configuring-routes#route-configuration).
 
 Tehdään seuraava määrittely tiedostoon `manifests/route.yaml`
 
@@ -367,7 +367,7 @@ Host-nimi riippuu myös käytetystä klusteriympäristöstä, jos käytetään t
 
 Sovelluksessamme on nyt eräs hieman ikävä puoli. Jos haluamme käynnistää uuden version, tulee luoda Docker-image jolla on uusi tagi, esim mluukkai/demoapp:2 ja deploymentia on muutettava siten, että se viittaa muuttuneeseen tagiin.
 
-OpenShift tarjoaa [image steream](https://docs.redhat.com/en/documentation/openshift_container_platform/4.8/html/images/managing-image-streams) -nimisen objektin, jonka ansiosta deploymentin om mahdollista viitata koko ajan samaan tagiin, ja taustalla olevan imagen päivittyminen Dockerhubiin otetaan tästä huolimatta huomioon.
+OpenShift tarjoaa [image steream](https://docs.redhat.com/en/documentation/openshift_container_platform/4.8/html/images/managing-image-streams) -nimisen objektin, jonka ansiosta deploymentin on mahdollista viitata koko ajan samaan tagiin, ja taustalla olevan imagen päivittyminen Dockerhubiin otetaan tästä huolimatta huomioon.
 
 Muutetaan Dockerhubiin pushattavan imagen tagiksi _mluukkai/demoapp:staging_:
 
@@ -380,7 +380,7 @@ Muutetaan Dockerhubiin pushattavan imagen tagiksi _mluukkai/demoapp:staging_:
           tags: ${{ secrets.DOCKER_USERNAME }}/demoapp:staging
 ```
 
-Luodaan nyt seuraava määrittely tiedostoon _imagesteram.yaml_:
+Luodaan nyt seuraava määrittely tiedostoon _imagestream.yaml_:
 
 ```
 kind: ImageStream
@@ -450,7 +450,7 @@ spec:
 
 Uutta tässä on avaimeen `meta/annotations` lisätyt määreet, jotka saavat deploymentin seuraamaan image streamissa tapahtuvia muutoksia. Toinen muutos on kontainerin `image`, joka arvo on nyt `demoapp:staging`, eli viite image streamiin.
 
-Image steram päivittyy 15 min välein, eli jos pushaamme sovelluksesta uuden version Dockerhubiin, kestää korkeintaan 15 minuuttia, ennen kuin klusterilla oleva imagestream päivittyy, ja sovelluksen uusi versio käynnistyy.
+Image stream päivittyy 15 min välein, eli jos pushaamme sovelluksesta uuden version Dockerhubiin, kestää korkeintaan 15 minuuttia, ennen kuin klusterilla oleva imagestream päivittyy, ja sovelluksen uusi versio käynnistyy.
 
 Jos on tarve nopeampaan päivitykseen, voidaan suorittaa komento `oc import-image demoapp:staging` joka päivittää imagestreamin välittömästi, sekä käynnistää podin uudelleen jos image streamin osoittama image on muuttunut.
 
@@ -504,7 +504,7 @@ Deploymentissa oleva ympäristömuuttujan määrittely muuttuu seuraavasti
                 key: DB_URL 
 ```
 
-Kubernetes tarjoaa myös resurssin [Secret](https://kubernetes.io/docs/concepts/configuration/secret/), joka periaatteessa sopisi paremmin salasanan sisältävän tietokantaurlin tarpeisiin. Nimestään huolimatta secretit eivät oikeastan tuo juurikaan turvaa, joten sivuutamme asian nyt. Myös secretejä käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/).
+Kubernetes tarjoaa myös resurssin [Secret](https://kubernetes.io/docs/concepts/configuration/secret/), joka periaatteessa sopisi paremmin salasanan sisältävän tietokantaurlin tarpeisiin. Nimestään huolimatta secretit eivät oikeastaan tuo juurikaan turvaa, joten sivuutamme asian nyt. Myös secretejä käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/).
 
 ### Kustomize
 
@@ -617,7 +617,7 @@ Klusteri, jossa sovellus pyörii: prod tai testi (ocp-prod/ocp-test klusterin ur
 
 Osoitteena siis _openshift_. Jos kyse on tuotantosovelluksesta, tulee pyytää _possu-test-1-21.it_ sijaan tuotantokantaan.
 
-Kannattaa huomata, että tietokanta edellyttää SSL:n käyttöä, eli tuetokantaurl on muotoa `postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true` asia kyllä mainitaan yo dokumentaatiossa mutta esim. allekirjoittanut ei lukenut dokumenttia aluksi tarpeeksi tarkasti...
+Kannattaa huomata, että tietokanta edellyttää SSL:n käyttöä, eli tietokantaurl on muotoa `postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojekti?targetServerType=primary&ssl=true` asia kyllä mainitaan yo dokumentaatiossa mutta esim. allekirjoittanut ei lukenut dokumenttia aluksi tarpeeksi tarkasti...
 
 Jos haluat ottaa tietokantaan yhdeyden suoraan, on projektiin `ohtuprojekti-staging` on konfiguroitu podi `db-tools`, joka sisältää tietokantayhteyksien kannalta tarvittavat komentorivityökalut, kuten `psql` ja `mongosh`. Tietokantayhteys avataan tämän podin avulla seuraavasti
 
@@ -695,7 +695,7 @@ tiedosto1
 tiedosto2
 ```
 
-Tehdään nyt muutos deploymentiin, esim. muutetaan komennon sleep sekuntimäärää. Kun suoriteaan `apply`, luodaan uusi podi edellisen tilalle. 
+Tehdään nyt muutos deploymentiin, esim. muutetaan komennon sleep sekuntimäärää. Kun suoritetaan `apply`, luodaan uusi podi edellisen tilalle. 
 
 Kun mennään nyt uuden podin hakemistoon `/tmp` huomataan että se on tyhjä:
 
@@ -774,7 +774,7 @@ $ oc  exec -it my-ubuntu-deployment-76bfb959bb-qxckz ls /tmp
 lost+found  tiedosto1  tiedosto2
 ```
 
-Uskomme nyt että persitent volumet ovat sitä mitä tarvitsemme, tuhotaan kokeiluun käytetty Ubuntu ja luodaan Mongoa varten deployment ja service. Luodaan tällä kertaa molemmat samaan tiedostoon `mongo-deployment.yaml`:
+Uskomme nyt että persistent volumet ovat sitä mitä tarvitsemme, tuhotaan kokeiluun käytetty Ubuntu ja luodaan Mongoa varten deployment ja service. Luodaan tällä kertaa molemmat samaan tiedostoon `mongo-deployment.yaml`:
 
 ```yaml
 apiVersion: apps/v1
@@ -826,7 +826,7 @@ spec:
   type: ClusterIP
 ```
 
-Levyvoluumi on mäpätty Mongo-podin polulle `/data/db`, kysessä on [dokumentaation](https://hub.docker.com/_/mongo) mukaan hakemisto minne Mongo tallettaa tietokannan.
+Levyvoluumi on mäpätty Mongo-podin polulle `/data/db`, kyseessä on [dokumentaation](https://hub.docker.com/_/mongo) mukaan hakemisto minne Mongo tallettaa tietokannan.
 
 Suoritetaan tuttu komento `oc apply -f mongo-deployment.yaml`. Komentoja `oc get po` ja `oc logs` tarkastelemalla olemme vakuuttuneita, että Mongo on käynnissä.
 
@@ -934,11 +934,11 @@ labtool-mongo-dep
 labtool-mongo-svc
 ```
 
-Nimi siis lakaa ryhmän nimeä edustavalla kuvaavalla merkkijonolla.
+Nimi siis alkaa ryhmän nimeä edustavalla kuvaavalla merkkijonolla.
 
 Klusterille ei saa jättää mitään roskaa eikä ylimääräisiä Kubernetes-objekteja. Eli jos jokin rersurssi todetaan turhaksi, se poistetaan.
 
-Jos klusterilta löytyy holtittomasti nimettyjä objekteja, ne saateaan poistaa ilman varoitusta.
+Jos klusterilta löytyy holtittomasti nimettyjä objekteja, ne saatetaan poistaa ilman varoitusta.
 
 ### HY-kirjautuminen
 
