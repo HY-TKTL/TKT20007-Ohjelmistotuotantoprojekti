@@ -42,7 +42,7 @@ Kirjaudu uudelleen, ja saat toimivan kirjautumiskomennon:
 
 Kirjautumisen jälkeen voidaan vaikkapa suorittaa komento `oc status`, joka kertoo että olemme onnistuneesti kirjautuneet, omassa tapauksessani projektiin _toska-playground_:
 
-```
+```bash
 $ oc status
 In project toska-playground on server https://api.ocp-test-0.k8s.it.helsinki.fi:6443
 ```
@@ -90,13 +90,13 @@ Deploymentin määrittelevä yaml-tiedosto näyttää monimutkaiselta. Osa mää
 
 Deployment luodaan klusterille seuraavalla komennolla ($ on komentokehote):
 
-```
+```bash
 $ oc apply -f manifests/deployment.yaml
 ```
 
 Deployment näyttää onnistuneen:
 
-```
+```bash
 $ oc get deployments
 NAME          READY   UP-TO-DATE   AVAILABLE   AGE
 demoapp-dep   1/1     1            1           16s
@@ -104,8 +104,8 @@ demoapp-dep   1/1     1            1           16s
 
 Deploymentin on siis tarkoitus käynnistää yksi podi. Katsotaan miltä podien tilanne näyttää:
 
-```
-oc get pod
+```bash
+$ oc get pod
 NAME                           READY   STATUS    RESTARTS   AGE
 demoapp-dep-5dbb664966-p6kfh   1/1     Running   0          25s
 ```
@@ -114,7 +114,7 @@ Podi on käynnissä.
 
 Testataan nyt sovellusta. Sovellus ei näy vielä klusterin ulkopuolelle, mutta pääsemme siihen käsiksi klusterin sisältä podin IP-osoitteen avulla. Saamme IP-osoitteen selville komennolla `oc describe pod <pod>`:
 
-```
+```bash
 $ oc describe po demoapp-dep-7499f5c5bd-8lm9p
 Name:             demoapp-dep-7499f5c5bd-8lm9p
 Namespace:        toska-playground
@@ -131,21 +131,21 @@ IP:               10.12.2.177
 
 Käynnistetään klusterin sisälle [curl](https://curl.se/)-komennon sisältävä Docker [image](https://hub.docker.com/r/curlimages/curl):
 
-```
+```bash
 $ oc run curlimage --image=curlimages/curl --restart=Never --command -- sleep infinity
 $ oc exec -it curlimage sh
 ```
 
 Olemme nyt podin sisällä, ja voimme kokeilla ottaa yhteyttä sovellukseen tekemällä GET-pyynnön testirajapintaan _api/ping_:
 
-```
+```bash
 $ curl 10.12.2.177:3000/api/ping
 {"message":"pong"} 
 ```
 
 Jostain syystä GET-pyyntö laskurin arvon palauttavaan rajapintaan _api/counter_: ei toimi:
 
-```
+```bash
 $ curl 10.13.2.114:3000/api/counter
 <!DOCTYPE html>
 <html lang="en">
@@ -161,7 +161,7 @@ $ curl 10.13.2.114:3000/api/counter
 
 Tutkitaan sovelluksen lokia komennolla `oc logs <pod>`:
 
-```
+```bash
 $ oc logs demoapp-dep-68c95df467-w4glg
 
 > demoapp@0.0.0 prod
@@ -176,7 +176,7 @@ Tietokantayhteyden suhteen näyttää olevan jotain häikkää. Ja kun virheilmo
 
 Korjataan konfiguraatio ja päivitetään klusteri komennolla `apply -f manifests/deployment.yaml`. Katsotaan lokia uudelleen:
 
-```
+```bash
 $ oc logs demoapp-dep-6746c5d5dc-jjp88
 > demoapp@0.0.0 prod
 > NODE_ENV=production node server/index.js
@@ -190,15 +190,15 @@ Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.in
 
 Hyvältä näyttää! Yritetään uudelleen
 
-```
+```bash
 $ curl 10.13.2.114:3000/api/counter
 curl: (7) Failed to connect to 10.13.2.114 port 3000 after 18688 ms: Could not connect to server
 ```
 
 Yhteys ei enää yllättäen toimi. Syynä on se, että podin IP-osoite ei ole pysyvä. Tarkastetaan komennolla `oc describe pod <po>` uusi osoite, ja curlataan tähän osoitteeseen:
 
-```
-curl 10.15.3.15:3000/api/counter
+```bash
+$ curl 10.15.3.15:3000/api/counter
 {"id":1,"value":0}
 ```
 
@@ -211,7 +211,7 @@ Veimme sovelluksen tuotantoon määrittelemällä yaml-tiedoston ja antamalla ko
 
 Curl-podi taas käynnistettiin seuraavasti
 
-```
+```bash
 $ oc run curlimage --image=curlimages/curl --restart=Never --command -- sleep infinity
 ```
 
@@ -231,7 +231,7 @@ Podin IP-osoite siis näyttää vaihtuvan. Tämä johtuu siitä, että podi itse
 
 Tehdään tiedostoon `service.yaml` seuraava määrittely:
 
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -254,7 +254,7 @@ Seuraava havainnollistaa delpoymentin ja servicen yhteyttä:
 
 Luodaan service, ja varmistetaan heti, että kaikki meni hyvin:
 
-```
+```bash
 $ oc apply -f manifests/service.yaml
 service/demoapp-svc created
 $ oc get svc
@@ -264,7 +264,7 @@ demoapp-svc   ClusterIP   172.30.117.37   <none>        80/TCP    3s
 
 Klusteri on luonut servicelle IP-osoitteen jonka avulla pääsisimme käsiksi sovellukseen. Parempi tapa on käyttää servicen nimeä  _demoapp-svc_, tämä toimii klusterin sisällä DNS-nimenä palvelulle:
 
-```
+```bash
 $ curl http://demoapp-svc/api/ping
 {"message":"pong"}
 $ curl http://demoapp-svc/api/counter
@@ -287,7 +287,7 @@ spec:
 
 Kun komento `oc apply -f manifests/deployment.yaml` on suoritettu uudelleen, näemme että klusterille on käynnistynyt uusia kopioita samasta podista:
 
-```
+```bash
 $ oc get pod
 NAME                          READY   STATUS    RESTARTS   AGE
 curlimage                     1/1     Running   0          16h
@@ -300,7 +300,7 @@ Kun podiin otetaan yhteyttä servicen osoitteen kautta, yhdistää service pyynn
 
 Voimme tässä vaiheessa poistaa debuggausta varten käynnistämämme podin `curlimage`:
 
-```
+```bash
 $ oc delete curlimage
 ```
 
@@ -312,7 +312,7 @@ Debuggaustarkoituksiin kätevä ratkaisu on komento [port-forward](https://kuber
 
 Voimme tehdä portinohjauksen palveluun seuraavasti
 
-```
+```bash
 $ oc port-forward svc/demoapp-svc 8080:80
 Forwarding from 127.0.0.1:8080 -> 3000
 ```
@@ -323,7 +323,7 @@ Nyt pääsemme sovellukseen käsiksi selaimella portista 8080:
 
 Portinohjaus voidaan tehdä myös suoraan yksittäiseen podiin:
 
-```
+```bash
 $ oc port-forward demoapp-dep-5bb7578b6-2xljw 8080:3000
 ```
 
@@ -333,7 +333,7 @@ Tarvitsemme kuitenkin todelliseen käyttöön jotain muuta. Kubernetes tarjoaa t
 
 Tehdään seuraava määrittely tiedostoon `manifests/route.yaml`
 
-```
+```yaml
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
@@ -371,7 +371,7 @@ OpenShift tarjoaa [image steream](https://docs.redhat.com/en/documentation/opens
 
 Muutetaan Dockerhubiin pushattavan imagen tagiksi _mluukkai/demoapp:staging_:
 
-```
+```yaml
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
@@ -382,7 +382,7 @@ Muutetaan Dockerhubiin pushattavan imagen tagiksi _mluukkai/demoapp:staging_:
 
 Luodaan nyt seuraava määrittely tiedostoon _imagestream.yaml_:
 
-```
+```yaml
 kind: ImageStream
 apiVersion: image.openshift.io/v1
 
@@ -408,7 +408,7 @@ Tämä määrittelee imagestreamin nimeltään _demoapp_, ja sille tägin _stagi
 
 Luodaan imagestream ja tarkistetaan vielä miltä se näyttää
 
-```
+```bash
 $ oc apply -f manifests/imagestream.yaml
 imagestream.image.openshift.io/demoapp created
 $ oc get imagestream
@@ -418,7 +418,7 @@ demoapp   registry.apps.ocp-test-0.k8s.it.helsinki.fi/toska-playground/demoapp  
 
 Voimme nyt ottaa image streamin viittaaman imagen käyttöön muokkaamalla deploymentia seuraavasti
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -458,7 +458,7 @@ Jos on tarve nopeampaan päivitykseen, voidaan suorittaa komento `oc import-imag
 
 Sovellus saa tietokannan osoitteen ympäristömuuttujan `DB_URL` avulla. Ympäristömuuttujan arvo määritellään deploymentissa:
 
-```
+```yaml
     spec:
       containers:
         - name: demoapp
@@ -514,7 +514,7 @@ Koko sovelluksen konfiguraatiot voi päivittää klusterille komennolla `oc appl
 
 [Kustomize](https://kustomize.io/)-työkalu (joka on nykyään sisäänrakennettu Kubernetesin komentoriville) tuo helpotusta tähän (ja tarjoaa paljon muutakin). Määritellään tiedosto `kustomize.yaml`, joka listaa yksittäiset manifestit:
 
-```
+```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
@@ -532,12 +532,11 @@ Esimerkkimme tapauksessa Kustomize ei tuo juurikaan etuja, suuremmassa projektis
 
 ### Resurssirajat
 
-
 Klusteri priorisoi sovelluksia, joille on asetettu resurssirajat. Jos resursseista on pulaa, niin ilman rajojen asettamista sovellus ei välttämättä edes käynnisty.
 
 Deploymenteille onkin syytä asettaa [resurssirajat](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/):
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -621,8 +620,8 @@ Kannattaa huomata, että tietokanta edellyttää SSL:n käyttöä, eli tietokant
 
 Jos haluat ottaa tietokantaan yhdeyden suoraan, on projektiin `ohtuprojekti-staging` on konfiguroitu podi `db-tools`, joka sisältää tietokantayhteyksien kannalta tarvittavat komentorivityökalut, kuten `psql` ja `mongosh`. Tietokantayhteys avataan tämän podin avulla seuraavasti
 
-```
-oc exec -it $(oc get pods -l deployment=db-tools -o jsonpath='{.items[0].metadata.name}') -- psql postgres://kayttaja:salasana@possu-test.it.helsinki.fi:5432/tietokanta
+```bash
+$ oc exec -it $(oc get pods -l deployment=db-tools -o jsonpath='{.items[0].metadata.name}') -- psql postgres://kayttaja:salasana@possu-test.it.helsinki.fi:5432/tietokanta
 ```
 
 Komentorivilt yhdistäessäsi riittää tietokantaurlin lyhempi muoto.
@@ -684,7 +683,7 @@ Ennen kun liitämme pysyväislevyn deploymentin luovaan podiin, kokeillaan mitä
 
 Luodaan deployment, mennään podiin ja tehdään podin hakemistoon /tmp kaksi tiedostoa:
 
-```
+```bash
 $ oc apply -f ubuntu-deployment.yaml
 $ oc exec -it my-ubuntu-deployment-d7b6d85d4-drsbr bash
 $ cd tmp
@@ -699,7 +698,7 @@ Tehdään nyt muutos deploymentiin, esim. muutetaan komennon sleep sekuntimäär
 
 Kun mennään nyt uuden podin hakemistoon `/tmp` huomataan että se on tyhjä:
 
-```
+```bash
 $ oc apply -f ubuntu-deployment.yaml
 $ oc exec -it my-ubuntu-deployment-6b947f9bbc-ztls bash
 $ cd tmp
@@ -746,7 +745,7 @@ Deploymentissa on kaksi lisäystä, ensinnäkin `template/spec`:in alla on osa `
 
 Kokeillaan sitten samaa uusiksi, eli lisätään volumille mäpättyyn hakemistoon `/tmp` tiedostoja, pakotetaan podin uudelleenluonti, ja tarkastetaan että tiedostot säilyvät:
 
-```
+```bash
 $ oc exec -it my-ubuntu-deployment-755d7b8889-t2ctk bash
 $ cd tmp
 $ ls
@@ -767,7 +766,7 @@ lost+found  tiedosto1  tiedosto2
 
 Kuten olettaa saattaa, tiedostot säilyvät. Volumella olevat tiedot säilyvät vaikka deployment tuhottaisiin ja luotaisiin uudelleen:
 
-```
+```bash
 $ oc delete -f ubuntu-deployment.yaml
 $ oc apply -f ubuntu-deployment.yaml
 $ oc  exec -it my-ubuntu-deployment-76bfb959bb-qxckz ls /tmp
@@ -900,14 +899,15 @@ Käyttöoikeusongelmien kirjo voi olla moninainen riippuen kontissa ajettavasta 
 
 Kun kontti käynnistetään OpenShiftissa, arvotaan kontin käyttäjäksi satunnainen UID ja käyttäjälle tulee asettaa sopivat oikeudet kontin sisälle. Esimerkkimme tilanteessa ei mitään toimenpiteitä tarvittu. Aina ei ole näin. Joissain tilanteissa selviää seuraavasti:
 
-```bash
+```dockerfile
 WORKDIR /app
 
 COPY . .
 ```
+
 voit asettaa käyttöoikeudet Dockerfilessa yksinkertaisella (joskaan ei kovin mallikelpoisella) tavalla,
 
-```bash
+```dockerfile
 RUN chmod -R 777 *
 ```
 
@@ -916,7 +916,8 @@ jonka jälkeen käyttäjän oikeudet ulottuvat kansion /app alikansioihin ja tie
 Esimerkkitapauksena mainittakoon Pythonin virtuaaliympäristö, jota saatetaan yrittää suorittaa jossain muussa hakemistossa kuin /app, jolloin venv-moduuli ei välttämättä käynnisty laisinkaan. Sopivaa ympäristömuuttujaa käyttämällä virtuaaliympäristö voidaan asettaa suoritettavaksi /app kansion sisällä. Ympäristömuuttujia voi esitellä kontille Dockerfilen käskyllä ENV.
 
 Seuraava esimerkki toi ratkaisun ainakin erääseen Poetry-projektiin:
-```bash
+
+```dockerfile
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 ```
 
