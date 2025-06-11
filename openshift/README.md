@@ -357,7 +357,7 @@ spec:
 
 Namespace on tässä tapauksessa _toska-playground_, se vastaa OpenShift-projektin nimeä, ohtuprojekteilla se on _ohtuprojekti-staging_. Host-nimen pitää olla Tiken klusteritasolla uniikki, sopiva nimi on esim. sovelluksen nimi ja sen perässä namespacen nimi. `spec/to` määrittelee reitityksen kohteena olevan palvelun. Kohdeportiksi pitää määritellä servicen takana olevan podin portti, ei siis servicen portti (joka oli tapauksessamme 80), servicen sisäistä porttia käytetään tapauksessamme klusterin sisäisessä kommunikoinnissa.
 
-Sovellus toimii nyt koko maailmalle osoitteessa https://demoapp-toska-playground.apps.ocp-test-0.k8s.it.helsinki.fi/
+Sovellus toimii nyt koko maailmalle osoitteessa https://demoapp-toska-playground.ext.ocp-test-0.k8s.it.helsinki.fi/
 
 <img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k3.png?raw=true" width="600">
 
