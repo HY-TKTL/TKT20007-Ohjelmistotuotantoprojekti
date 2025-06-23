@@ -135,7 +135,7 @@ Käynnistetään klusterin sisälle [curl](https://curl.se/)-komennon sisältäv
 
 ```bash
 $ oc run curlimage --image=curlimages/curl --restart=Never --command -- sleep infinity
-$ oc exec -it curlimage sh
+$ oc exec -it curlimage -- sh
 ```
 
 Olemme nyt podin sisällä, ja voimme kokeilla ottaa yhteyttä sovellukseen tekemällä GET-pyynnön testirajapintaan _api/ping_:
@@ -593,7 +593,7 @@ Voit säätää memory ja cpu arvoja sovelluksesi vaatimusten mukaan. Muisti mä
 | `oc get po`                     | listaa podit                                                                          |
 | `oc get svc`                    | listaa servicet                                                                       |
 | `oc describe po <pod>`          | katso podin tarkemmat tiedot, toimii myös muille resursseille, esim. svc, deployments |
-| `oc exec -it <pod> bash`        | suorita podilla komento bash eli komentotulkki                                        |
+| `oc exec -it <pod> -- bash`        | suorita podilla komento bash eli komentotulkki                                        |
 | `oc apply -f manifest.yaml`     | luo/päivitä manifestin määrittelemät objektit                                         |
 | `oc delete -f manifest.yaml`    | tuhoa manifestin määrittelemät objektit                                               |
 | `oc import-image image:tagi`    | päivitä imagestream heti                                                              |
@@ -688,7 +688,7 @@ Luodaan deployment, mennään podiin ja tehdään podin hakemistoon `/tmp` kaksi
 
 ```bash
 $ oc apply -f ubuntu-deployment.yaml
-$ oc exec -it my-ubuntu-deployment-d7b6d85d4-drsbr bash
+$ oc exec -it my-ubuntu-deployment-d7b6d85d4-drsbr -- bash
 $ cd tmp
 $ touch tiedosto1
 $ touch tiedosto2
@@ -703,7 +703,7 @@ Kun mennään nyt uuden podin hakemistoon `/tmp` huomataan että se on tyhjä:
 
 ```bash
 $ oc apply -f ubuntu-deployment.yaml
-$ oc exec -it my-ubuntu-deployment-6b947f9bbc-ztls bash
+$ oc exec -it my-ubuntu-deployment-6b947f9bbc-ztls -- bash
 $ cd tmp
 $ ls -l
 total 0
@@ -749,7 +749,7 @@ Deploymentissa on kaksi lisäystä, ensinnäkin `template/spec`:in alla on osa `
 Kokeillaan sitten samaa uusiksi, eli lisätään volumille mäpättyyn hakemistoon `/tmp` tiedostoja, pakotetaan podin uudelleenluonti, ja tarkastetaan että tiedostot säilyvät:
 
 ```bash
-$ oc exec -it my-ubuntu-deployment-755d7b8889-t2ctk bash
+$ oc exec -it my-ubuntu-deployment-755d7b8889-t2ctk -- bash
 $ cd tmp
 $ ls
 lost+found
@@ -761,7 +761,7 @@ $ exit
 exit
 $ of apply -f ubuntu-deployment.yaml
 deployment.apps/my-ubuntu-deployment configured
-$ oc exec -it my-ubuntu-deployment-76bfb959bb-jpdng bash
+$ oc exec -it my-ubuntu-deployment-76bfb959bb-jpdng -- bash
 $ cd tmp
 $ ls
 lost+found  tiedosto1  tiedosto2
@@ -772,7 +772,7 @@ Kuten olettaa saattaa, tiedostot säilyvät. Volumella olevat tiedot säilyvät 
 ```bash
 $ oc delete -f ubuntu-deployment.yaml
 $ oc apply -f ubuntu-deployment.yaml
-$ oc  exec -it my-ubuntu-deployment-76bfb959bb-qxckz ls /tmp
+$ oc  exec -it my-ubuntu-deployment-76bfb959bb-qxckz -- ls /tmp
 lost+found  tiedosto1  tiedosto2
 ```
 
