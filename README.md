@@ -10,12 +10,12 @@ Ohtuprojekti osallistujan silmin: syksyn 2024 NOW-tietokanta-tiimin [kertomus](h
 
 - Kurssilla on Discord-kanava _ohtuproj_, liity nyt https://study.cs.helsinki.fi/discord/join/ohtuproj
 
-Demot:
+Demot syksy 2025:
 
-* Kesäkuun lopun demo pe 27.6. klo 9.00-11 Chemicumin A129
-* Pitkien projektien pe 29.8. klo 10-11 BK113
+* Välidemo pe 17.10. klo 9.00-12 Exactum B123
+* Loppudemo pe 12.12. klo 9:00-12 Exactum B123
 
-Aloitetaan tasalta ilman akateemista varttia
+Demot aloitetaan tasalta ilman akateemista varttia.
 
 Vertaisarviot:
 
