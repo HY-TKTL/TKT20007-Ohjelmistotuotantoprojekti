@@ -15,7 +15,7 @@ Demot syksy 2025:
 * Välidemo pe 17.10. klo 9.00-12 Exactum B123
 * Loppudemo pe 12.12. klo 9:00-12 Exactum B123
 
-Demot aloitetaan tasalta ilman akateemista varttia.
+Aloitus tasalta ilman akateemista varttia.
 
 Vertaisarviot:
 
