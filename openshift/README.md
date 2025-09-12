@@ -791,7 +791,7 @@ spec:
   template:
     metadata:
       labels:
-        app: demoapp-ubuntu
+        app: demoapp-mongo
     spec:
       containers:
         - name: my-mongo
