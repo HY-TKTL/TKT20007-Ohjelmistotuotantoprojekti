@@ -56,7 +56,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
   - Ohjaajalle kutsu
 - [ ] Product backlogin laatiminen
 - [ ] Sprint Task Board / Sprint backlog (fyysinen tai sähköinen)
-- [ ] Tuntikirjanpito, josta näkee jokaiseen viikkoon käytetyt tunnit opiskelijoittain
+- [ ] Tuntikirjanpito, josta näkee jokaiseen viikkoon käytetyt tunnit opiskelijoittain,  Kirjaukset tehdään [timelogs](https://study.cs.helsinki.fi/projekti/timelogs) -palvelussa kuluvan sprintin aikana - mieluiten päivittäin.
 - [ ] Luokaa GitHub-organisaatio ja repository
   - [README standardin mukaiseksi](https://guides.github.com/features/wikis/), lisäksi "päärepoon" linkit muihin repositorioihin, backlogiin sekä sovellukseen.
 - [ ] Sopikaa käytettävät teknologiat
