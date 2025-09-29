@@ -1,3 +1,4 @@
 - [MuViCo](https://github.com/MuViCo/MuViCo)
 - [German Grammar Interactive Learning and Exercising Website](https://github.com/OHTU-German-learning-website/OHTU-German-learning-website)
 - [Infopiste](https://github.com/Infopisteprojekti/infopiste)
+- [Kahden chatbotin keskustelun automaatiotyökalu opetukselliseen roolipeliin](https://github.com/doubleAgent-ohtu/doubleAgent)
