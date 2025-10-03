@@ -576,8 +576,8 @@ spec:
               memory: "512Mi"
               cpu: "500m"
             requests:
-              memory: "256Mi"
-              cpu: "250m"
+              memory: "50Mi"
+              cpu: "50m"
 ```
 
 Limits määrittää enimmäismäärän laskentaresursseja, joita kontti voi käyttää. Requests määrittää resurssimäärän, joka taataan olevan saatavilla kontille.
