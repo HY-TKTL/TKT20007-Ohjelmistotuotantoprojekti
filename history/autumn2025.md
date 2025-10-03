@@ -3,3 +3,4 @@
 - [Infopiste](https://github.com/Infopisteprojekti/infopiste)
 - [Kahden chatbotin keskustelun automaatiotyökalu opetukselliseen roolipeliin](https://github.com/doubleAgent-ohtu/doubleAgent)
 - [DTwin](https://github.com/DTwin-HY/DTwin)
+- [Jakaja](https://github.com/piryopt/pienryhmien-optimointi)
