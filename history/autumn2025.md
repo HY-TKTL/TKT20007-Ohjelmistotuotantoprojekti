@@ -5,3 +5,4 @@
 - [DTwin](https://github.com/DTwin-HY/DTwin)
 - [Jakaja](https://github.com/piryopt/pienryhmien-optimointi)
 - [EcoPaths](https://github.com/OhtuProjektiSyksy25/EcoPaths)
+- [WalkAMile](https://github.com/WalkAMileGame/WalkAMileGame)
