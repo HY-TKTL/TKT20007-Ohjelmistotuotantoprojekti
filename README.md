@@ -126,8 +126,8 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 - **Arvot ja käytännöt**
   - Ryhmän sovittava yhteiset käytännöt. Ks. [esimerkki](https://github.com/ohtu-ohjaajat/opiskelijalle/blob/master/tiimin_kaytanteet.md)
 - **Asiakastapaamiset**
-  - **Tilavaraukset** Ensimmäisen asiakastapaamisen jälkeen ryhmä on vastuussa asiakastapaamisten järjestämisestä.
-  - **Agenda** Asiakastapaamisiin kannattaa luoda melko yksityiskohtainen agenda ja se on hyvä lähettää asiakkaalle ennen varsinaista tapaamista.
+  - **Tilavaraukset** Ensimmäisen asiakastapaamisen jälkeen ryhmä on vastuussa asiakastapaamisten järjestämisestä. Tarvittaessa tilavaraus tiettyihin kokoushuoneisiin voidaan hoitaa ohjaajan kautta. 
+  - **Agenda** Asiakastapaamisiin kannattaa luoda melko yksityiskohtainen agenda, joka on hyvä lähettää asiakkaalle jo ennen asiakastapaamista.
   - **Roolit** Kiertävä puheenjohtajan roolit. Lisäksi ainakin kirjuri ja demovastaava. 
   * **Muistiinpanot** Asiakastapaamisista tehtävä muistiinpanot. Keskusteltuja asioita ei saa jättää muistin varaan vaan ne tulee kirjata backlogille.
   - [Vinkkejä asiakaspalaveriin](ohjeita-asiakaspalaveriin.md)
@@ -153,7 +153,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 ## Vinkkejä
 - Töitä kannattaa tehdä mahdollisimman paljon muiden kanssa fyysisesti samassa tilassa.
 - Sprintin aikana on hyvä olla tekeillä ainoastaan 2-3 storya kerrallaan. Tällöin storyt valmistuvat varmemmin. Muutama valmis > melkein kaikki kesken.
-- Ohjelmiston arkkitehtuuriin kannattaa käyttää paljon huomiota ja jättää sprinttiin aikaa tehdä parannuksia sisäiseen laatuun. Puhdas User Story -hikipaja, jossa keskitytään ainoastaan mahdollisimman nopeaan ominaisuuksien tuottamiseen ei pitkällä tähtäimellä tuota hyviä tuloksia.
+- Ohjelmiston arkkitehtuuriin kannattaa kiinnittää paljon huomiota ja jättää sprinttiin aikaa tehdä parannuksia sisäiseen laatuun. Puhdas User Story -hikipaja, jossa keskitytään ainoastaan mahdollisimman nopeaan ominaisuuksien tuottamiseen ei pitkällä tähtäimellä tuota hyviä tuloksia.
 - Voi olla hyvä idea hahmotella hyväksymiskriteerit ennen varsinaista asiakastapaamista. Kannattaa kuitenkin jättää hieman pureskeltavaa kriteereihin ennen tapaamista.
 - On hyvä käytäntö pitää agenda näkyvillä asiakastapaamisen aikana, jotta keskustelu saadaan pysymään paremmin aiheessa. Käydään kokouskäytäntöjä tarpeen mukaan läpi yhdessä.
 - [Vinkkejä asiakaspalaveriin](ohjeita-asiakaspalaveriin.md)
