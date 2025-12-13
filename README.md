@@ -35,7 +35,7 @@ Arvostelu perustuu seuraaviin asioihin
 - Ryhmätyöskentely
 - Tekninen kontribuutio - koodi tai asiantuntijuus
 - Valmistautuminen asiakastapaamisiin ja toiminta asiakaspalaverissa
-- Työtuntien määrä ja tasaisuus sekä merkintöjen asiallisuus
+- Työtuntien määrä ja tasaisuus sekä merkintöjen asiallisuus (vaatimuksena noin 200 tuntia työtä koko kurssin aikana, mikä on noin 15 tuntia viikossa)
 
 Katso tarkemmat kriteerit [arvostelumatriisista](https://docs.google.com/spreadsheets/d/1fMmlOMQDZMRFMCbgGtPuXB1n9w3hXnmotDZO3n_TdUI/edit#gid=428576263)
 
@@ -114,7 +114,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
   - Lähtökohtaisesti *työtunteja ei voi merkitä edelliselle sprintille*, vaan ne jää silloin merkitsemättä.
   - Huomaathan, että sprintti vaihtuu tasan kello 0:00.
 - **Tasaisuus** Ehdottomana vaatimuksena työmäärien tasaisuus viikkotasolla, eli tuntimäärän kuuluu olla viikosta toiseen suunnilleen sama. Sairastumiset yms. neuvoteltava poikkeus. Ilmoita reilusti etukäteen jos tiedät, että osallistumisesi viikon töihin estyy jollain tapaa.
-- **Kurssi = 200h** Vaatimuksena noin 200 tuntia työtä koko kurssin aikana, mikä on noin 15-16 tuntia viikossa.
+- **Kurssi = 200h** Vaatimuksena noin 200 tuntia työtä koko kurssin aikana, mikä on noin 15 tuntia viikossa.
 
 ### Sekalaisia vaatimuksia
 
