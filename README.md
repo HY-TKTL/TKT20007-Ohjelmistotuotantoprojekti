@@ -12,7 +12,7 @@ Ohtuprojekti osallistujan silmin: syksyn 2024 NOW-tietokanta-tiimin [kertomus](h
 
 Demot syksy 2025:
 
-* Välidemo pe 27.2. klo 9.00-12 Exactum CK112
+* Välidemo pe 27.2. klo 9.00-12 Exactum B123
 * Loppudemo ke 29.4. klo 9:00-12 Exactum CK112
 
 Aloitus tasalta ilman akateemista varttia.
