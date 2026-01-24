@@ -29,6 +29,20 @@ Ryhmille on tarjolla teknistä tukea! Kysy [discordissa](https://study.cs.helsin
 
 Katso myös [OpenShift](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/tree/master/openshift)-ohje
 
+## Projektin tavoite
+
+- Ryhmätyötaitojen harjoittelu.
+  - Tehtävien ja työn jakaminen
+  - Kommunikaatio
+  - Organisointi
+- Ohjelmistotuotantomenetelmien käytännön harjoittelu.
+  - Yhteisen codebasen kanssa työskentely (git)
+  - Deployment
+- Ketterät toimintatavat
+  - Transparency
+  - Inspect & Adapt
+- [Miksi Scrum?](learning-goals-of-software-engineering-lab.md) Kirjoitus ohtuprojektin tavoitteista ja miten scrum auttaa niiden saavuttamisessa.
+
 ## Arvosteluperusteet
 
 Arvostelu perustuu seuraaviin asioihin
@@ -39,30 +53,31 @@ Arvostelu perustuu seuraaviin asioihin
 - Valmistautuminen asiakastapaamisiin ja toiminta asiakaspalaverissa
 - Työtuntien määrä ja tasaisuus sekä merkintöjen asiallisuus (vaatimuksena noin 200 tuntia työtä koko kurssin aikana, mikä on noin 15 tuntia viikossa)
 
-Katso tarkemmat kriteerit [arvostelumatriisista](https://docs.google.com/spreadsheets/d/1fMmlOMQDZMRFMCbgGtPuXB1n9w3hXnmotDZO3n_TdUI/edit#gid=428576263)
+Katso tarkemmat arvostelukriteerit [arvostelumatriisista](https://docs.google.com/spreadsheets/d/1fMmlOMQDZMRFMCbgGtPuXB1n9w3hXnmotDZO3n_TdUI/edit#gid=428576263)
 
 ## Projektin kulku
 
 - Noudatetaan Scrum-henkistä prosessia.
 - Kahden viikon välein asiakastapaaminen (Sprint Review), jonka jälkeen Sprint Planning ja Sprint Retrospective.
 - Mahdollisuuksien mukaan päivän aluksi Daily Scrum.
-- Ensimmäinen viikko ns. nollasprintti, josta lisää alempana.
+- Ensimmäinen viikko on ns. nollasprintti, josta lisää alempana.
 - Tarkastellaan jatkuvasti prosessin toimivuutta Sprint Retrospectivessä. 
   - Transparency, Inspect & Adapt! 
 - Ensimmäisessä asiakastapaamisessa pyritään määrittelemään [Minimum Viable Product](https://en.wikipedia.org/wiki/Minimum_viable_product), koska tarkoituksena on saada ohjelma tuotantoon mahdollisimman nopeasti.
 
 ### Nollasprintti
 
-Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprintin tehtävät. Siellä tulisi olla ainakin nämä:
+Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprintin tehtävät, josta löytyvät ainakin nämä:
 - [ ] Slack, tai vastaava keskustelualusta pystyyn.
   - Ohjaajalle kutsu
 - [ ] Product backlogin laatiminen
 - [ ] Sprint Task Board / Sprint backlog (fyysinen tai sähköinen)
-- [ ] Tuntikirjanpito, josta näkee jokaiseen viikkoon käytetyt tunnit opiskelijoittain,  Kirjaukset tehdään [timelogs](https://study.cs.helsinki.fi/projekti/timelogs) -palvelussa kuluvan sprintin aikana - mieluiten päivittäin.
-- [ ] Luokaa GitHub-organisaatio ja repository
+- [ ] Tuntikirjanpito: Luokaa ensimmäinen sprintti [timelogs](https://study.cs.helsinki.fi/projekti/timelogs) -palveluun. Jokainen kirjaa tuntinsa kuluvan sprintin aikana - mieluiten päivittäin.
+- [ ] Luokaa GitHub-organisaatio ja repositorio tai jatkoprojekteilla tutustukaa olemassa olevaan prepositorioon
   - [README standardin mukaiseksi](https://guides.github.com/features/wikis/), lisäksi "päärepoon" linkit muihin repositorioihin, backlogiin sekä sovellukseen.
 - [ ] Sopikaa käytettävät teknologiat
   - Huom! Asiakkailla voi olla mielipide käytettävistä teknologioista tai koodauskäytännöistä.
+  - Tekniseltä ohjaajalta saa tukea suunnitteluun
 - [ ] CI- ja staging-ympäristö mahdollisimman nopeasti pystyyn
 - [ ] Branching-käytännöistä sopiminen
   - Hyvä käytäntö on pitää master-haarassa vain tuotantokelpoista (deployable) koodia. Näin voidaan aina siirtää koodi staging-palvelimelle (ja myöhemmin tuotantoon.)
@@ -123,12 +138,12 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 - **Commit esiin** Varmista että committisi näkyvät GitHubissa oikein. Ks. [ohje](https://github.com/mluukkai/ohjelmistotuotanto2018/wiki/miniprojektin-arvosteluperusteet#commitit-kadoksissa)
 - **Kunnioita** kanssaopiskelijoitasi, kyseessä ei ole yksilökurssi. 
   - Käyttäydy samojen standardien mukaan kuin olisit töissä.
-  - Sovittuihin yhteisiin tapaamisiin pitää tulla. Myöhästymisistä, esteistä yms. pitää ilmoittaa ajoissa.
+  - Sovittuihin yhteisiin tapaamisiin pitää tulla. Ilmoita myöhästymisistä, esteistä yms. ajoissa.
 - Siiloutumista tulee välttää. Koodikatselmoinnit!
 - **Arvot ja käytännöt**
   - Ryhmän sovittava yhteiset käytännöt. Ks. [esimerkki](https://github.com/ohtu-ohjaajat/opiskelijalle/blob/master/tiimin_kaytanteet.md)
 - **Asiakastapaamiset**
-  - **Tilavaraukset** Ensimmäisen asiakastapaamisen jälkeen ryhmä on vastuussa asiakastapaamisten järjestämisestä. Tarvittaessa tilavaraus tiettyihin kokoushuoneisiin voidaan hoitaa ohjaajan kautta. 
+  - **Tilavaraukset** Ensimmäisen asiakastapaamisen jälkeen ryhmä on vastuussa asiakastapaamisten järjestämisestä. Tarvittaessa kokoushuoneiden tilavararaus voidaan hoitaa ohjaajan kautta. 
   - **Agenda** Asiakastapaamisiin kannattaa luoda melko yksityiskohtainen agenda, joka on hyvä lähettää asiakkaalle jo ennen asiakastapaamista.
   - **Roolit** Kiertävä puheenjohtajan roolit. Lisäksi ainakin kirjuri ja demovastaava.
   * **Muistiinpanot** Asiakastapaamisista tehtävä muistiinpanot. Keskusteltuja asioita ei saa jättää muistin varaan vaan ne tulee kirjata backlogille.
@@ -137,20 +152,6 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
   - Ohjaajan oltava paikalla jokaisessa retrospektiivissä. Doodlaus tiimin vastuulla.
 - **"Kamerapakko"**
   - Etäyhteydellä tapahtuvissa asiakastapaamisissa, retrospektiiveissä ja dailyissä on pidettävä kamera päällä.
-
-## Projektin tavoite
-
-- Ryhmätyötaitojen harjoittelu.
-  - Tehtävien ja työn jakaminen
-  - Kommunikaatio
-  - Organisointi
-- Ohjelmistotuotantomenetelmien käytännön harjoittelu.
-  - Yhteisen codebasen kanssa työskentely (git)
-  - Deployment
-- Ketterät toimintatavat
-  - Transparency
-  - Inspect & Adapt
-- [Miksi Scrum?](learning-goals-of-software-engineering-lab.md) Kirjoitus ohtuprojektin tavoitteista ja miten scrum auttaa niiden saavuttamisessa.
 
 ## Vinkkejä
 - Töitä kannattaa tehdä mahdollisimman paljon muiden kanssa fyysisesti samassa tilassa.
