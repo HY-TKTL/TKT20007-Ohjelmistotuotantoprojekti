@@ -67,7 +67,7 @@ Katso tarkemmat arvostelukriteerit [arvostelumatriisista](https://docs.google.co
 
 ### Nollasprintti
 
-Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprintin tehtävät, josta löytyvät ainakin nämä:
+Perustakaa **heti** jonkinlainen yhteinen TODO-lista, josta löytyvät ainakin nämä nollasprintin tehtävät:
 - [ ] Slack, tai vastaava keskustelualusta pystyyn.
   - Ohjaajalle kutsu
 - [ ] Product backlogin laatiminen
