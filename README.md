@@ -10,16 +10,18 @@ Ohtuprojekti osallistujan silmin: syksyn 2024 NOW-tietokanta-tiimin [kertomus](h
 
 - Kurssilla on Discord-kanava _ohtuproj_, liity nyt https://study.cs.helsinki.fi/discord/join/ohtuproj
 
-Demot syksy 2025:
+**Demot** kevät 2026:
 
 * Välidemo pe 27.2. klo 9.00-12 Exactum B123
 * Loppudemo ke 29.4. klo 9:00-12 Exactum CK112
 
 Aloitus tasalta ilman akateemista varttia.
 
-Vertaisarviot:
+**Vertaisarviot**:
 
-* puolessa välissä ja lopussa vertaisarvio osoitteessa [https://study.cs.helsinki.fi/projekti/peerreview](https://study.cs.helsinki.fi/projekti/peerreview) 
+* puolessa välissä ja lopussa vertaisarvio osoitteessa [https://study.cs.helsinki.fi/projekti/peerreview](https://study.cs.helsinki.fi/projekti/peerreview)
+* Ohjaajilta tulee ilmoitus, kun vertaisarviolomake aukeaa
+* Vertaisarvioiden teko on pakollista
 
 ## Tekninen tuki
 
@@ -105,7 +107,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
   - Automaatiotestauksen pitää olla riittävän kattava ja hyvin toteutettu
   - Kaikkien yksikkötestien ajaminen on hyvä kestää korkeintaan muutaman minuutin. Korkeamman tason testien, kuten UI-testien ajo saa kestää pidempään, eikä niitä tarvitse ajaa yhtä usein.
   - Erittäin tärkeä konsepti on ns. testipyramidi http://martinfowler.com/bliki/TestPyramid.html. Parin minuutin lukeminen voi säästää kymmeniä tunteja aikaa.
-  - Testikoodin laatu tulee mielellän olla yhtä hyvää kuin muunkin koodin.
+  - Testikoodin laatu tulee mielellään olla yhtä hyvää kuin muunkin koodin.
 
 ### Työtunnit
 
@@ -128,7 +130,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista. Kirjatkaa sinne nollasprin
 - **Asiakastapaamiset**
   - **Tilavaraukset** Ensimmäisen asiakastapaamisen jälkeen ryhmä on vastuussa asiakastapaamisten järjestämisestä. Tarvittaessa tilavaraus tiettyihin kokoushuoneisiin voidaan hoitaa ohjaajan kautta. 
   - **Agenda** Asiakastapaamisiin kannattaa luoda melko yksityiskohtainen agenda, joka on hyvä lähettää asiakkaalle jo ennen asiakastapaamista.
-  - **Roolit** Kiertävä puheenjohtajan roolit. Lisäksi ainakin kirjuri ja demovastaava. 
+  - **Roolit** Kiertävä puheenjohtajan roolit. Lisäksi ainakin kirjuri ja demovastaava.
   * **Muistiinpanot** Asiakastapaamisista tehtävä muistiinpanot. Keskusteltuja asioita ei saa jättää muistin varaan vaan ne tulee kirjata backlogille.
   - [Vinkkejä asiakaspalaveriin](ohjeita-asiakaspalaveriin.md)
 - **Retrospektiivit dokumentoitava**
