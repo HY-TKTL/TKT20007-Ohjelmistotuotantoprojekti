@@ -333,7 +333,7 @@ $ oc port-forward demoapp-dep-5bb7578b6-2xljw 8080:3000
 
 Portinohjaus sopii hyvin debuggaukseen, esim. sen tarkastamiseen että sovellus toimii kokonaisuudessaan.
 
-Tarvitsemme kuitenkin todelliseen käyttöön jotain muuta. Kubernetes tarjoaa tähän kaksi ratkaisua: Ingressin ja uudemman Gateway API:n joita molemia käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/). Tiken OpenShiftissä joudumme kuitenkin käyttämään OpenShift-spesifiä ratkaisua [Routea](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/networking/configuring-routes#route-configuration).
+Tarvitsemme kuitenkin todelliseen käyttöön jotain muuta. Kubernetes tarjoaa tähän kaksi ratkaisua: Ingressin ja uudemman Gateway API:n joita molempia käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/). Tiken OpenShiftissä joudumme kuitenkin käyttämään OpenShift-spesifiä ratkaisua [Routea](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/networking/configuring-routes#route-configuration).
 
 Tehdään seuraava määrittely tiedostoon `manifests/route.yaml`
 
