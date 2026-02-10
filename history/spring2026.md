@@ -1,3 +1,4 @@
 #### Kevään 2026 Ohjelmistoprojektien GitHub repositorioiden linkit
 
-[MuViCo](https://github.com/MuViCo/MuViCo)
+- [AI-Smarties](https://github.com/AI-Smarties/Main.git)
+- [MuViCo](https://github.com/MuViCo/MuViCo)
