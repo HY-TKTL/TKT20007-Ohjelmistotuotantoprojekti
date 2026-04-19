@@ -4,3 +4,4 @@
 - [MuViCo](https://github.com/MuViCo/MuViCo)
 - [Parsonin pulmat](https://github.com/UH-Parsons-Project/faded-parsons-static)
 - [HYTiS](https://github.com/hytis-ohtu/hytis)
+- [Generative AI playground](https://github.com/TKT20007-Generative-AI-playground/gen-ai-playground)
