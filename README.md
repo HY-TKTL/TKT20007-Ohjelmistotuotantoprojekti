@@ -53,7 +53,8 @@ Arvostelu perustuu seuraaviin asioihin
 - Valmistautuminen asiakastapaamisiin ja toiminta asiakaspalaverissa
 - Työtuntien määrä ja tasaisuus sekä merkintöjen asiallisuus (vaatimuksena noin 200 tuntia työtä koko kurssin aikana, mikä on noin 15 tuntia viikossa)
 
-Katso tarkemmat arvostelukriteerit [arvostelumatriisista](https://docs.google.com/spreadsheets/d/1fMmlOMQDZMRFMCbgGtPuXB1n9w3hXnmotDZO3n_TdUI/edit#gid=428576263)
+Omasta tavoitearvosanasta on hyvä keskustella ryhmän kanssa jo ensimmäisellä tapaamiskerralla.
+Katso tarkemmat arvostelukriteerit [arvostelumatriisista](https://docs.google.com/spreadsheets/d/1fMmlOMQDZMRFMCbgGtPuXB1n9w3hXnmotDZO3n_TdUI/edit#gid=428576263).
 
 ## Projektin kulku
 
@@ -73,6 +74,14 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista, josta löytyvät ainakin n
 - [ ] Product backlogin laatiminen
 - [ ] Sprint Task Board / Sprint backlog (fyysinen tai sähköinen)
 - [ ] Tuntikirjanpito: Luokaa ensimmäinen sprintti [timelogs](https://study.cs.helsinki.fi/projekti/timelogs) -palveluun. Jokainen kirjaa tuntinsa kuluvan sprintin aikana - mieluiten päivittäin.
+  - Työaikakirjanpidon piiriin kuuluuvat:
+     - tapaamiset (dailyt, retrot, asiakastapaamiset, suunnittelut...)
+     - projektiin liittyvä uuden opettelu
+     - koodaus ja muu tekninen kontribuutio
+     - dokumentaatio
+  - Sairastumiset merkitään myös työaikakirjapitoon
+     - Sairaspäiviltä 3 tuntia/arkipäivä (kesän tiivisprojekti 6h/arkipäivä). Arkipäiviä ovat ma-pe.
+     - Sairaspoissaoloja voi merkata kuitenkin korkeintaan noin 15 tuntia, muissa tapauksissa ota yhteys Luukkaiseen.
 - [ ] Luokaa GitHub-organisaatio ja repositorio tai jatkoprojekteilla tutustukaa olemassa olevaan prepositorioon
   - [README standardin mukaiseksi](https://guides.github.com/features/wikis/), lisäksi "päärepoon" linkit muihin repositorioihin, backlogiin sekä sovellukseen.
 - [ ] Sopikaa käytettävät teknologiat
@@ -108,7 +117,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista, josta löytyvät ainakin n
 
 ### Koodi
 
-- **Open source**
+- **Open source** (Yritysprojekteissa poikkeuksia)
 - **GitHub** Ohjaajan päästävä näkemään lähdekoodi ja commitit
 
 ### Deployment environments
@@ -121,7 +130,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista, josta löytyvät ainakin n
 - **Testaus**
   - Automaatiotestauksen pitää olla riittävän kattava ja hyvin toteutettu
   - Kaikkien yksikkötestien ajaminen on hyvä kestää korkeintaan muutaman minuutin. Korkeamman tason testien, kuten UI-testien ajo saa kestää pidempään, eikä niitä tarvitse ajaa yhtä usein.
-  - Erittäin tärkeä konsepti on ns. testipyramidi http://martinfowler.com/bliki/TestPyramid.html. Parin minuutin lukeminen voi säästää kymmeniä tunteja aikaa.
+  - Erittäin tärkeä konsepti on ns. [testipyramidi](http://martinfowler.com/bliki/TestPyramid.html). Parin minuutin lukeminen voi säästää kymmeniä tunteja aikaa.
   - Testikoodin laatu tulee mielellään olla yhtä hyvää kuin muunkin koodin.
 
 ### Työtunnit
