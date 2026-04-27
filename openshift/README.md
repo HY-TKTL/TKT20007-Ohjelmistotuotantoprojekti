@@ -795,7 +795,7 @@ spec:
     spec:
       containers:
         - name: my-mongo
-          image: mongo
+          image: docker.io/mongo:8.2.7
           imagePullPolicy: Always
           ports:
             - containerPort: 27017
@@ -827,6 +827,9 @@ spec:
       targetPort: 27017
   type: ClusterIP
 ```
+
+> [!NOTE]
+> mongodb versiota voi vaihtaa asettamalla imagen tilalle "docker.io/mongo:\<versio\>".
 
 Levyvoluumi on mäpätty Mongo-podin polulle `/data/db`, kyseessä on [dokumentaation](https://hub.docker.com/_/mongo) mukaan hakemisto minne Mongo tallettaa tietokannan.
 
