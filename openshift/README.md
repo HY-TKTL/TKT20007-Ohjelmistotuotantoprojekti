@@ -604,7 +604,8 @@ Voit säätää memory ja cpu arvoja sovelluksesi vaatimusten mukaan. Muisti mä
 
 ### Tietokannan hankkiminen
 
-Esimerkkisovellus käyttää Tiken ylläpitämää yhteiskäyttöistä tietokantaa. Tietokannan hankkiminen on helppoa, yksi email riittää, ks https://devops.pages.helsinki.fi/guides/platforms/shared-dbs.html
+Esimerkkisovellus käyttää Tiken ylläpitämää yhteiskäyttöistä tietokantaa. Tietokannan hankkiminen on helppoa, yksi email riittää, ks [https://devops.pages.helsinki.fi/guides/platforms/shared-dbs.html](https://wiki.helsinki.fi/xwiki/bin/view/SO/Platforms/Databases/)
+
 
 Pyyntöön voi käyttää seuraavaa email-pohjaa
 
