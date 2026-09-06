@@ -51,24 +51,13 @@ $ oc status
 In project toska-playground on server https://api.ocp-test-0.k8s.it.helsinki.fi:6443
 ```
 
-Esimerkissä on käytössä projekti `toska-playground`. Ohtuprojekteissa käytetään itse provisioitua projectia.
-
-Uusi projecti luodaan komennolla:
-
-```bash
-oc new-project <projectin nimi> 
-```
-
-> [!CAUTION]
-> Luo vain yksi projekti per ryhmä!
-> 
-> Nimeä projekti muotoon \<projectinimi\>-ohtu-k2026
-> 
-> Ylimääräiset tai väärällä nimellä luodut projektit voidaan poistaa ilman varoitusta!.
+Esimerkissä on käytössä projekti `toska-playground`. Ohtuprojekteissa käytetään valmiiksi provisioitua projektia.
+Kaikki klusterin käyttö tapahtuu siis omassa projektissa tai kubernetesittäin `namespacessa`.
 
 
-Jokaisella kurssilaisella on riittävät oikeudet uuden projektin luomiseen, mutta vain yhden per ryhmäläisen tulee luoda projekti.
-Muut ryhmäläiset lisätään ryhmään luomalla projektiin sopiva `rolebinding` objekti.
+Jos provisioidusta projektista puuttuu ryhmäläisiä esimerkiksi myöhäisilmoittautumisen takia ryhmän jäsenet voivat lisätä heille tarvittavat käyttöoikeudet.
+Tällä tavoin voidaan antaa käyttöoikeus myös esim ohjaajalle jolta se puuttuu. 
+Uudet ryhmäläiset lisätään ryhmään luomalla projektiin sopiva `rolebinding` objekti.
 Tiedostojen lisääminen klusterille käydään läpi seuraavassa osiossa, mutta
 sopiva rolebinding tiedosto näyttää esimerkiksi tältä:
 ```yaml
