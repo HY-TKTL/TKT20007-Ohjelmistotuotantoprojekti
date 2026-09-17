@@ -6,37 +6,35 @@ Jos käytät fuksiläppäriä ja koneellasi ei ole jo Dockeria asennettuna, seur
 
 ### Esimerkkisovellus
 
-Seuraavassa asennetaan yliopiston tietotekniikkakeskuksen OpenShift-klusterille Reactilla ja NodeJS:llä toteutettu SPA-sovellus, jonka koodi löytyy [GitHubista](https://github.com/mluukkai/openshift-demo).
+Seuraavassa asennetaan yliopiston OKD/Kubernetes-klusterille Reactilla ja Node.js:llä toteutettu SPA-sovellus, jonka koodi löytyy [GitHubista](https://github.com/mluukkai/openshift-demo).
 
-Sovellus on hyvin yksinkertainen laskuri. Laskurin arvo on talletettu Postgres-tietokantaan, johon backend on yhteydessä [Sequelize](https://sequelize.org/)-kirjaston avulla. Frontend sisältää napit laskurin kasvattamiseen sekä nollaamiseen. Käytössä ovat siis kurssilta [Full stack open](https://fullstackopen.com/) tutut teknologiat.
+Sovellus on hyvin yksinkertainen laskuri. Laskurin arvo on talletettu Postgres-tietokantaan, johon backend on yhteydessä [Sequelize](https://sequelize.org/)-kirjaston avulla. Frontend sisältää napit laskurin kasvattamiseen sekä nollaamiseen. Käytössä ovat siis kurssilta [Full Stack Open](https://fullstackopen.com/) tutut teknologiat.
 
-Projektiin on määritelty GitHub Action -workflow, joka luo projektista Docker-imagen ja pushaa sen Dockerhubiin. Sama image sisältää sekä backendin, että frontendin.
+Projektiin on määritelty GitHub Action -workflow, joka luo projektista Docker-imagen ja pushaa sen Docker Hubiin. Sama image sisältää sekä backendin että frontendin.
 
-Sovellus on GitHubissa siinä tilanteessa mihin tämä tutoriaali päättyy. Alkutilanne on branchissa [start](https://github.com/mluukkai/openshift-demo/tree/start). Koodissa ei muutoksia ole, mutta tutoriaalin aikana tehdyt konfiguraatiot puuttuvat vielä haarasta start.
+Sovellus on GitHubissa siinä tilanteessa, johon tämä tutoriaali päättyy. Alkutilanne on branchissa [start](https://github.com/mluukkai/openshift-demo/tree/start). Koodissa ei muutoksia ole, mutta tutoriaalin aikana tehdyt konfiguraatiot puuttuvat vielä haarasta start.
 
 ### OKD
 
-Käytössämme on Tietojenkäsittelytieteen laitoksen  [OKD-klusteri](https://console-openshift-console.apps.okd-cs-test-0.k8s.cs.helsinki.fi). OKD on vapaan lisenssin tukematon Openshift klusteri. OpenShift on [Kubernetes](https://github.com/mluukkai/openshift-demo/blob/main/.github/workflows/main.yaml)-klusteri tietyin lisämaustein. Tukea OKD käyttöön voi löytää myös Openshift dokumentaatiosta.
+Käytössämme on Tietojenkäsittelytieteen laitoksen  [OKD-klusteri](https://console-openshift-console.apps.okd-cs-test-0.k8s.cs.helsinki.fi). OKD on vapaan lisenssin tukematon OpenShift-klusteri. OpenShift on [Kubernetes](https://github.com/mluukkai/openshift-demo/blob/main/.github/workflows/main.yaml)-klusteri tietyin lisämaustein. Tukea OKD:n käyttöön voi löytää myös OpenShift-dokumentaatiosta.
 
 Klusteria koskavia tukitikettejä varten on luotu myös [okd-tikettimylly](https://version.helsinki.fi/toska-k8s/okd-tikettimylly) repositorio. 
 
-Kubernetes on melko monimutkainen olio, kurssi [DevOps with Kubernetes](https://devopswithkubernetes.com/) käsittelee aihetta laajasti. Seuraavassa käydään läpi minimioppimäärä yksinkertaisen sovelluksen tarpeisiin.
+Kubernetes on melko monimutkainen olio. Kurssi [DevOps with Kubernetes](https://devopswithkubernetes.com/) käsittelee aihetta laajasti. Seuraavassa käydään läpi minimioppimäärä yksinkertaisen sovelluksen tarpeisiin.
 
-Ytimessä olevan Kuberneteksen lisäksi OKD sisältää mm. graafisen käyttöliittymän, jonka kautta konfiguraatioita on mahdollista tehdä, mutta se **ei ole suositeltua** tällä kurssilla, sillä näin päädytään usein hallitsemattoman epämääräisiin konfiguraatioihin. On suositeltavaa pitäytyä määrittelyissä mahdollisimman "puhtaassa" Kuberneteksessa, ja näin tulemme seuraavassakin tekemään. Webkäyttöliittymä voi kuitenkin olla tehokas työkalu projektin tilan tarkkailuun.
+Ytimessä olevan Kuberneteksen lisäksi OKD sisältää mm. graafisen käyttöliittymän, jonka kautta konfiguraatioita on mahdollista tehdä, mutta se **ei ole suositeltua** tällä kurssilla, sillä näin päädytään usein hallitsemattomiin epämääräisiin konfiguraatioihin. On suositeltavaa pitäytyä määrittelyissä mahdollisimman "puhtaassa" Kuberneteksessa, ja näin tulemme seuraavassakin tekemään. Webkäyttöliittymä voi kuitenkin olla tehokas työkalu projektin tilan tarkkailuun.
 
 > [!CAUTION]
-> Älä määrittele mitään webkäyttöliittymän kautta.  
+> Älä määrittele mitään web-käyttöliittymän kautta.  
 > Jos teet näin, teknistä tukea ei kurssin puolesta ole luvassa.
 
-Käytämme klusteria yksinomaan komentoriviltä, komennon [oc](https://docs.okd.io/4.20/cli_reference/openshift_cli/getting-started-cli.html) avulla. `oc` toimii samoin kun Kubernetesin [kubectl](https://kubernetes.io/docs/reference/kubectl/), mutta se sisältää muutamia OpenShift-spesifejä komentoja. On hyvä että oc työkalun versio vastaa klusterin versiota.
+Käytämme klusteria yksinomaan komentoriviltä, komennon [oc](https://docs.okd.io/4.20/cli_reference/openshift_cli/getting-started-cli.html) avulla. `oc` toimii samoin kuin Kubernetesin [kubectl](https://kubernetes.io/docs/reference/kubectl/), mutta se sisältää muutamia OpenShift-spesifejä komentoja. On hyvä, että OC-työkalun versio vastaa klusterin versiota.
 
 Kannattaa myös ehdottomasti konfiguroida [tabulaattoritäydennys](https://docs.redhat.com/en/documentation/openshift_container_platform/4.9/html/cli_tools/openshift-cli-oc#cli-enabling-tab-completion).
 
 Oletetaan nyt, että `oc` asennettu. Jotta yhteys klusteriin toimisi, on oltava Eduroamissa tai HY:n vpn:ssä. 
 
-Kirjaudu klusterille suorittamalla komento `oc login --web https://api.okd-cs-test-0.k8s.cs.helsinki.fi:6443`.
-
-Klusteriin voi kirjautua myös OKD-webkonsolin [https://console-openshift-console.okd-cs-test-0.k8s.cs.helsinki.fi](https://console-openshift-console.apps.okd-cs-test-0.k8s.cs.helsinki.fi) kautta valitsemalla _Copy login command_:
+Kirjaudu klusteriin OKD-webkonsolin [https://console-openshift-console.okd-cs-test-0.k8s.cs.helsinki.fi](https://console-openshift-console.apps.okd-cs-test-0.k8s.cs.helsinki.fi) kautta valitsemalla _Copy login command_:
 
 <img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k1.png?raw=true" width="600">
 
