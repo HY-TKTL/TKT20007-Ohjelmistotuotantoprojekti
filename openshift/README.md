@@ -373,7 +373,7 @@ Portinohjaus voidaan tehdä myös suoraan yksittäiseen podiin:
 $ oc port-forward demoapp-dep-5bb7578b6-2xljw 8080:3000
 ```
 
-Portinohjaus sopii hyvin debuggaukseen, esim. sen tarkastamiseen että sovellus toimii kokonaisuudessaan.
+Portinohjaus sopii hyvin debuggaukseen, esim. sen tarkastamiseen, että sovellus toimii kokonaisuudessaan.
 
 Tarvitsemme kuitenkin todelliseen käyttöön jotain muuta. Kubernetes tarjoaa tähän kaksi ratkaisua: Ingressin ja uudemman Gateway API:n joita molempia käsitellään kurssilla [DevOps with Kubernetes](https://devopswithkubernetes.com/). Tiken OpenShiftissä joudumme kuitenkin käyttämään OpenShift-spesifiä ratkaisua [Routea](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/networking/configuring-routes#route-configuration).
 
@@ -494,9 +494,9 @@ spec:
               value: postgresql://ohtuprojektitesti:passwordhere@hostnamehere:5432/ohtuprojektitesti?targetServerType=primary&ssl=true     
 ```
 
-Uutta tässä on avaimeen `meta/annotations` lisätyt määreet, jotka saavat deploymentin seuraamaan image streamissa tapahtuvia muutoksia. Toinen muutos on kontainerin `image`, joka arvo on nyt `demoapp:staging`, eli viite image streamiin.
+Uutta tässä ovat avaimeen `meta/annotations` lisätyt määreet, jotka saavat deploymentin seuraamaan image streamissa tapahtuvia muutoksia. Toinen muutos on kontainerin `image`, joka arvo on nyt `demoapp:staging`, eli viite image streamiin.
 
-Image stream päivittyy 15 min välein, eli jos pushaamme sovelluksesta uuden version Dockerhubiin, kestää korkeintaan 15 minuuttia, ennen kuin klusterilla oleva imagestream päivittyy, ja sovelluksen uusi versio käynnistyy.
+Image stream päivittyy 15 min välein, eli jos pushaamme sovelluksesta uuden version Docker Hubiin, kestää korkeintaan 15 minuuttia, ennen kuin klusterilla oleva imagestream päivittyy, ja sovelluksen uusi versio käynnistyy.
 
 Jos on tarve nopeampaan päivitykseen, voidaan suorittaa komento `oc import-image demoapp:staging` joka päivittää imagestreamin välittömästi, sekä käynnistää podin uudelleen jos image streamin osoittama image on muuttunut.
 
@@ -668,6 +668,12 @@ Jos haluat ottaa tietokantaan yhdeyden suoraan, on projektiin `ohtuprojekti-stag
 
 ```bash
 $ oc exec -it $(oc get pods -l deployment=db-tools -o jsonpath='{.items[0].metadata.name}') -- psql postgres://kayttaja:salasana@possu-test.it.helsinki.fi:5432/tietokanta
+```
+
+**HUOM** ylläoleva ei juuri nyt toimi, Postgres-kantaan pääset seuraavasti:
+
+```bash
+oc run psql-tmp --rm -i --tty --restart=Never --image=postgres:17-alpine -- psql postgres://kayttaja:salasana@possu-test.it.helsinki.fi:5432/tietokanta
 ```
 
 Komentoriviltä yhdistäessäsi riittää tietokantaurlin lyhyempi muoto.
