@@ -48,7 +48,7 @@ Kirjautumisen jälkeen voidaan vaikkapa suorittaa komento `oc status`, joka kert
 
 ```bash
 $ oc status
-In project toska-playground on server https://api.ocp-test-0.k8s.it.helsinki.fi:6443
+In project toska-playground on server https://api.okd-cs-test-0.k8s.cs.helsinki.fi:6443
 ```
 
 Esimerkissä on käytössä projekti `toska-playground`. Ohtuprojekteissa käytetään valmiiksi provisioitua projektia.
@@ -163,7 +163,7 @@ Name:             demoapp-dep-7499f5c5bd-8lm9p
 Namespace:        toska-playground
 Priority:         0
 Service Account:  default
-Node:             worker-1.ocp-test-0.k8s.it.helsinki.fi/128.214.137.138
+Node:             bm-worker-1/10.59.144.61
 Start Time:       Tue, 06 May 2025 17:00:38 +0300
 
 ...
@@ -387,9 +387,9 @@ metadata:
   namespace: toska-playground
   labels:
     app: demoapp
-    type: external
+    router: external
 spec:
-  host: demoapp-toska-playground.ext.ocp-test-0.k8s.it.helsinki.fi 
+  host: demoapp-toska-playground.ext.okd-cs-test-0.k8s.cs.helsinki.fi 
   port:
     targetPort: 3000 
   to:
@@ -403,7 +403,7 @@ spec:
 
 Namespace on tässä tapauksessa _toska-playground_, se vastaa OpenShift-projektin nimeä, ohtuprojekteilla se on _ohtuprojekti-staging_. Host-nimen pitää olla Tiken klusteritasolla uniikki, sopiva nimi on esim. sovelluksen nimi ja sen perässä namespacen nimi. `spec/to` määrittelee reitityksen kohteena olevan palvelun. Kohdeportiksi pitää määritellä servicen takana olevan podin portti, ei siis servicen portti (joka oli tapauksessamme 80), servicen sisäistä porttia käytetään tapauksessamme klusterin sisäisessä kommunikoinnissa.
 
-Sovellus toimii nyt koko maailmalle osoitteessa https://demoapp-toska-playground.ext.ocp-test-0.k8s.it.helsinki.fi/
+Sovellus toimii nyt koko maailmalle osoitteessa https://demoapp-toska-playground.ext.okd-cs-test-0.k8s.cs.helsinki.fi/
 
 <img src="https://raw.githubusercontent.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/refs/heads/master/openshift/images/k3.png?raw=true" width="600">
 
@@ -458,8 +458,8 @@ Luodaan imagestream ja tarkistetaan vielä miltä se näyttää
 $ oc apply -f manifests/imagestream.yaml
 imagestream.image.openshift.io/demoapp created
 $ oc get imagestream
-NAME      IMAGE REPOSITORY                                                       TAGS      UPDATED
-demoapp   registry.apps.ocp-test-0.k8s.it.helsinki.fi/toska-playground/demoapp   staging   4 seconds ag
+NAME      IMAGE REPOSITORY                                                            TAGS      UPDATED
+demoapp   image-registry.openshift-image-registry.svc:5000/toska-playground/demoapp   staging   4 seconds ago
 ```
 
 Voimme nyt ottaa image streamin viittaaman imagen käyttöön muokkaamalla deploymentia seuraavasti
@@ -657,7 +657,7 @@ Saisimmeko uuden tietokannan yhteiskäyttöiseen Postgresin testikantaan esim. p
 kantatunnus: omansovelluksennimi
 sovelluksen osoite: openshift
 kannan ylläpitäjä: oili.opiskelija@helsinki.fi
-klusteri, jossa sovellus pyörii: prod tai testi (ocp-prod/ocp-test klusterin urlissa)
+klusteri, jossa sovellus pyörii: prod tai testi (okd-cs-prod/okd-cs-test klusterin urlissa)
 ```
 
 Osoitteena siis _openshift_. Jos kyse on tuotantosovelluksesta, tulee pyytää _possu-test-1-21.it_ sijaan tuotantokantaan.
