@@ -695,11 +695,11 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: data-2
+  storageClassName: nsf-csi
   volumeMode: Filesystem
 ```
 
-Määritelty levypyyntö varaa yhden gigan levyä. Tilauksessa on määritelty `storageClassName: data-2`, tämä ohjaa pyynnön Tiken meille varaamalle levylle eli PersistentVolumelle.
+Määritelty levypyyntö varaa yhden gigan levyä. Tilauksessa on määritelty `storageClassName: nfs-csi`, tämä ohjaa pyynnön Tiken meille varaamalle levylle eli PersistentVolumelle.
 
 Kokeillaan ensin liittää levy normaaliin podiin. 
 
