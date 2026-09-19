@@ -185,7 +185,7 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista, josta löytyvät ainakin n
 
 ## Ohtuprojekti staging
 
-Staging nykyään Tiken [OpenShift](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/README.md)-klusterissa
+Staging on nykyään [OKD](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/openshift/README.md)-klusterissa
 
 ## Parhaat käytänteet
 
