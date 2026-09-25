@@ -6,4 +6,4 @@
 - [Evaluation harness](https://github.com/Lobbytracker/Lobbytracker)
 - [BioParser](https://github.com/BioParser/BioParser)
 - [Eliöpeli](https://github.com/Elioiden-vuorovaikutussuhteet/Elioiden-vuorovaikutuspeli)
-
+- [Farmasiasimulaattori](https://github.com/sammon-takojat/pharm-sim)
