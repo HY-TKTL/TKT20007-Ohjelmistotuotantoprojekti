@@ -27,7 +27,7 @@ Ryhmille on tarjolla teknistä tukea! Kysy [discordissa](https://study.cs.helsin
 
 Katso myös [OpenShift](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/tree/master/openshift)-ohje
 
-Kannattaa vilkaista [ajatuksia tietoturvasta](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/tietoturva-ajatuksia.md). Tekstin tarkoitus on herätellä ajattelemaan tietoturvaan liittyviä aiheita ohjelmistokehityksen yhteydessä. Teksti ei kata kaikkea mahdollista, mutta toivottavasti antaa vinkkejä mihin ainakin kannattaa kiinnittää huomiota.
+Lukekaa [ajatuksia tietoturvasta](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/blob/master/tietoturva-ajatuksia.md). Teksti ei kata kaikkea mahdollista, mutta toivottavasti antaa vinkkejä mihin ainakin tulisi kiinnittää huomiota.
 
 ## Projektin tavoite
 
@@ -69,7 +69,7 @@ Katso tarkemmat arvostelukriteerit [arvostelumatriisista](https://docs.google.co
 ### Nollasprintti
 
 Perustakaa **heti** jonkinlainen yhteinen TODO-lista, josta löytyvät ainakin nämä nollasprintin tehtävät:
-- [ ] Slack, tai vastaava keskustelualusta pystyyn.
+- [ ] Luokaa Slack tai vastaava keskustelualusta.
   - Ohjaajalle kutsu
 - [ ] Product backlogin laatiminen
 - [ ] Sprint Task Board / Sprint backlog (fyysinen tai sähköinen)
@@ -153,12 +153,12 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista, josta löytyvät ainakin n
   - Ryhmän sovittava yhteiset käytännöt. Ks. [esimerkki](https://github.com/ohtu-ohjaajat/opiskelijalle/blob/master/tiimin_kaytanteet.md)
 - **Asiakastapaamiset**
   - **Tilavaraukset** Ensimmäisen asiakastapaamisen jälkeen ryhmä on vastuussa asiakastapaamisten järjestämisestä. Tarvittaessa kokoushuoneiden tilavararaus voidaan hoitaa ohjaajan kautta. 
-  - **Agenda** Asiakastapaamisiin kannattaa luoda melko yksityiskohtainen agenda, joka on hyvä lähettää asiakkaalle jo ennen asiakastapaamista.
+  - **Agenda** Asiakastapaamisiin kannattaa luoda melko yksityiskohtainen agenda, jonka voi lähettää asiakkaalle jo ennen asiakastapaamista. On hyvä käytäntö pitää agenda näkyvillä asiakastapaamisen aikana, jotta keskustelu saadaan pysymään paremmin aiheessa.
   - **Roolit** Kiertävä puheenjohtajan roolit. Lisäksi ainakin kirjuri ja demovastaava.
   * **Muistiinpanot** Asiakastapaamisista tehtävä muistiinpanot. Keskusteltuja asioita ei saa jättää muistin varaan vaan ne tulee kirjata backlogille.
   - [Vinkkejä asiakaspalaveriin](ohjeita-asiakaspalaveriin.md)
 - **Retrospektiivit dokumentoitava**
-  - Ohjaajan oltava paikalla jokaisessa retrospektiivissä. Doodlaus tiimin vastuulla.
+  - Ohjaajan oltava paikalla jokaisessa retrospektiivissä. Eräs hyväksi havaittu sovellus retrojen pitoon on <https://retrotool.io/>
 - **"Kamerapakko"**
   - Etäyhteydellä tapahtuvissa asiakastapaamisissa, retrospektiiveissä ja dailyissä on pidettävä kamera päällä.
 
@@ -167,10 +167,6 @@ Perustakaa **heti** jonkinlainen yhteinen TODO-lista, josta löytyvät ainakin n
 - Sprintin aikana on hyvä olla tekeillä ainoastaan 2-3 storya kerrallaan. Tällöin storyt valmistuvat varmemmin. Muutama valmis > melkein kaikki kesken.
 - Ohjelmiston arkkitehtuuriin kannattaa kiinnittää paljon huomiota ja jättää sprinttiin aikaa tehdä parannuksia sisäiseen laatuun. Puhdas User Story -hikipaja, jossa keskitytään ainoastaan mahdollisimman nopeaan ominaisuuksien tuottamiseen ei pitkällä tähtäimellä tuota hyviä tuloksia.
 - Voi olla hyvä idea hahmotella hyväksymiskriteerit ennen varsinaista asiakastapaamista. Kannattaa kuitenkin jättää hieman pureskeltavaa kriteereihin ennen tapaamista.
-- On hyvä käytäntö pitää agenda näkyvillä asiakastapaamisen aikana, jotta keskustelu saadaan pysymään paremmin aiheessa. Käydään kokouskäytäntöjä tarpeen mukaan läpi yhdessä.
-- [Vinkkejä asiakaspalaveriin](ohjeita-asiakaspalaveriin.md)
-- [ohtuprojektin OpenShift-konttialusta](https://github.com/HY-TKTL/TKT20007-Ohjelmistotuotantoprojekti/tree/master/openshift)
-- Eräs hyväksi havaittu sovellus retrojen pitoon on <https://retrotool.io/>
 
 ## Roolit
 
