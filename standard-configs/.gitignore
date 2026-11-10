@@ -13,6 +13,13 @@
 **/.eslintcache
 **/.DS_Store
 
+# Note, some files under these folders might be useful to have in GitHub.
+# Add those files explicitly to exclusions at the end of the file, and keep the lines below untouched.
+**/.claude
+**/.gemini
+**/.cursor
+**/.specstory
+
 # do not include any data by default (except json)
 *.csv
 *.tsv
